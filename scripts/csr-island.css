@@ -1,0 +1,10 @@
+/* Tailwind for the CSR stacking cards only: theme + utilities, no preflight, so it cannot restyle the rest of the static site. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@source "../components/ui/stacking-card.tsx";
+@source "./csr-island-entry.tsx";
+
+/* The static site styles h1-h4 with their own colour; inside the island they inherit it, as in the template. */
+@layer base {
+  #csr-stack :is(h1, h2, h3, h4) { color: inherit; }
+}

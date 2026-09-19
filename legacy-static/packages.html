@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Preventive Health Check-Up Packages | Aakash Pathology Laboratory, Ankleshwar</title>
+<meta name="description" content="Compare all five preventive health check-up packages at Aakash Pathology Laboratory, Ankleshwar: MRP, offer price, you save and every test included, by body function.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css?v=dark59">
+<style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<style>
+  .page-header{padding:22px 0 18px;}
+  @media (max-width:767px){ .page-header .breadcrumb{display:none;} }
+  @media (min-width:768px){ .page-header{padding:44px 0 36px;} }
+
+  /* one shared width for search, table and note */
+  .pk-wrap{padding-top:14px;}
+  .pk-wrap .wrap{padding-inline:12px;}
+  @media (min-width:768px){ .pk-wrap{padding-top:26px;} .pk-wrap .wrap{max-width:1000px;padding-inline:18px;} }
+
+  /* ---------- search ---------- */
+  .finder-search{position:relative;margin-bottom:6px;}
+  .finder-search input{
+    width:100%;padding:12px 44px;border-radius:var(--radius-sm);border:1px solid var(--line);
+    font-family:'Inter',sans-serif;font-size:16px;background:rgba(255,255,255,.06);color:var(--ink);min-height:var(--tap-min);
+  }
+  .finder-search input:focus{outline:2px solid var(--copper);outline-offset:1px;}
+  .finder-search input::-webkit-search-cancel-button{display:none;}
+  .finder-search .ic{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-soft);}
+  .finder-search .clr{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:none;background:none;color:var(--ink-soft);display:none;place-items:center;}
+  .finder-search .clr.on{display:grid;}
+  .finder-search .clr svg{width:18px;height:18px;}
+  .tools{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:0 2px 8px;min-height:44px;}
+  .tools h2{font-family:'Inter',sans-serif;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);}
+  .tools button{border:none;background:none;color:var(--copper);font-weight:700;font-size:13.5px;min-height:44px;padding:0 4px;text-decoration:underline;text-underline-offset:3px;}
+
+  /* ---------- comparison table ---------- */
+  .tbl{
+    --cw:clamp(38px,12vw,84px);--lab:minmax(0,1fr);position:relative;border:1px solid var(--line);border-radius:var(--radius);
+    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));box-shadow:0 12px 30px -18px rgba(0,0,0,.7);
+  }
+  @media (min-width:768px){ .tbl{--cw:clamp(96px,11vw,132px);} }
+  .row{display:grid;grid-template-columns:var(--lab) repeat(5,var(--cw));align-items:stretch;}
+  .row>*{min-width:0;}
+  .cell{display:grid;place-items:center;text-align:center;position:relative;}
+  /* side by side: every other package column is a touch lighter, so the columns read as lanes without lines or colour blocks */
+  .price-rows .row>.c1,.price-rows .row>.c3,#groups .row>.c1,#groups .row>.c3{background:rgba(255,255,255,.032);}
+  .lab{padding:8px 4px 8px 10px;font-size:clamp(11px,3.1vw,14px);line-height:1.25;color:var(--ink);display:flex;align-items:center;gap:5px;text-align:left;}
+
+  /* header (sticky, frosted) */
+  .head{
+    position:sticky;top:var(--hh,73px);z-index:30;border-radius:var(--radius) var(--radius) 0 0;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,rgba(20,13,10,.94),rgba(12,8,7,.88));-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    box-shadow:0 8px 16px -12px rgba(0,0,0,.7);
+  }
+  .head .cap{grid-column:2 / span 4;text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
+    padding:8px 0 0;position:relative;}
+  .head .cap::after{content:"";display:block;height:1px;margin:5px 6px 0;background:linear-gradient(90deg,transparent,var(--line),transparent);}
+  .head .lab{align-items:flex-end;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-soft);padding-bottom:12px;}
+  /* header chips: all the same size and neutral; the package's metal shows only as a small accent line and the tier dots */
+  .hd{
+    --c:var(--copper);position:relative;width:calc(100% - 6px);height:clamp(42px,11.5vw,52px);margin:6px 3px 9px;border-radius:10px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
+    background:linear-gradient(170deg,rgba(255,255,255,.11),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
+    color:#fff;text-align:center;line-height:1;
+  }
+  .hd::after{content:"";position:absolute;left:24%;right:24%;bottom:-1px;height:2px;border-radius:2px;background:var(--c);box-shadow:0 0 10px color-mix(in srgb,var(--c) 70%,transparent);}
+  .hd-t{display:flex;align-items:baseline;gap:5px;}
+  .hd small{display:none;font-size:14px;font-weight:600;}
+  .hd b{font-size:clamp(16px,4.6vw,21px);font-weight:700;font-family:'Inter',sans-serif;}
+  .hd b.word{font-size:clamp(12.5px,3.4vw,16px);}
+  .tp{display:flex;align-items:center;justify-content:center;gap:3px;height:5px;}
+  .tp i{width:4px;height:4px;border-radius:50%;background:var(--c);font-style:normal;}
+  .tp i.star{width:auto;height:auto;background:none;font-size:9px;line-height:1;color:var(--c);}
+  @media (min-width:768px){
+    .head .cap{display:none;}
+    .hd{height:54px;margin:10px 8px 12px;gap:6px;} .hd small{display:inline;} .hd b,.hd b.word{font-size:16px;}
+    .tp i{width:5px;height:5px;} .tp i.star{font-size:11px;} .tp{height:6px;gap:4px;}
+  }
+
+  /* Gold is the prize: its header box is champagne gold with a slow sheen, and its price glows gold. No tags, no extra rows. */
+  .head .c4 .hd{
+    overflow:hidden;color:#2b1d06;border-color:rgba(255,238,178,.65);
+    background:linear-gradient(160deg,#F7E19E 0%,#E5BF5E 55%,#CC9E3E 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 10px 24px -10px rgba(232,197,110,.75);
+  }
+  .head .c4 .hd::after{display:none;}
+  .head .c4 .hd::before{content:"";position:absolute;top:-30%;bottom:-30%;left:0;width:38%;pointer-events:none;
+    background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:translateX(-160%) skewX(-18deg);animation:sheen 6s ease-in-out infinite;}
+  @keyframes sheen{0%,58%{transform:translateX(-160%) skewX(-18deg);}100%{transform:translateX(420%) skewX(-18deg);}}
+  @media (prefers-reduced-motion:reduce){ .head .c4 .hd::before{animation:none;display:none;} }
+  .head .c4 .tp i.star{color:#5b3f0b;}
+  .price-rows .offer .c4 .pv{color:#F6DE95;text-shadow:0 0 18px rgba(232,197,110,.55);}
+  .save .c4 .pv{font-weight:800;text-shadow:0 0 14px rgba(122,217,177,.55);}
+
+  /* price rows */
+  .price-rows{border-bottom:1px solid var(--line);}
+  .price-rows .row{min-height:38px;}
+  .price-rows .lab{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);}
+  .pv{font-variant-numeric:tabular-nums;font-size:clamp(9px,2.7vw,13px);font-weight:600;white-space:nowrap;letter-spacing:-.01em;}
+  .price-rows .offer{background:linear-gradient(90deg,rgba(180,99,77,.28),rgba(180,99,77,.08));}
+  .price-rows .offer .lab{color:var(--copper-light);}
+  .price-rows .offer .pv{font-size:clamp(9.5px,3vw,15px);font-weight:700;color:#fff;}
+  .price-rows .mrp .pv{color:var(--ink-soft);text-decoration:line-through;font-weight:500;}
+  .price-rows .save .pv{color:var(--success);}
+  @media (min-width:768px){
+    .pv{font-size:14px;letter-spacing:0;} .price-rows .offer .pv{font-size:19px;font-family:'Inter',sans-serif;} .price-rows .row{min-height:46px;}
+    .lab,.price-rows .lab{padding-left:18px;font-size:14px;} .price-rows .lab{font-size:12px;}
+  }
+
+  /* groups */
+  .grp{border-bottom:1px solid var(--line);}
+  .grp:last-of-type{border-bottom:none;}
+  .grp-btn{display:block;width:100%;background:none;border:none;padding:0;text-align:left;font:inherit;color:inherit;}
+  .grp-btn .row{min-height:54px;}
+  .grp-btn .lab{font-weight:600;color:var(--navy);}
+  .chev{flex-shrink:0;width:10px;height:10px;color:var(--ink-soft);transition:transform .25s ease;}
+  .grp.open .chev{transform:rotate(90deg);}
+  .grp-btn:focus-visible{outline:2px solid var(--copper-light);outline-offset:-2px;}
+  .tests{display:none;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border-top:1px dashed var(--line);}
+  .grp.open .tests{display:block;animation:down .3s cubic-bezier(.32,.72,0,1);}
+  @keyframes down{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
+  .tests .row{min-height:44px;border-top:1px solid color-mix(in srgb,var(--line) 55%,transparent);}
+  .tests .row:first-child{border-top:none;}
+  .tests .lab{font-size:12px;padding-left:22px;}
+  @media (min-width:768px){ .tests .lab{padding-left:36px;font-size:13.5px;} }
+  .tests mark{background:rgba(245,143,104,.35);color:inherit;border-radius:3px;padding:0 1px;}
+
+  /* search results: one row per test, ticks under every package that includes it */
+  .hit-rows{border-bottom:none;}
+  .hit-rows .row{min-height:56px;border-bottom:1px solid var(--line);}
+  .hit-rows .row:last-child{border-bottom:none;}
+  .hit-rows .lab{font-size:13px;font-weight:600;color:#fff;}
+  .hit-rows .lab span{display:block;}
+  .hit-rows .lab small{display:block;margin-top:2px;font-size:11px;font-weight:600;color:var(--copper-light);letter-spacing:.01em;}
+  @media (min-width:768px){ .hit-rows .lab{font-size:15px;} .hit-rows .lab small{font-size:12px;} }
+
+  /* search dropdown: each result says which packages include the test */
+  .ac{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;max-height:min(62vh,430px);overflow-y:auto;margin:0;padding:6px;list-style:none;border-radius:16px;
+    background:linear-gradient(180deg,rgba(30,20,17,.98),rgba(14,10,9,.98));border:1px solid rgba(255,255,255,.16);box-shadow:0 26px 54px -22px rgba(0,0,0,.95);
+    -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
+  .ac[hidden]{display:none;}
+  .ac li{display:grid;gap:9px;padding:12px 12px 11px;border-radius:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .ac li[aria-selected="true"]{background:rgba(255,255,255,.075);}
+  @media (hover:hover){ .ac li:hover{background:rgba(255,255,255,.06);} }
+  .ac-main b{display:block;font-size:14.5px;font-weight:600;color:#fff;line-height:1.3;}
+  .ac-main small{display:block;margin-top:2px;font-size:12px;color:var(--ink-soft);}
+  .ac-main mark{background:rgba(245,143,104,.35);color:inherit;border-radius:3px;padding:0 1px;}
+  .ac-pk{display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
+  .pip{--c:var(--copper);min-width:26px;height:24px;padding:0 8px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;line-height:1;
+    color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.12);}
+  .pip.on{color:var(--ink-c);background:color-mix(in srgb,var(--c) 20%,transparent);border-color:color-mix(in srgb,var(--c) 42%,transparent);}
+  .ac-note{margin-left:4px;font-size:12px;font-weight:600;color:var(--copper-light);}
+  .ac-empty{padding:16px 12px;font-size:14px;color:var(--ink-soft);}
+  .row.hl{background:rgba(240,196,179,.13) !important;box-shadow:inset 0 0 0 1px rgba(240,196,179,.45);animation:hlfade 2.8s ease forwards;}
+  @keyframes hlfade{0%,70%{box-shadow:inset 0 0 0 1px rgba(240,196,179,.55);}100%{box-shadow:inset 0 0 0 1px rgba(240,196,179,0);background:rgba(240,196,179,0);}}
+
+  /* marks */
+  .tick{width:18px;height:18px;color:var(--c);}
+  .tick path{stroke-dasharray:26;stroke-dashoffset:26;transition:stroke-dashoffset .45s cubic-bezier(.32,.72,0,1) calc(var(--i,0) * 70ms + .1s);}
+  .in .tick path,.open .tick path{stroke-dashoffset:0;}
+  .no{color:color-mix(in srgb,var(--ink-soft) 40%,transparent);font-size:16px;line-height:1;}
+  .none{padding:26px 16px;text-align:center;font-size:14px;color:var(--ink-soft);}
+
+  @media (max-width:399px){ .grp-btn .row{min-height:58px;} }
+  @media (max-width:359px){
+    .lab{padding-left:7px;gap:4px;font-size:10.5px;} .grp-btn .row{min-height:60px;} .finder-search input{font-size:15px;}
+  }
+
+  /* phones: give the five price columns room to breathe */
+  @media (max-width:767px){
+    .pk-wrap .wrap{padding-inline:8px;}
+    .tbl{--cw:clamp(49px,12.9vw,84px);}
+    .grp-btn .lab{font-size:11.5px;gap:4px;}
+    .lab{padding-left:8px;}
+    .pv{font-size:clamp(9px,2.6vw,13px);}
+    .price-rows .offer .pv{font-size:clamp(9.5px,2.9vw,15px);}
+    .price-rows .row{min-height:42px;}
+    .hd{margin:8px 4px 10px;width:calc(100% - 8px);}
+  }
+
+  /* pulse a column when arriving from a link */
+  .tbl[data-hl="0"] .c0,.tbl[data-hl="1"] .c1,.tbl[data-hl="2"] .c2,.tbl[data-hl="3"] .c3,.tbl[data-hl="4"] .c4{background:rgba(240,196,179,.10);}
+  .cell{transition:background .6s ease;}
+
+  .fast-note{
+    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:16px 0 28px;
+    display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink-soft);
+  }
+  .fast-note svg{width:22px;height:22px;color:var(--copper);flex-shrink:0;}
+  .fast-note h4{font-size:14.5px;margin-bottom:3px;}
+</style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="wrap">
+    <div class="phones"><a href="tel:+916353315640">Helpline: +91 63533 15640</a><a href="tel:+919824015108">+91 98240 15108</a></div>
+    <span>Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
+  </div>
+</div>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="packages.html" class="active">Tests &amp; Packages</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="csr.html">CSR</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="contact.html" class="btn btn-outline btn-sm">Book a Visit</a></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <img src="assets/logo.png" alt="Aakash Pathology Laboratory" style="height:30px;">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <a href="index.html">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="packages.html" class="active">Tests &amp; Packages</a>
+  <a href="faqs.html">FAQs</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="csr.html">CSR Activities</a>
+  <a href="contact.html">Contact Us</a>
+  <div class="mobile-menu-foot">
+    <a href="tel:+916353315640" class="btn btn-primary btn-block">Call +91 63533 15640</a>
+    <a href="https://wa.me/919824015108" class="btn btn-outline btn-block">WhatsApp Us</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Tests &amp; Packages</div>
+    <h1>Preventive Health Check-Up Packages</h1>
+    <p>A healthier you. A brighter tomorrow.</p>
+  </div>
+</div>
+<section class="pk-wrap">
+  <div class="wrap">
+    <div class="finder-search">
+      <svg class="ic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="search" id="testSearch" placeholder="Find a test, e.g. thyroid" aria-label="Find a test" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="acList" aria-autocomplete="list">
+      <ul class="ac" id="acList" role="listbox" aria-label="Matching tests" hidden></ul>
+      <button class="clr" id="clr" aria-label="Clear search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+    </div>
+    <div class="tools">
+      <h2 id="status">Tests Included</h2>
+      <button id="expandAll">Show All Tests</button>
+    </div>
+
+    <div class="tbl" id="tbl" role="table" aria-label="Preventive health check-up packages compared" data-hl="-1">
+      <div class="head" id="head"></div>
+      <div class="price-rows" id="prices"></div>
+      <div id="groups"></div>
+    </div>
+
+    <div class="fast-note">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <div>
+        <h4>Fasting</h4>
+        <p>Fasting Blood Sugar (FBS), Lipid Profile and Serum Insulin (Fasting) need 10-12 hours of fasting. If you are unsure, call our helpline.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Not Sure Which Package Is Right for You?</h2>
+    <p>Call our helpline and we'll help you choose, or bring your doctor's prescription to any of our 4 locations.</p>
+    <div class="actions">
+      <a href="tel:+916353315640" class="btn btn-primary">Call +91 63533 15640</a>
+      <a href="https://wa.me/919824015108" class="btn btn-outline-light">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fl">
+    <div class="fl-brand">
+      <a href="index.html" class="fl-logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+      <span class="fl-sub">Station Road, Ankleshwar &middot; &copy; 2026</span>
+    </div>
+    <nav class="fl-links" aria-label="Footer">
+      <a href="about.html">About Us</a><a href="packages.html">Tests &amp; Packages</a><a href="faqs.html">FAQs</a><a href="csr.html">CSR</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="fl-contact">
+      <a class="fl-tel" href="tel:+916353315640">+91 63533 15640</a>
+      <span class="fl-hours">Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-bar">
+  <a href="tel:+916353315640" class="primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+  <a href="https://wa.me/919824015108"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20Z"/></svg>WhatsApp</a>
+  <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
+  <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
+</nav>
+<script src="packages-data.js?v=dark59"></script>
+<script>
+const P = APL_PACKAGES, G = APL_GROUPS;
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const CHECK = i => `<svg class="tick" style="--i:${i}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><path d="M20 6 9 17l-5-5"/></svg>`;
+const DASH = '<span class="no" role="img" aria-label="Not included">&ndash;</span>';
+const CHEV = '<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
+const cellS = i => `style="--c:${P[i].color};--ink-c:${P[i].ink}"`;
+const cols = fn => P.map((p,i) => `<div class="cell c${i}" role="cell" ${cellS(i)}>${fn(p,i)}</div>`).join('');
+
+/* header */
+document.getElementById('head').innerHTML =
+  `<div class="row" role="row"><div class="lab" aria-hidden="true"></div><div class="cap" aria-hidden="true">Package</div></div>
+   <div class="row" role="row"><div class="lab" role="columnheader">Body Functions</div>${
+  P.map((p,i)=> `<div class="cell c${i}" role="columnheader" ${cellS(i)} aria-label="${p.name}"><div class="hd" style="--c:${p.color}"><span class="hd-t">${
+    p.num === 'Gold' ? '<b class="word">Gold</b>' : `<small>Package</small><b>${p.num}</b>`}</span><span class="tp" aria-hidden="true">${
+    p.num === 'Gold' ? '<i class="star">\u2605</i>' : '<i></i>'.repeat(i+1)}</span></div></div>`).join('')}</div>`;
+
+/* prices */
+const money = k => cols(p => `<span class="pv">${aplInr(p[k])}</span>`);
+document.getElementById('prices').innerHTML =
+  `<div class="row offer" role="row"><div class="lab" role="rowheader">Offer Price</div>${money('offer')}</div>
+   <div class="row mrp" role="row"><div class="lab" role="rowheader">MRP</div>${money('mrp')}</div>
+   <div class="row save" role="row"><div class="lab" role="rowheader">You Save</div>${money('save')}</div>`;
+
+/* groups: one row per body function; open a row for its tests */
+const groupsEl = document.getElementById('groups');
+function hi(text, q){
+  if(!q) return esc(text);
+  const i = text.toLowerCase().indexOf(q);
+  return i < 0 ? esc(text) : esc(text.slice(0,i)) + '<mark>' + esc(text.slice(i,i+q.length)) + '</mark>' + esc(text.slice(i+q.length));
+}
+function groupRow(g){
+  /* every test in a group starts in the same package, except where the chart splits them: those are separate rows */
+  const first = Math.min(...g.tests.map(t => t[1]));
+  const cells = cols((p,i) => i >= first ? CHECK(i) : DASH);
+  const tests = g.tests.map(t => `<div class="row" role="row" data-t="${esc(t[0])}"><div class="lab" role="rowheader">${esc(t[0])}</div>${
+    cols((p,i)=> i >= t[1] ? CHECK(i) : DASH)}</div>`).join('');
+  return `<div class="grp" data-g="${g.id}">
+    <button class="grp-btn" aria-expanded="false"><div class="row" role="row"><div class="lab" role="rowheader">${CHEV}<span>${esc(g.name)}</span></div>${cells}</div></button>
+    <div class="tests">${tests}</div></div>`;
+}
+let openAll = false;
+const input = document.getElementById('testSearch'), clr = document.getElementById('clr'), expandBtn = document.getElementById('expandAll'), acList = document.getElementById('acList');
+groupsEl.innerHTML = G.map(groupRow).join('');
+function setOpen(el, open){ el.classList.toggle('open', open); el.querySelector('.grp-btn').setAttribute('aria-expanded', open); }
+groupsEl.addEventListener('click', e => {
+  const b = e.target.closest('.grp-btn'); if(!b) return;
+  const el = b.parentElement; setOpen(el, !el.classList.contains('open'));
+});
+expandBtn.addEventListener('click', () => {
+  openAll = !openAll; expandBtn.textContent = openAll ? 'Hide Tests' : 'Show All Tests';
+  groupsEl.querySelectorAll('.grp').forEach(el => setOpen(el, openAll));
+});
+
+/* ---------- search dropdown: type a test, see which packages include it ---------- */
+const NAMES = P.map(p => p.name);
+function inSentence(from){
+  if(from === 0) return 'In all 5 packages';
+  if(from === P.length - 1) return 'Gold package only';
+  const nums = P.slice(from, P.length - 1).map(p => p.num);          // e.g. ['3','4']
+  return (nums.length === 1 ? 'In Package ' : 'In Packages ') + nums.join(', ') + ' and Gold';
+}
+function matches(q){
+  q = q.trim().toLowerCase();
+  if(!q) return [];
+  const out = [];
+  G.forEach(g => {
+    const gHit = (g.name+' '+g.keywords).toLowerCase().includes(q);
+    g.tests.forEach(t => {
+      const n = t[0].toLowerCase();
+      const rank = n.startsWith(q) ? 0 : n.includes(q) ? 1 : gHit ? 2 : -1;
+      if(rank >= 0) out.push({name:t[0], from:t[1], group:g, rank});
+    });
+  });
+  return out.sort((a,b) => a.rank - b.rank).slice(0, 8);
+}
+let results = [], active = -1;
+function renderList(){
+  const q = input.value.trim();
+  clr.classList.toggle('on', !!q);
+  results = matches(q); active = results.length ? 0 : -1;
+  if(!q){ closeList(); return; }
+  const ql = q.toLowerCase();
+  acList.innerHTML = results.length ? results.map((r,i) => {
+    const pips = P.map((p,k) => `<span class="pip${k >= r.from ? ' on' : ''}" ${cellS(k)} aria-hidden="true">${p.num}</span>`).join('');
+    return `<li role="option" id="ac${i}" data-i="${i}" aria-selected="${i===active}">
+      <div class="ac-main"><b>${hi(r.name, ql)}</b><small>${esc(r.group.name)}</small></div>
+      <div class="ac-pk" aria-label="${inSentence(r.from)}">${pips}<span class="ac-note">${inSentence(r.from)}</span></div></li>`;
+  }).join('') : `<li class="ac-empty" role="option" aria-disabled="true">No test found for "${esc(q)}". Call our helpline and we'll help.</li>`;
+  acList.hidden = false; input.setAttribute('aria-expanded','true');
+  input.setAttribute('aria-activedescendant', active > -1 ? 'ac'+active : '');
+}
+function closeList(){ acList.hidden = true; input.setAttribute('aria-expanded','false'); input.removeAttribute('aria-activedescendant'); }
+function setActive(i){
+  if(!results.length) return;
+  active = (i + results.length) % results.length;
+  acList.querySelectorAll('li[role=option]').forEach((li,k) => li.setAttribute('aria-selected', k === active));
+  input.setAttribute('aria-activedescendant', 'ac'+active);
+  acList.querySelector('#ac'+active)?.scrollIntoView({block:'nearest'});
+}
+/* choosing a result opens its row in the table and marks it */
+function pick(i){
+  const r = results[i]; if(!r) return;
+  input.value = r.name; clr.classList.add('on'); closeList();
+  const grp = groupsEl.querySelector(`.grp[data-g="${r.group.id}"]`); if(!grp) return;
+  setOpen(grp, true);
+  const row = [...grp.querySelectorAll('.tests .row')].find(x => x.dataset.t === r.name);
+  if(row){
+    grp.classList.add('in');
+    row.classList.remove('hl'); void row.offsetWidth; row.classList.add('hl');
+    setTimeout(() => row.classList.remove('hl'), 3000);
+    row.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+input.addEventListener('input', renderList);
+input.addEventListener('focus', () => { if(input.value.trim()) renderList(); });
+input.addEventListener('keydown', e => {
+  if(e.key === 'ArrowDown'){ e.preventDefault(); if(acList.hidden) renderList(); else setActive(active + 1); }
+  else if(e.key === 'ArrowUp'){ e.preventDefault(); setActive(active - 1); }
+  else if(e.key === 'Enter'){ if(!acList.hidden && active > -1){ e.preventDefault(); pick(active); } }
+  else if(e.key === 'Escape'){ closeList(); }
+});
+acList.addEventListener('mousedown', e => e.preventDefault());               // keep focus in the field
+acList.addEventListener('click', e => { const li = e.target.closest('li[data-i]'); if(li) pick(+li.dataset.i); });
+document.addEventListener('pointerdown', e => { if(!e.target.closest('.finder-search')) closeList(); });
+clr.addEventListener('click', () => { input.value = ''; clr.classList.remove('on'); closeList(); input.focus(); });
+
+/* tick wave when rows scroll into view */
+let rowIO;
+function observeRows(){
+  rowIO && rowIO.disconnect();
+  rowIO = new IntersectionObserver(es => es.forEach(en => { if(en.isIntersecting){ en.target.classList.add('in'); rowIO.unobserve(en.target); } }), {threshold:.3});
+  groupsEl.querySelectorAll('.grp').forEach(el => rowIO.observe(el));
+}
+observeRows();
+
+/* keep the sticky header under the site header */
+const siteHeader = document.querySelector('header');
+const setHH = () => document.documentElement.style.setProperty('--hh', siteHeader.offsetHeight + 'px');
+setHH(); addEventListener('resize', setHH);
+
+/* deep links: #package-2, #gold, ?q=thyroid */
+const qs = new URLSearchParams(location.search);
+if(qs.get('q')){ input.value = qs.get('q'); renderList(); }
+const start = P.findIndex(p => '#'+p.id === location.hash);
+if(start > -1) setTimeout(() => {
+  const t = document.getElementById('tbl');
+  t.scrollIntoView({behavior:'smooth', block:'start'});
+  t.dataset.hl = start; setTimeout(() => t.dataset.hl = -1, 1800);
+}, 250);
+
+// Mobile menu
+const menuToggle = document.getElementById('menuToggle');
+const bottomMenuBtn = document.getElementById('bottomMenuBtn');
+const menuClose = document.getElementById('menuClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function openMenu(){ mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); }
+function closeMenu(){ mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); }
+menuToggle.addEventListener('click', openMenu);
+bottomMenuBtn.addEventListener('click', (e)=>{ e.preventDefault(); openMenu(); });
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+
+const revealEls = document.querySelectorAll('.reveal');
+const revIO = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); } });
+},{threshold:0.1});
+revealEls.forEach(el=>revIO.observe(el));
+</script>
+</body>
+</html>

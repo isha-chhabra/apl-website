@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>FAQs | Aakash Pathology Laboratory, Ankleshwar</title>
+<meta name="description" content="Answers to common questions about lab timings, test preparation, cancellation policy, report delivery, and more at Aakash Pathology Laboratory.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css?v=dark59">
+<style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<style>
+  .faq-tabs{display:flex;gap:8px;margin-bottom:24px;}
+  .faq-tab{flex:1;background:var(--white);border:1px solid var(--line);border-radius:var(--radius-pill);padding:12px 14px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);min-height:46px;text-align:center;}
+  .faq-tab.active{background:var(--noir-grad);border-color:var(--noir);color:#fff;}
+  .faq-group{display:none;}
+  .faq-group.active{display:block;}
+  .faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:10px;overflow:hidden;}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px;cursor:pointer;font-size:15px;font-weight:600;color:var(--navy);min-height:var(--tap-min);}
+  .faq-q .chevron{width:18px;height:18px;color:var(--ink-soft);transition:transform .25s ease;flex-shrink:0;}
+  .faq-item.open .chevron{transform:rotate(180deg);}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .faq-item.open .faq-a{max-height:900px;}
+  .faq-a-inner{padding:0 16px 18px;font-size:14px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px;line-height:1.6;}
+  .faq-a-inner p{margin-bottom:10px;}
+  .faq-a-inner ol, .faq-a-inner ul{margin:10px 0 10px 18px;}
+  .faq-a-inner li{margin-bottom:6px;}
+  .faq-search{position:relative;margin-bottom:18px;}
+  .faq-search input{width:100%;padding:14px 16px 14px 46px;border-radius:var(--radius-sm);border:1px solid var(--line);font-family:'Inter',sans-serif;font-size:15.5px;background:var(--white);color:var(--ink);min-height:var(--tap-min);}
+  .faq-search input:focus{outline:2px solid var(--copper);outline-offset:1px;}
+  .faq-search svg{position:absolute;left:15px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<div class="utility-bar"><div class="wrap"><div class="phones"><a href="tel:+916353315640">Helpline: +91 63533 15640</a><a href="tel:+919824015108">+91 98240 15108</a></div><span>Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span></div></div>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Tests &amp; Packages</a>
+      <a href="faqs.html" class="active">FAQs</a><a href="gallery.html">Gallery</a><a href="csr.html">CSR</a><a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="contact.html" class="btn btn-outline btn-sm">Book a Visit</a></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head"><img src="assets/logo.png" alt="Aakash Pathology Laboratory" style="height:30px;">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="packages.html">Tests &amp; Packages</a>
+  <a href="faqs.html" class="active">FAQs</a><a href="gallery.html">Gallery</a><a href="csr.html">CSR Activities</a><a href="contact.html">Contact Us</a>
+  <div class="mobile-menu-foot"><a href="tel:+916353315640" class="btn btn-primary btn-block">Call +91 63533 15640</a><a href="https://wa.me/919824015108" class="btn btn-outline btn-block">WhatsApp Us</a></div>
+</div>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / FAQs</div>
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything patients commonly ask, from lab timings to test preparation.</p>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="faq-search reveal">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      <input type="text" id="faqSearch" placeholder="Search FAQs, e.g. fasting, cancellation...">
+    </div>
+    <div class="faq-tabs reveal">
+      <button class="faq-tab active" data-group="popular">Popular</button>
+      <button class="faq-tab" data-group="general">Test Prep</button>
+    </div>
+    <div class="faq-group active" id="group-popular"></div>
+    <div class="faq-group" id="group-general"></div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Still Have a Question?</h2>
+    <p>We're here to help, reach out anytime.</p>
+    <div class="actions"><a href="tel:+916353315640" class="btn btn-primary">Call +91 63533 15640</a><a href="contact.html" class="btn btn-outline-light">Contact Us</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fl">
+    <div class="fl-brand">
+      <a href="index.html" class="fl-logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+      <span class="fl-sub">Station Road, Ankleshwar &middot; &copy; 2026</span>
+    </div>
+    <nav class="fl-links" aria-label="Footer">
+      <a href="about.html">About Us</a><a href="packages.html">Tests &amp; Packages</a><a href="faqs.html">FAQs</a><a href="csr.html">CSR</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="fl-contact">
+      <a class="fl-tel" href="tel:+916353315640">+91 63533 15640</a>
+      <span class="fl-hours">Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-bar">
+  <a href="tel:+916353315640" class="primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+  <a href="https://wa.me/919824015108"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20Z"/></svg>WhatsApp</a>
+  <a href="packages.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
+  <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
+</nav>
+
+<script>
+const popularFAQs = [
+  {q:"What Are the Lab Timings?", a:`<p>Monday to Saturday: 7:00 am to 9:00 pm. Sunday: 7:00 am to 2:00 pm. Collection centre timings may differ slightly and can vary on holidays, please call ahead to confirm.</p>`},
+  {q:"Do We Require a Prescription to Get Our Tests Done?", a:`<p>Usually not, for most pathology or microbiology tests. Some tests may require a signed consent form to meet government and medical-legal guidelines.</p>`},
+  {q:"When Do We Get Our Reports?", a:`<p>Most tests are done in-house, so reports are typically ready the same day. You'll be told the exact timing at sample collection, and it will be noted on your acknowledgement slip.</p>`},
+  {q:"What Are the Lab Rules Regarding Cancellation of Tests?", a:`<p>Choose your tests carefully before registration. Cancellation fees:</p><ol><li>No charge before registration</li><li>₹50 after registration (entry in software)</li><li>100% fee if cancelled after submission for processing</li><li>If sent to an outside lab, we'll try to cancel before processing begins</li><li>100% fee if outside processing has already started</li><li>Home visit charges remain the patient's responsibility</li></ol>`},
+  {q:"Do You Have Any Policies Regarding Emergency Charges?", a:`<p>On Sundays and public holidays, we keep limited hours to ensure timely reports. Because costs are higher on these days, a nominal fee of ₹50&ndash;100 may apply, waived if your total bill exceeds ₹500.</p>`},
+  {q:"Do You Need an Appointment for Giving Your Sample?", a:`<p>No appointment is needed for most tests (except special procedures like FNAC), walk in during working hours. Home or hospital collection needs a prior appointment.</p>`},
+  {q:"How Should I Prepare for My Testing?", a:`<p>Most tests need no preparation. Some require 10&ndash;12 hours of fasting, see the Test prep tab for details.</p>`},
+  {q:"Are My Reports Shared with Anyone Except Me?", a:`<p>Only with you and your attending physician. Please share your doctor's name and contact details at registration.</p>`},
+  {q:"What Happens to My Mobile Number, Name, and Other Details in Your Database?", a:`<p>Never shared with a third party without your consent, except where required for Mediclaim reimbursement or by government order.</p>`},
+  {q:"What Should I Do If I Require Confidentiality and Secrecy in Testing and Reports?", a:`<p>All tests and reports are kept confidential. For extra privacy, contact our pathologist directly at 9328392835.</p>`},
+  {q:"What Is Your Policy If I Am Not Satisfied with My Reports or My Treating Doctor Has Doubts?", a:`<p>Contact our helpline, our pathologist will address your concerns and, if needed, provide free repeat collection and retesting at our cost.</p>`},
+  {q:"What Is Your Policy Regarding the Addition of Extra Tests?", a:`<p>We're happy to add tests, payment is required upfront and may need a repeat sample. <strong>Exception:</strong> once a Preventive package or Profile is registered, it cannot be modified or converted, please finalise before registration.</p>`},
+  {q:"Do We Offer Home Visits?", a:`<p id="home-collection">Yes, with prior appointment. Call +91 63533 15640 or +91 98240 15108 to schedule.</p>`},
+  {q:"Do We Offer Reports on Email / WhatsApp?", a:`<p>Yes, alongside hard copies. Share the correct number and we'll send reports there too.</p>`},
+  {q:"Where Can We Leave Our Feedback?", a:`<p>Call 98240 15108 or email us. For urgent concerns, the notice board at our centres has direct numbers too.</p>`},
+  {q:"What Are the Payment Options?", a:`<p>Cash, UPI, Google Pay, PhonePe, Paytm, and online banking. A QR code is at the counter of every location.</p>`}
+];
+const generalFAQs = [
+  {q:"What Tests Usually Require Fasting?", a:`<p>Fasting blood sugar, fasting insulin, fasting C-peptide, lipid profile, and electrolytes &amp; calcium test. If unsure, ask your doctor or call our helpline.</p>`},
+  {q:"What Does Fasting Mean?", a:`<p>Nothing except plain water for 10&ndash;12 hours. Eat normally the day before, avoid tobacco, smoking, and exercise during the fast, and keep taking prescribed medication unless told otherwise.</p>`},
+  {q:"What If I Make a Mistake and Eat or Drink Before My Fasting Test?", a:`<p>Tell us. Sometimes it won't affect results, other times we'll need to reschedule.</p>`},
+  {q:"When Can I Eat and Drink Normally Again?", a:`<p>Right after your test. Bringing a snack is a good idea.</p>`},
+  {q:"Should I Stop My Medications Before a Thyroid or Diabetes Test?", a:`<p>No, unless your doctor specifically says so. Skipping medication can throw off your results.</p>`},
+  {q:"How Do I Prepare for the 2-Hour Post-Lunch (PP2BS) Test?", a:`<p>Fast 10&ndash;12 hours overnight, then eat a normal meal (at least 75g carbs) within 15&ndash;20 minutes. Your blood draw should happen exactly 2 hours after your first bite, e.g. start eating at 12:00 pm, draw at 2:00 pm. Rest during the wait.</p>`},
+  {q:"How Do I Give a Urine Culture Sample?", a:`<p>First morning urine is best. Use the sterile container we provide: void the first stream into the toilet, collect the next 10&ndash;20ml, seal it, and bring it in. If there's a delay, refrigerate at 4&ndash;8&deg;C, don't freeze.</p>`},
+  {q:"How Do I Prepare for a 24-Hour Urine Test?", a:`<p>Get the special container from us first. Day 1: void your first urine into the toilet (not the container), then collect every drop after that. Day 2: void straight into the container on waking to finish. Keep it capped, labelled, and refrigerated at 2&ndash;8&deg;C throughout.</p>`},
+  {q:"How Do I Prepare for a Semen Examination?", a:`<p>Avoid ejaculation for at least 2 days (ideally no more than 5&ndash;7) before the test. Stay relaxed, and provide the full sample in the container we give you.</p>`}
+];
+function buildFAQItem(item){
+  const el = document.createElement('div'); el.className = 'faq-item';
+  el.innerHTML = `<div class="faq-q"><span>${item.q}</span><svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div><div class="faq-a"><div class="faq-a-inner">${item.a}</div></div>`;
+  el.querySelector('.faq-q').addEventListener('click', ()=> el.classList.toggle('open'));
+  return el;
+}
+const groupPopular = document.getElementById('group-popular');
+const groupGeneral = document.getElementById('group-general');
+popularFAQs.forEach(item => groupPopular.appendChild(buildFAQItem(item)));
+generalFAQs.forEach(item => groupGeneral.appendChild(buildFAQItem(item)));
+document.querySelectorAll('.faq-tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.faq-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.faq-group').forEach(g=>g.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('group-' + tab.dataset.group).classList.add('active');
+  });
+});
+const searchInput = document.getElementById('faqSearch');
+searchInput.addEventListener('input', ()=>{
+  const q = searchInput.value.trim().toLowerCase();
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const text = item.textContent.toLowerCase();
+    item.style.display = (!q || text.includes(q)) ? '' : 'none';
+    if(q && text.includes(q)) item.classList.add('open');
+  });
+  if(q){
+    document.querySelectorAll('.faq-group').forEach(g=>g.classList.add('active'));
+    document.querySelectorAll('.faq-tab').forEach(t=>t.classList.remove('active'));
+  } else {
+    document.querySelectorAll('.faq-group').forEach(g=>g.classList.remove('active'));
+    document.getElementById('group-popular').classList.add('active');
+    document.querySelector('.faq-tab[data-group="popular"]').classList.add('active');
+    document.querySelectorAll('.faq-item').forEach(item=> item.classList.remove('open'));
+  }
+});
+const menuToggle = document.getElementById('menuToggle');
+const bottomMenuBtn = document.getElementById('bottomMenuBtn');
+const menuClose = document.getElementById('menuClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function openMenu(){ mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); }
+function closeMenu(){ mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); }
+menuToggle.addEventListener('click', openMenu);
+bottomMenuBtn.addEventListener('click', (e)=>{ e.preventDefault(); openMenu(); });
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{ entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); } }); },{threshold:0.1});
+revealEls.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

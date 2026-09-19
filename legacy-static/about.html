@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>document.documentElement.classList.add('js')</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>About Us | Aakash Pathology Laboratory, Ankleshwar</title>
+<meta name="description" content="Established in 2005, Aakash Pathology Laboratory is one of Ankleshwar's oldest pathology labs. Meet Chief Pathologist Dr. Aakash Chhabra and learn what sets the lab apart.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=dark59") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<link rel="stylesheet" href="assets/offer.css?v=dark59">
+<style>
+  .story-text p{color:var(--ink-soft);font-size:15px;margin-bottom:16px;}
+  .story-text h3{font-size:18px;margin:24px 0 12px;}
+  /* By the numbers, kept quiet: hairlines and small type, no boxes (the home page already leads with these) */
+  .milestone-strip{display:grid;grid-template-columns:1fr 1fr;margin-top:26px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .milestone-box{padding:14px 0 13px 14px;}
+  .milestone-box:nth-child(even){border-left:1px solid var(--line);}
+  .milestone-box:nth-child(n+3){border-top:1px solid var(--line);}
+  .milestone-box:nth-child(odd){padding-left:0;}
+  .milestone-box .num{font-family:'Inter',sans-serif;font-size:19px;font-weight:600;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.2;}
+  .milestone-box .num i{font-style:normal;color:var(--copper-light);}
+  .milestone-box .lbl{font-size:11.5px;color:var(--ink-soft);margin-top:2px;letter-spacing:.01em;}
+  @media (min-width:768px){
+    .milestone-strip{grid-template-columns:repeat(4,1fr);}
+    .milestone-box,.milestone-box:nth-child(odd){padding:16px 0 15px 20px;border-left:1px solid var(--line);border-top:0;}
+    .milestone-box:first-child{border-left:0;padding-left:0;}
+    .milestone-box .num{font-size:22px;}
+  }
+
+  .first-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+  @media (min-width:640px){ .first-grid{grid-template-columns:1fr 1fr;} }
+  .first-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;display:flex;gap:12px;align-items:flex-start;}
+  .first-card .fi{width:36px;height:36px;border-radius:8px;background:var(--copper-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .first-card .fi svg{width:18px;height:18px;color:var(--copper);}
+  .first-card p{font-size:13.5px;color:var(--ink);line-height:1.5;}
+
+  /* ---------- What we offer: the orbit is a React island (assets/offer.js) ---------- */
+  #offer-orbit{position:relative;margin:0 -18px;min-height:370px;}
+  .js #offer-orbit .offer-fallback{display:none;}
+  @media (min-width:768px){ #offer-orbit{min-height:512px;} }
+  /* heading and note arrive gently, one after another, instead of popping in */
+  .specialty-section .section-head.reveal{opacity:1;transform:none;}
+  .specialty-section .section-head > *{opacity:0;transform:translateY(16px);filter:blur(6px);transition:opacity .8s ease,transform .9s cubic-bezier(.16,1,.3,1),filter .8s ease;}
+  .specialty-section .section-head.in > *{opacity:1;transform:none;filter:none;}
+  .specialty-section .section-head.in > :nth-child(2){transition-delay:.1s;}
+  .specialty-section .section-head.in > :nth-child(3){transition-delay:.2s;}
+  .offer-note.reveal{transition:opacity 1s ease .5s,transform 1.1s cubic-bezier(.16,1,.3,1) .5s;}
+  @media (prefers-reduced-motion:reduce){ .specialty-section .section-head > *{opacity:1;transform:none;filter:none;} }
+  #offer-orbit .offer-fallback{list-style:none;padding:0 18px;display:grid;gap:10px;}
+  #offer-orbit .offer-fallback li{font-size:14px;color:var(--ink-soft);}
+  #offer-orbit .offer-fallback b{color:#fff;}
+  .offer-hint{margin-top:-6px;text-align:center;font-size:13px;color:var(--ink-soft);}
+  /* left-aligned like the rest of the page; the dial is a centred graphic between the heading and the note */
+  .offer-layout{display:grid;gap:6px;}
+  .offer-copy{display:contents;}
+  .offer-copy .section-head{order:1;margin-bottom:0;}
+  #offer-orbit{order:2;}
+  .offer-copy .offer-note{order:3;margin:0;padding-left:14px;border-left:2px solid var(--line);font-size:13px;line-height:1.6;color:var(--ink-soft);max-width:60ch;}
+  @media (min-width:900px){
+    .offer-layout{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;}
+    .offer-copy{display:flex;flex-direction:column;gap:28px;}
+    .offer-copy .section-head,.offer-copy .offer-note{order:0;}
+    #offer-orbit{margin:0;}
+  }
+  @media (min-width:768px){ #offer-orbit{margin:0;} }
+  /* the record: four groups, two entries each, so it reads as a short CV rather than a pile of facts */
+  .dr-record{display:grid;grid-template-columns:1fr 1fr;gap:30px 24px;margin-top:6px;}
+  .rec-group{position:relative;padding-top:16px;border-top:1px solid var(--line);}
+  .rec-group::before{content:"";position:absolute;left:0;top:-1px;width:30px;height:2px;border-radius:2px;background:linear-gradient(90deg,#F0C4B3,#B4634D);transform-origin:left;transform:scaleX(0);transition:transform .8s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i) * 120ms + .15s);}
+  .doctor-content.in .rec-group::before{transform:none;}
+  .rec-group h4{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper-light);margin-bottom:14px;}
+  .rec-item + .rec-item{margin-top:14px;}
+  .rec-item b{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:14.5px;font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1.3;}
+  .rec-item b span{flex-shrink:0;font-weight:500;font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+  .rec-item p{margin:3px 0 0;font-size:12.5px;line-height:1.45;color:var(--ink-soft);}
+  /* phones: line each entry up with its neighbour in the other column, so the two columns end together */
+  @media (max-width:767px){
+    .dr-record{row-gap:0;}
+    .rec-group{display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:0;}
+    .rec-group:nth-child(n+3){margin-top:26px;}
+    .rec-item + .rec-item{margin-top:0;padding-top:14px;}
+  }
+  .doctor-photo .frame{position:relative;}
+  .dr-chip{position:absolute;left:12px;bottom:12px;z-index:2;max-width:min(260px,calc(100% - 24px));padding:8px 12px;border-radius:12px;font-size:12px;font-weight:600;line-height:1.35;color:#fff;letter-spacing:.005em;
+    background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,.05)),rgba(12,8,7,.55);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.2);box-shadow:0 10px 24px -12px rgba(0,0,0,.8);}
+  .doctor-photo .frame{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3.4;}
+  .doctor-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;}
+  .doctor-content .role{color:var(--copper);font-weight:600;font-size:13.5px;margin:10px 0 16px;}
+  .doctor-content p{color:var(--ink-soft);margin-bottom:14px;font-size:14.5px;}
+  @media (min-width:900px){
+    .doctor-flex{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:stretch;}
+    .doctor-photo{position:relative;min-height:340px;}
+    .doctor-photo .frame{position:absolute;inset:0;aspect-ratio:auto;}
+    .doctor-photo img{object-position:78% 30%;}
+    .doctor-content{display:flex;flex-direction:column;}
+    .dr-record{flex:1;grid-auto-rows:1fr;gap:34px 32px;margin-top:0;}
+    .dr-chip{left:16px;bottom:16px;font-size:12.5px;}
+  }
+
+  .vm-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:768px){ .vm-grid{grid-template-columns:1fr 1fr;} }
+  .vm-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
+  .vm-card .vm-icon{width:42px;height:42px;border-radius:10px;background:var(--copper-pale);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .vm-card .vm-icon svg{width:21px;height:21px;color:var(--copper);}
+  .vm-card h3{font-size:18px;margin-bottom:10px;}
+  .vm-card p{font-size:14px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="wrap">
+    <div class="phones"><a href="tel:+916353315640">Helpline: +91 63533 15640</a><a href="tel:+919824015108">+91 98240 15108</a></div>
+    <span>Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
+  </div>
+</div>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="packages.html">Tests &amp; Packages</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="csr.html">CSR</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="contact.html" class="btn btn-outline btn-sm">Book a Visit</a></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <img src="assets/logo.png" alt="Aakash Pathology Laboratory" style="height:30px;">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <a href="index.html">Home</a>
+  <a href="about.html" class="active">About Us</a>
+  <a href="packages.html">Tests &amp; Packages</a>
+  <a href="faqs.html">FAQs</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="csr.html">CSR Activities</a>
+  <a href="contact.html">Contact Us</a>
+  <div class="mobile-menu-foot">
+    <a href="tel:+916353315640" class="btn btn-primary btn-block">Call +91 63533 15640</a>
+    <a href="https://wa.me/919824015108" class="btn btn-outline btn-block">WhatsApp Us</a>
+  </div>
+</div>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / About Us</div>
+    <h1>Our Story</h1>
+    <p>Nearly two decades of bringing accurate, accessible pathology to Ankleshwar.</p>
+  </div>
+</div>
+
+<section style="padding-bottom:24px;">
+  <div class="wrap">
+    <div class="story-text reveal">
+      <span class="eyebrow">Since 2005</span>
+      <h2 style="margin-bottom:14px;font-size:24px;">One of Ankleshwar's Oldest Pathology Labs</h2>
+      <p>Aakash Pathology Laboratory opened in 2005, at a time when Ankleshwar had few dedicated diagnostic labs of its own. Patients needing specialised tests often had to travel to Surat or Vadodara just to get answers about their health.</p>
+      <p>Two decades later, that's no longer true for most of this city. What started as a single lab has grown into a network of one main laboratory and three collection centres, all built on the same three principles the founder started with: honest reporting, technical discipline, and treating every sample as if it belonged to your own family.</p>
+      <div class="milestone-strip reveal" id="numbers">
+        <div class="milestone-box"><div class="num" data-to="19">19<i>+</i></div><div class="lbl">Years in Ankleshwar</div></div>
+        <div class="milestone-box"><div class="num" data-to="4">4</div><div class="lbl">Locations citywide</div></div>
+        <div class="milestone-box"><div class="num" data-to="100000">1,00,000<i>+</i></div><div class="lbl">Patients tested</div></div>
+        <div class="milestone-box"><div class="num" data-to="200000">2,00,000<i>+</i></div><div class="lbl">Investigations done</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0;">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">A Few Firsts</span>
+      <h2 style="font-size:22px;">What We Brought to Ankleshwar First</h2>
+    </div>
+    <div class="first-grid">
+      <div class="first-card reveal">
+        <div class="fi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="9" r="5"/><path d="M12 14v8M9 19h6"/></svg></div>
+        <p>Specialised hormone testing, thyroid, Vitamin B12, Vitamin D3, and fertility hormones, years before most local labs offered it.</p>
+      </div>
+      <div class="first-card reveal">
+        <div class="fi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78Z"/></svg></div>
+        <p>Advanced cardiac markers, helping local doctors catch heart risk earlier without sending patients out of town.</p>
+      </div>
+      <div class="first-card reveal">
+        <div class="fi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 9V4.5a2.5 2.5 0 0 1 5 0V9m-7 0h9l1 12H7l1-12Z"/></svg></div>
+        <p>Sonography-guided FNAC, an outpatient procedure for diagnosing lumps and swellings without surgery.</p>
+      </div>
+      <div class="first-card reveal">
+        <div class="fi"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2L2 7l10 5 10-5-10-5Zm0 10L2 12l10 5 10-5-10 0Z"/></svg></div>
+        <p>Nephelometry testing for kidney function and rheumatoid arthritis, a more precise method than was locally available.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="specialty-section">
+  <div class="wrap">
+    <div class="offer-layout">
+      <div class="offer-copy">
+        <div class="section-head reveal">
+      <span class="eyebrow">What We Offer</span>
+      <h2>Specialised Diagnostics Under One Roof</h2>
+      <p>From everyday screenings to specialised investigations. Tap an icon to see what it covers.</p>
+    </div>
+        <p class="offer-note reveal">Note: paternity testing and sex determination are not performed at this laboratory. Some tests may be outsourced to nearby reputed labs.</p>
+      </div>
+      <div id="offer-orbit"><ul class="offer-fallback"><li><b>Hormone Tests.</b> Thyroid (T3, T4, TSH), Vitamin B12, D3, fertility tests (AMH), testosterone.</li><li><b>Cardiac Tests.</b> Cholesterol, lipid profile, Troponin I, HS-CRP, Homocysteine.</li><li><b>Diabetes Testing.</b> HbA1c, fasting and post-meal blood sugar testing.</li><li><b>Infectious Disease Testing.</b> Malaria, typhoid, hepatitis B, COVID-19, dengue, HIV.</li><li><b>FNAC &amp; Biopsy.</b> Including sonography-guided FNAC for outpatient diagnosis.</li><li><b>Culture &amp; Sensitivity.</b> Detecting bacteria and recommending antibiotics in urine, blood, and body fluids.</li><li><b>Nephelometry.</b> Accurate diagnosis of renal conditions and rheumatoid arthritis.</li><li><b>Bone Marrow Reporting.</b> For diagnosing complicated anemia and other blood conditions.</li><li><b>Genetic Tests.</b> Double, triple &amp; quadruple marker, chromosomal analysis, karyotyping.</li><li><b>Cancer Markers &amp; Allergy.</b> PSA, CA-125, CEA, plus in-vitro allergy testing.</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section id="doctor">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">About the Pathologist</span>
+      <h2>Dr. Aakash Chhabra</h2>
+    </div>
+    <div class="doctor-flex">
+      <div class="doctor-photo reveal">
+        <div class="frame"><img src="assets/dr-chhabra.jpg" alt="Dr. Aakash Chhabra in the laboratory at Aakash Pathology Laboratory" loading="lazy"><div class="dr-chip">Chief Pathologist &amp; Owner, Aakash Pathology Laboratory</div></div>
+      </div>
+      <div class="doctor-content reveal">
+        <div class="dr-record">
+        <div class="rec-group" style="--i:0"><h4>Education</h4>
+          <div class="rec-item"><b>MBBS <span>1997</span></b><p>B.J. Medical College, affiliated with New Civil Hospital, Ahmedabad</p></div>
+          <div class="rec-item"><b>M.D. in Pathology</b><p>N.H.L. Medical College, affiliated with V.S. Hospital</p></div>
+        </div>
+        <div class="rec-group" style="--i:1"><h4>Faculty and Research</h4>
+          <div class="rec-item"><b>Faculty</b><p>V.S. Hospital and Surat Municipal Medical College and Hospital</p></div>
+          <div class="rec-item"><b>4 Published Papers</b><p>In scientific journals, from that research</p></div>
+        </div>
+        <div class="rec-group" style="--i:2"><h4>Certificates</h4>
+          <div class="rec-item"><b>Industrial Health <span>2009</span></b><p>M.S. University, Vadodara, with distinction</p></div>
+          <div class="rec-item"><b>Hospital Management <span>2021</span></b><p>Government course, IDEMI Pune</p></div>
+        </div>
+        <div class="rec-group" style="--i:3"><h4>Workshops</h4>
+          <div class="rec-item"><b>Cytology Workshop</b><p>AFMC Pune</p></div>
+          <div class="rec-item"><b>QC Training Program</b><p>RANDOX, Surat</p></div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--cream-dim);">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">What Drives Us</span>
+      <h2>Vision &amp; Mission</h2>
+    </div>
+    <div class="vm-grid">
+      <div class="vm-card reveal">
+        <div class="vm-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <h3>Our Vision</h3>
+        <p>To be the lab Ankleshwar turns to first, not because we're the only option, but because two decades of consistent, accurate results have made us the obvious one. We want every family in this district to have a trusted name in diagnostics close to home, instead of a long drive to a bigger city.</p>
+      </div>
+      <div class="vm-card reveal">
+        <div class="vm-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg></div>
+        <h3>Our Mission</h3>
+        <p>Every day, we run each test with the same care whether it's a routine check-up or a complex diagnosis, put a qualified pathologist's eyes on every report before it leaves the lab, and keep our prices honest so quality testing never depends on what someone can afford. That's the work behind the vision, done one patient at a time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Have a Question for Our Pathologist?</h2>
+    <p>We're happy to walk you through any test, result, or concern directly.</p>
+    <div class="actions">
+      <a href="tel:+916353315640" class="btn btn-primary">Call +91 63533 15640</a>
+      <a href="contact.html" class="btn btn-outline-light">Visit a Location</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fl">
+    <div class="fl-brand">
+      <a href="index.html" class="fl-logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+      <span class="fl-sub">Station Road, Ankleshwar &middot; &copy; 2026</span>
+    </div>
+    <nav class="fl-links" aria-label="Footer">
+      <a href="about.html">About Us</a><a href="packages.html">Tests &amp; Packages</a><a href="faqs.html">FAQs</a><a href="csr.html">CSR</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="fl-contact">
+      <a class="fl-tel" href="tel:+916353315640">+91 63533 15640</a>
+      <span class="fl-hours">Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-bar">
+  <a href="tel:+916353315640" class="primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+  <a href="https://wa.me/919824015108"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20Z"/></svg>WhatsApp</a>
+  <a href="packages.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
+  <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
+</nav>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const bottomMenuBtn = document.getElementById('bottomMenuBtn');
+const menuClose = document.getElementById('menuClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function openMenu(){ mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); }
+function closeMenu(){ mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); }
+menuToggle.addEventListener('click', openMenu);
+bottomMenuBtn.addEventListener('click', (e)=>{ e.preventDefault(); openMenu(); });
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); } });
+},{threshold:0.1});
+revealEls.forEach(el=>io.observe(el));
+
+
+// By the numbers: a light count-up when the strip arrives (final values are in the HTML, so nothing depends on this)
+(function(){
+  const strip = document.getElementById('numbers'); if(!strip || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  new IntersectionObserver((es, o) => es.forEach(en => {
+    if(!en.isIntersecting) return; o.disconnect();
+    strip.querySelectorAll('.num').forEach((el, k) => {
+      const to = +el.dataset.to, plus = el.querySelector('i') ? el.querySelector('i').outerHTML : '', t0 = performance.now() + k*120, dur = 1300;
+      (function step(t){ const p = Math.max(0, Math.min(1, (t - t0) / dur)), e = 1 - Math.pow(1 - p, 3);
+        el.innerHTML = Math.round(to * e).toLocaleString('en-IN') + plus; if(p < 1) requestAnimationFrame(step); })(t0);
+    });
+  }), {threshold:.6}).observe(strip);
+})();
+</script>
+<script src="assets/offer.js?v=dark59" defer></script>
+</body>
+</html>

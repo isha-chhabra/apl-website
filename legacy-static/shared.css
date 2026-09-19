@@ -1,0 +1,271 @@
+/* ============================================================
+   AAKASH PATHOLOGY LAB — DESIGN SYSTEM
+   Palette derived directly from uploaded logo (rustic copper).
+   Built mobile-first: base = phone, min-width queries scale up.
+   ============================================================ */
+
+:root{
+  /* The home hero's palette, everywhere: near-black, copper accents, glass containers */
+  --copper:        #B4634D;
+  --copper-light:  #E8B8A4;
+  --copper-pale:   rgba(180,99,77,.18);
+  --copper-deep:   #8E4A39;
+
+  --navy:          #F7F0EA;   /* headings (kept under the old name so every page follows) */
+  --navy-light:    #D9CCC3;
+
+  --noir:          #070504;
+  --noir-grad:     linear-gradient(135deg,#1a0f0b,#070504);
+  --noir-ink:      #f7f0ea;
+  --noir-mute:     #b9aca3;
+  --glow-a:        #F58F68;
+  --glow-b:        #A24A32;
+
+  --cream:         #070504;                 /* page */
+  --cream-dim:     rgba(255,255,255,.045);  /* quiet bands and chips */
+  --ink:           #EFE7E1;
+  --ink-soft:      #B3A69D;
+  --line:          rgba(255,255,255,.12);
+  --white:         rgba(255,255,255,.055);  /* glass card */
+
+  --success:       #7AD9B1;
+  --success-pale:  rgba(122,217,177,.14);
+
+  /* Spacing scale (mobile-first, generous tap targets) */
+  --sp-1: 4px; --sp-2: 8px; --sp-3: 12px; --sp-4: 16px;
+  --sp-5: 20px; --sp-6: 24px; --sp-7: 32px; --sp-8: 40px;
+  --sp-9: 56px; --sp-10: 72px;
+
+  --radius: 14px;
+  --radius-sm: 9px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 2px 10px -2px rgba(0,0,0,.4);
+  --shadow-md: 0 10px 30px -8px rgba(0,0,0,.5);
+  --shadow-lg: 0 22px 50px -16px rgba(0,0,0,.6);
+  --tap-min: 48px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:#070504;color-scheme:dark;}
+body{
+  font-family:'Inter',sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+/* soft copper glows behind everything, like the hero */
+body::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(60% 45% at 12% -8%,rgba(245,143,104,.15),transparent 70%),
+    radial-gradient(55% 45% at 100% 105%,rgba(178,84,58,.20),transparent 70%);
+}
+@media (prefers-reduced-motion: reduce){
+  *{animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; scroll-behavior:auto !important;}
+}
+h1,h2,h3,h4{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:-.02em;color:var(--navy);line-height:1.2;}
+a{text-decoration:none;color:inherit;}
+img{max-width:100%;display:block;}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px;}
+@media (min-width:768px){ .wrap{padding:0 32px;} }
+
+.eyebrow{
+  font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--copper);font-weight:700;margin-bottom:10px;display:block;
+}
+
+/* ---------- Buttons (48px min tap target everywhere) ---------- */
+button, .btn{
+  font-family:'Inter',sans-serif;font-weight:600;font-size:15.5px;
+  border:none;cursor:pointer;border-radius:var(--radius-sm);
+  padding:14px 24px;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:var(--tap-min);
+  transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+  -webkit-tap-highlight-color:transparent;
+}
+.btn-primary{background:var(--copper);color:#fff;box-shadow:0 8px 22px -10px rgba(180,99,77,.8);}
+.btn-primary:active{background:var(--copper-deep);transform:scale(.98);}
+.btn-outline{background:rgba(255,255,255,.04);color:var(--navy);border:1.5px solid rgba(255,255,255,.28);}
+.btn-outline:active{background:rgba(255,255,255,.14);}
+.btn-outline-light{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.5);}
+.btn-outline-light:active{background:rgba(255,255,255,.2);}
+.btn-block{width:100%;}
+.btn-sm{padding:10px 18px;font-size:14px;min-height:42px;}
+@media (hover:hover){
+  .btn-primary:hover{background:var(--copper-deep);transform:translateY(-1px);}
+  .btn-outline:hover{background:rgba(255,255,255,.12);}
+  .btn-outline-light:hover{background:rgba(255,255,255,.16);}
+}
+
+/* ---------- Top utility strip (desktop only — saves space on phone) ---------- */
+.utility-bar{display:none;background:var(--noir);color:rgba(251,248,244,.85);font-size:13px;padding:8px 0;}
+.utility-bar .wrap{display:flex;justify-content:space-between;align-items:center;}
+.utility-bar a{display:inline-flex;align-items:center;gap:6px;color:#fff;font-weight:500;}
+.utility-bar .phones{display:flex;gap:20px;}
+@media (min-width:900px){ .utility-bar{display:block;} }
+
+/* ---------- Header ---------- */
+:root{--hdr-h:72px;}
+@media (min-width:768px){ :root{--hdr-h:80px;} }
+header{background:rgba(7,5,4,.72);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 1px 0 rgba(255,255,255,.08);position:sticky;top:0;z-index:60;}
+
+nav.wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 18px;gap:12px;min-height:var(--hdr-h);}
+@media (min-width:768px){ nav.wrap{padding:16px 32px;} }
+/* At the top of a page the header is clear, so the band's copper glow runs up behind it as on the home hero; it turns to glass once you scroll. */
+@keyframes hdr-glass{from{background-color:transparent;box-shadow:0 1px 0 transparent;}to{background-color:rgba(7,5,4,.72);box-shadow:0 1px 0 rgba(255,255,255,.08);}}
+@supports (animation-timeline:scroll()){
+  header{animation:hdr-glass linear both;animation-timeline:scroll(root block);animation-range:0px 48px;}
+}
+@media (prefers-reduced-motion:reduce){ header{animation:none;} }
+.logo{display:flex;align-items:center;gap:10px;min-width:0;}
+.logo img{height:34px;width:auto;flex-shrink:0;filter:brightness(1.5);}
+@media (min-width:768px){ .logo img{height:42px;} }
+.nav-links{display:none;gap:28px;align-items:center;}
+.nav-links a{font-size:15px;font-weight:500;color:var(--ink);padding:6px 0;white-space:nowrap;}
+.nav-links a:hover, .nav-links a.active{color:var(--copper);}
+@media (min-width:980px){ .nav-links{display:flex;} }
+.nav-cta{display:none;}
+@media (min-width:980px){ .nav-cta{display:flex;gap:10px;} }
+.menu-toggle{
+  display:flex;align-items:center;justify-content:center;background:none;border:none;
+  width:44px;height:44px;padding:0;color:var(--navy);cursor:pointer;flex-shrink:0;
+}
+.menu-toggle svg{width:26px;height:26px;}
+@media (min-width:980px){ .menu-toggle{display:none;} }
+
+/* ---------- Mobile slide-out menu ---------- */
+.mobile-menu-overlay{
+  position:fixed;inset:0;background:rgba(7,5,4,.6);z-index:90;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.mobile-menu-overlay.open{opacity:1;pointer-events:auto;}
+.mobile-menu{
+  position:fixed;top:0;right:0;bottom:0;width:84%;max-width:340px;background:#0d0907;
+  z-index:91;transform:translateX(100%);transition:transform .3s ease;
+  display:flex;flex-direction:column;padding:18px;overflow-y:auto;
+}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+.mobile-menu-close{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--cream-dim);border:none;border-radius:50%;color:var(--navy);}
+.mobile-menu a{
+  display:flex;align-items:center;gap:12px;padding:15px 8px;font-size:17px;font-weight:600;
+  color:var(--navy);border-bottom:1px solid var(--line);min-height:var(--tap-min);
+}
+.mobile-menu a.active{color:var(--copper);}
+.mobile-menu-foot{margin-top:auto;padding-top:18px;display:flex;flex-direction:column;gap:10px;}
+
+/* ---------- Sticky bottom action bar (mobile only) ---------- */
+.bottom-bar{
+  display:flex;position:fixed;bottom:0;left:0;right:0;z-index:80;
+  background:rgba(10,7,6,.88);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top:1px solid rgba(255,255,255,.1);box-shadow:0 -6px 20px -8px rgba(0,0,0,.6);
+  padding:6px 6px calc(6px + env(safe-area-inset-bottom));
+}
+@media (min-width:980px){ .bottom-bar{display:none;} }
+.bottom-bar a{
+  flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+  padding:7px 4px;border-radius:10px;color:var(--ink-soft);font-size:11px;font-weight:600;
+  min-height:54px;
+}
+.bottom-bar a svg{width:21px;height:21px;}
+.bottom-bar a.primary{color:var(--copper);}
+.bottom-bar a.active{color:var(--navy);}
+body{ padding-bottom:62px; }
+@media (min-width:980px){ body{ padding-bottom:0; } }
+
+/* ---------- Black + copper bands (page headers, footer, dark sections) ---------- */
+.page-header,footer,.timeline-section,.helpline-box{position:relative;isolation:isolate;overflow:hidden;background:var(--noir);color:var(--noir-ink);}
+.page-header::before,.page-header::after,footer::before,footer::after,.timeline-section::before,.timeline-section::after,.helpline-box::before,.helpline-box::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+}
+/* soft copper glows, like the home hero: one high on the left, one low on the right */
+.page-header::before,footer::before,.timeline-section::before,.helpline-box::before{
+  background:radial-gradient(60% 110% at 22% -10%,rgba(245,143,104,.30),rgba(245,143,104,.10) 45%,transparent 72%);
+}
+.page-header::after,footer::after,.timeline-section::after,.helpline-box::after{
+  background:radial-gradient(55% 100% at 88% 110%,rgba(178,84,58,.42),rgba(162,74,50,.14) 48%,transparent 74%);
+}
+
+/* headings inside the dark bands use the same sans as the hero */
+.timeline-section :is(h1,h2,h3,h4),footer :is(h1,h2,h3,h4),.helpline-box :is(h1,h2,h3,h4){font-family:'Inter',sans-serif;letter-spacing:-.02em;}
+
+/* ---------- Page header band ---------- */
+.page-header{padding:40px 0 34px;}
+/* the band starts behind the header, so its glow reaches the top edge of the screen */
+header ~ .page-header{margin-top:calc(var(--hdr-h) * -1);padding-top:calc(var(--hdr-h) + 24px);}
+.page-header .wrap{position:relative;z-index:2;}
+.page-header .breadcrumb{font-size:13px;color:var(--noir-mute);margin-bottom:12px;}
+.page-header .breadcrumb a:hover{color:#F0C4B3;}
+.page-header h1{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:-.025em;line-height:1.1;text-wrap:balance;color:var(--noir-ink);font-size:clamp(28px,6vw,48px);margin-bottom:12px;}
+.page-header p{color:var(--noir-mute);font-size:clamp(15px,3.6vw,18px);font-weight:500;max-width:560px;text-wrap:pretty;}
+@media (min-width:768px){ .page-header{padding:64px 0 56px;} header ~ .page-header{padding-top:calc(var(--hdr-h) + 40px);} }
+
+/* ---------- Section shared ---------- */
+section{padding:44px 0;}
+@media (min-width:768px){ section{padding:72px 0;} }
+.section-head{max-width:640px;margin-bottom:28px;}
+@media (min-width:768px){ .section-head{margin-bottom:42px;} }
+.section-head h2{font-size:clamp(23px,5vw,33px);line-height:1.2;}
+.section-head p{color:var(--ink-soft);font-size:15px;margin-top:12px;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+
+/* ---------- CTA band ---------- */
+.cta-band{background:radial-gradient(70% 120% at 15% 0%,rgba(245,143,104,.35),transparent 70%),linear-gradient(135deg,#9A5240,#5A2C22);color:#fff;text-align:center;padding:44px 0;border-top:1px solid rgba(255,255,255,.1);}
+.cta-band h2{color:#fff;font-size:clamp(22px,5vw,30px);margin-bottom:12px;}
+.cta-band p{color:rgba(255,255,255,.88);margin-bottom:24px;font-size:15px;}
+.cta-band .actions{display:flex;flex-direction:column;gap:12px;}
+.cta-band .btn-primary{background:#fff;color:var(--copper-deep);}
+@media (hover:hover){ .cta-band .btn-primary:hover{background:#f3e9e2;} }
+@media (min-width:600px){ .cta-band .actions{flex-direction:row;justify-content:center;} }
+@media (min-width:768px){ .cta-band{padding:64px 0;} }
+
+/* ---------- Footer: logo on the left, phone on the right, links between; one row on a laptop ---------- */
+footer{color:rgba(251,248,244,.75);padding:28px 0 96px;}
+.fl{display:grid;grid-template-columns:1fr auto;grid-template-areas:"brand tel" "links links" "hours hours";align-items:center;gap:8px 16px;}
+.fl-brand{grid-area:brand;display:flex;flex-direction:column;gap:6px;min-width:0;}
+.fl-logo img{height:28px;width:auto;filter:brightness(1.5);}
+.fl-sub{font-size:12px;color:rgba(251,248,244,.55);line-height:1.4;}
+.fl-links{grid-area:links;display:flex;flex-wrap:wrap;gap:0 14px;margin:4px 0;}
+.fl-links a{font-size:13.5px;color:rgba(251,248,244,.78);padding:9px 0;white-space:nowrap;}
+.fl-contact{display:contents;}
+.fl-tel{grid-area:tel;justify-self:end;font-size:15px;font-weight:600;color:#fff;letter-spacing:-.01em;white-space:nowrap;padding:8px 0;}
+.fl-hours{grid-area:hours;font-size:12.5px;color:rgba(251,248,244,.55);}
+footer a:hover{color:var(--copper-light);}
+/* phones: slim footer; the phone number sits right beside the timings (the bottom bar already has its own room) */
+@media (max-width:767px){
+  footer{padding:20px 0 14px;}
+  .fl{grid-template-columns:1fr;grid-template-areas:"brand" "links" "contact";gap:2px;}
+  .fl-links{margin:0;}
+  .fl-links a{padding:7px 0;}
+  .fl-contact{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 12px;grid-area:contact;}
+  .fl-tel{padding:4px 0;}
+}
+@media (min-width:768px){
+  .fl{grid-template-columns:1fr auto;grid-template-areas:"brand tel" "links hours";gap:14px 32px;}
+  .fl-links{gap:0 22px;}
+  .fl-links a{font-size:14px;}
+  .fl-hours{text-align:right;align-self:center;}
+}
+@media (min-width:1100px){
+  footer{padding:30px 0;}
+  .fl{grid-template-columns:auto 1fr auto;grid-template-areas:"brand links contact";align-items:center;gap:0 56px;}
+  .fl-links{justify-content:center;gap:0 30px;margin:0;}
+  .fl-contact{display:flex;flex-direction:column;align-items:flex-end;gap:2px;grid-area:contact;}
+  .fl-tel{justify-self:auto;padding:0;font-size:16px;}
+  .fl-hours{text-align:right;}
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .5s ease, transform .5s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+@media (prefers-reduced-motion: reduce){ .reveal{opacity:1;transform:none;} }
+
+/* ---------- Focus visibility (accessibility) ---------- */
+a:focus-visible, button:focus-visible, input:focus-visible{
+  outline:2.5px solid var(--copper);outline-offset:2px;
+}
+
+/* ---------- Utility ---------- */
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;}

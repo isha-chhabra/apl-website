@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Aakash Pathology Laboratory | Ankleshwar's Most Trusted Pathology Lab Since 2005</title>
+<meta name="description" content="Aakash Pathology Laboratory has served Ankleshwar since 2005. Fast, accurate diagnostic reports led by a pathologist with 25+ years of experience. 4 locations, home collection available.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=dark59") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<link rel="stylesheet" href="assets/hero.css?v=dark59">
+<style>
+  /* ---------- Home: the hero brings its own nav; the site nav slides in once you scroll past it ---------- */
+  body.home .utility-bar{display:none;}
+  body.home > header{position:fixed;left:0;right:0;top:0;transform:translateY(-101%);transition:transform .35s cubic-bezier(.32,.72,0,1);}
+  body.home > header.show{transform:none;box-shadow:0 8px 24px -16px rgba(22,50,74,.35);}
+  #hero-root{position:relative;isolation:isolate;overflow:hidden;background:#070504;}
+  #hero-root .fallback{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#f7f0ea;gap:14px;}
+  #hero-root .fallback a{color:#E8B8A4;font-weight:600;}
+
+  /* ---------- Metrics: rolling digits on glowing glass ---------- */
+  @property --a{syntax:"<angle>";inherits:false;initial-value:0deg;}
+  @keyframes spin{to{--a:360deg;}}
+  @keyframes breathe{0%,100%{opacity:.55;transform:scale(1);}50%{opacity:1;transform:scale(1.15);}}
+  .metrics{padding:24px 0 8px;}
+  @media (min-width:768px){ .metrics{padding:88px 0 32px;} }
+  .metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media (min-width:900px){ .metrics-grid{grid-template-columns:repeat(4,1fr);gap:18px;} }
+  .metric{
+    position:relative;isolation:isolate;overflow:hidden;text-align:center;border-radius:18px;padding:16px 8px 14px;
+    background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 24px 40px -28px rgba(0,0,0,.9);
+  }
+  .metric::before{ /* a bright arc travelling round the edge */
+    content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;z-index:-1;pointer-events:none;
+    background:conic-gradient(from var(--a),rgba(255,255,255,.08) 0 62%,#F0C4B3 84%,rgba(255,255,255,.08) 100%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+    animation:spin 7s linear infinite;
+  }
+  .metric:nth-child(2)::before{animation-delay:-1.7s;} .metric:nth-child(3)::before{animation-delay:-3.4s;} .metric:nth-child(4)::before{animation-delay:-5.1s;}
+  .metric::after{ /* warm glow under the number */
+    content:"";position:absolute;left:50%;top:38%;width:70%;aspect-ratio:1;translate:-50% -50%;z-index:-1;pointer-events:none;border-radius:50%;
+    background:radial-gradient(circle,rgba(245,143,104,.34),transparent 68%);animation:breathe 4.5s ease-in-out infinite;
+  }
+  .m-num{display:flex;justify-content:center;align-items:flex-start;font-size:clamp(30px,8.4vw,52px);font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;}
+  .dg{display:inline-block;height:1em;overflow:hidden;}
+  .dg .col{display:flex;flex-direction:column;transition:transform 2.1s cubic-bezier(.16,1,.3,1);transition-delay:var(--dl,0s);will-change:transform;}
+  .dg i,.m-suf{font-style:normal;display:block;height:1em;line-height:1;background:linear-gradient(180deg,#fff 10%,#F0C4B3 62%,#C2705A);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .m-suf{display:inline-block;margin-left:.04em;background:linear-gradient(180deg,#F0C4B3,#B4634D);-webkit-background-clip:text;background-clip:text;}
+  .m-lbl{margin-top:8px;font-size:12px;line-height:1.35;color:var(--ink-soft);letter-spacing:.02em;}
+  @media (min-width:768px){ .m-lbl{font-size:14.5px;} .metric{padding:28px 14px 24px;border-radius:22px;} }
+  @media (prefers-reduced-motion:reduce){ .metric::before,.metric::after{animation:none;} .dg .col{transition:none;} }
+
+  /* ---------- Why choose us ---------- */
+  .why-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:640px){ .why-grid{grid-template-columns:1fr 1fr;} }
+  @media (min-width:980px){ .why-grid{grid-template-columns:repeat(4,1fr);} }
+  .why-card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px;
+    transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+  }
+  @media (hover:hover){ .why-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--copper-light);} }
+  .why-icon{width:46px;height:46px;border-radius:10px;background:var(--copper-pale);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .why-icon svg{width:23px;height:23px;color:var(--copper);}
+  .why-card h3{font-size:17px;margin-bottom:6px;}
+  .why-card p{font-size:14px;color:var(--ink-soft);}
+
+  /* ---------- Our journey: a vertical timeline you scroll through ---------- */
+  .timeline-section{color:var(--noir-ink);background:var(--noir);overflow:clip;}
+  .timeline-section .section-head h2{color:#fff;}
+  .timeline-section .section-head p{color:rgba(251,248,244,.7);}
+  .timeline-section .eyebrow{color:var(--copper-light);}
+  .jr-now{
+    position:sticky;top:calc(var(--hh,73px) + 10px);z-index:6;width:max-content;margin:0 auto 26px;display:flex;align-items:center;gap:10px;
+    padding:8px 18px 8px 14px;border-radius:999px;font-size:22px;font-weight:700;letter-spacing:-.02em;line-height:1;
+    background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04)),rgba(10,7,6,.72);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    border:1px solid rgba(240,196,179,.35);box-shadow:0 12px 28px -14px rgba(0,0,0,.9),0 0 24px -6px rgba(245,143,104,.5);
+    opacity:0;transform:translateY(-8px);transition:opacity .4s ease,transform .4s ease;pointer-events:none;
+  }
+  .jr-now.show{opacity:1;transform:none;}
+  .jr-now .pulse{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#F0C4B3,#B4634D);box-shadow:0 0 0 3px rgba(180,99,77,.3),0 0 12px rgba(232,184,164,.8);}
+  .jr-now .dg i{background:none;color:#fff;-webkit-text-fill-color:#fff;}
+  .jr-now .dg .col{transition-duration:.8s;}
+  .jr{position:relative;padding-left:34px;--p:0;}
+  .jr-rail{position:absolute;left:11px;top:4px;bottom:4px;width:2px;border-radius:2px;background:rgba(255,255,255,.12);}
+  .jr-fill{position:absolute;inset:0;border-radius:2px;transform-origin:top;transform:scaleY(var(--p));background:linear-gradient(#F0C4B3,#B4634D);box-shadow:0 0 12px rgba(240,196,179,.5);}
+  .jr-head{position:absolute;left:-3px;top:calc(var(--p) * 100%);width:8px;height:8px;border-radius:50%;background:#F0C4B3;box-shadow:0 0 16px 4px rgba(240,196,179,.75);translate:0 -50%;}
+  .jr-item{position:relative;padding-bottom:38px;}
+  .jr-item:last-child{padding-bottom:0;}
+  .jr-node{
+    position:absolute;left:-30px;top:14px;width:14px;height:14px;border-radius:50%;background:#0b0706;border:2px solid rgba(255,255,255,.3);
+    transition:background .5s ease,border-color .5s ease,box-shadow .5s ease,transform .5s cubic-bezier(.32,.72,0,1);
+  }
+  .jr-item.on .jr-node{background:#F0C4B3;border-color:#F0C4B3;transform:scale(1.25);box-shadow:0 0 0 5px rgba(180,99,77,.3),0 0 18px rgba(240,196,179,.8);}
+  .jr-year b{display:block;font-size:clamp(40px,11vw,56px);font-weight:700;letter-spacing:-.05em;line-height:1;
+    background:linear-gradient(180deg,#fff 5%,#F0C4B3 60%,#B4634D);-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1);}
+  .jr-year small{display:block;margin-top:8px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--copper-light);}
+  .jr-card{
+    margin-top:14px;padding:20px 18px;border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid var(--line);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.1);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1),filter .7s ease;
+  }
+  .jr-card .badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--success);background:var(--success-pale);padding:5px 10px;border-radius:999px;margin-bottom:12px;}
+  .jr-card h4{color:#fff;font-size:clamp(18px,4.6vw,22px);margin-bottom:8px;line-height:1.25;}
+  .jr-card p{color:rgba(251,248,244,.78);font-size:14.5px;line-height:1.6;}
+  .jr-card .impact{display:flex;gap:10px;align-items:flex-start;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.1);font-size:13.5px;font-weight:600;color:var(--success);}
+  .jr-card .impact svg{width:16px;height:16px;flex-shrink:0;margin-top:2px;}
+  /* hidden-until-reached only once the script is running, so nothing is lost without it */
+  .jr.armed .jr-item:not(.on) .jr-card{opacity:0;transform:translateY(34px) scale(.97);filter:blur(6px);}
+  .jr.armed .jr-item:not(.on) .jr-year b{opacity:.28;transform:translateX(-8px);}
+  @media (min-width:900px){
+    .jr{padding-left:0;}
+    .jr-rail{left:50%;translate:-50% 0;}
+    .jr-item{display:grid;grid-template-columns:1fr 1fr;column-gap:88px;align-items:start;padding-bottom:56px;}
+    .jr-node{left:50%;translate:-50% 0;top:22px;}
+    .jr-item:nth-child(odd) .jr-year{grid-column:1;grid-row:1;text-align:right;}
+    .jr-item:nth-child(odd) .jr-card{grid-column:2;grid-row:1;margin-top:0;}
+    .jr-item:nth-child(even) .jr-year{grid-column:2;grid-row:1;}
+    .jr-item:nth-child(even) .jr-card{grid-column:1;grid-row:1;margin-top:0;}
+    .jr-card{padding:26px 28px;}
+    .jr.armed .jr-item:nth-child(odd):not(.on) .jr-card{transform:translateX(40px) scale(.97);}
+    .jr.armed .jr-item:nth-child(even):not(.on) .jr-card{transform:translateX(-40px) scale(.97);}
+  }
+  @media (prefers-reduced-motion:reduce){ .jr.armed .jr-item:not(.on) .jr-card,.jr.armed .jr-item:not(.on) .jr-year b{opacity:1;transform:none;filter:none;} }
+
+  /* ---------- Doctor preview ---------- */
+  .doctor-card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+    display:flex;flex-direction:column;
+  }
+  .doctor-card .photo{aspect-ratio:4/3;overflow:hidden;}
+  .doctor-card .photo img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
+  .doctor-card .body{padding:22px;}
+  .doctor-card .role{color:var(--copper);font-weight:600;font-size:13.5px;margin-bottom:10px;}
+  .doctor-card p{color:var(--ink-soft);font-size:14.5px;margin-bottom:14px;}
+  .credentials{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .credential-pill{
+    background:var(--cream-dim);border:1px solid var(--line);border-radius:30px;padding:7px 13px;
+    font-size:12.5px;font-weight:500;display:flex;align-items:center;gap:6px;
+  }
+  .credential-pill svg{width:13px;height:13px;color:var(--copper);flex-shrink:0;}
+  @media (min-width:768px){
+    .doctor-card{flex-direction:row;min-height:420px;}
+    .doctor-card .photo{flex:0 0 40%;aspect-ratio:auto;position:relative;}
+    .doctor-card .photo img{position:absolute;inset:0;}
+    .doctor-card .body{flex:1;padding:32px;display:flex;flex-direction:column;}
+    .doctor-card .body .credentials{margin-bottom:24px;}
+    .doctor-card .body .btn{margin-top:auto;}
+  }
+  .doctor-card .photo{position:relative;}
+  .doctor-card .photo img{object-position:78% 30%;}
+
+  /* ---------- Locations ---------- */
+  .locations-grid{display:grid;grid-template-columns:1fr;gap:12px;}
+  @media (min-width:640px){ .locations-grid{grid-template-columns:1fr 1fr;} }
+  .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px;}
+  .loc-card .tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--copper-light);background:var(--copper-pale);padding:3px 9px;border-radius:5px;display:inline-block;margin-bottom:8px;}
+  .loc-card h4{font-size:15.5px;margin-bottom:4px;}
+  .loc-card p{font-size:13px;color:var(--ink-soft);}
+
+  /* ---------- Phones: quieter type and tighter cards on the home page ---------- */
+  @media (max-width:767px){
+    .m-num{font-size:clamp(24px,6.6vw,40px);}
+    .metric{padding:12px 6px 11px;border-radius:16px;}
+    .m-lbl{margin-top:6px;font-size:11px;}
+    .section-head h2{font-size:clamp(19px,5.2vw,24px);}
+    .section-head p{font-size:13.5px;margin-top:8px;}
+    .why-card{padding:16px;}
+    .why-icon{width:38px;height:38px;margin-bottom:10px;}
+    .why-icon svg{width:19px;height:19px;}
+    .why-card h3{font-size:15px;}
+    .why-card p{font-size:13px;}
+    .jr-now{font-size:17px;padding:6px 14px 6px 11px;margin-bottom:18px;}
+    .jr-year b{font-size:clamp(26px,7.4vw,40px);}
+    .jr-year small{font-size:10.5px;margin-top:5px;}
+    .jr-item{padding-bottom:28px;}
+    .jr-card{padding:15px 14px;border-radius:16px;margin-top:10px;}
+    .jr-card .badge{font-size:10px;padding:4px 9px;margin-bottom:9px;}
+    .jr-card h4{font-size:clamp(15px,4vw,17px);margin-bottom:6px;}
+    .jr-card p{font-size:13px;line-height:1.55;}
+    .jr-card .impact{font-size:12px;margin-top:11px;padding-top:11px;}
+    .doctor-card .body{padding:18px;}
+    .doctor-card .role{font-size:12.5px;}
+    .doctor-card p{font-size:13.5px;}
+  }
+</style>
+</head>
+<body class="home">
+
+<div class="utility-bar">
+  <div class="wrap">
+    <div class="phones">
+      <a href="tel:+916353315640">Helpline: +91 63533 15640</a>
+      <a href="tel:+919824015108">+91 98240 15108</a>
+    </div>
+    <span>Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
+  </div>
+</div>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo">
+      <img src="assets/logo.png" alt="Aakash Pathology Laboratory">
+    </a>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html">About</a>
+      <a href="packages.html">Tests &amp; Packages</a>
+      <a href="faqs.html">FAQs</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="csr.html">CSR</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="contact.html" class="btn btn-outline btn-sm">Book a Visit</a></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    </button>
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head">
+    <img src="assets/logo.png" alt="Aakash Pathology Laboratory" style="height:30px;">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <a href="index.html" class="active">Home</a>
+  <a href="about.html">About Us</a>
+  <a href="packages.html">Tests &amp; Packages</a>
+  <a href="faqs.html">FAQs</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="csr.html">CSR Activities</a>
+  <a href="contact.html">Contact Us</a>
+  <div class="mobile-menu-foot">
+    <a href="tel:+916353315640" class="btn btn-primary btn-block">Call +91 63533 15640</a>
+    <a href="https://wa.me/919824015108" class="btn btn-outline btn-block">WhatsApp Us</a>
+  </div>
+</div>
+
+<div id="hero-root">
+  <div class="fallback">
+    <h1>Ankleshwar's Most Trusted Pathology Lab</h1>
+    <p>Fast, accurate reports from a pathologist with 25+ years of experience.</p>
+    <p><a href="tel:+916353315640">Call us</a> &middot; <a href="packages.html">View packages</a></p>
+  </div>
+</div>
+
+<section class="metrics" id="stats">
+  <div class="wrap metrics-grid">
+    <div class="metric reveal" data-n="19" data-suf="+"><div class="m-num" role="img" aria-label="19+"></div><div class="m-lbl">Years serving Ankleshwar</div></div>
+    <div class="metric reveal" data-n="25" data-suf="+"><div class="m-num" role="img" aria-label="25+"></div><div class="m-lbl">Years of pathologist experience</div></div>
+    <div class="metric reveal" data-n="100" data-suf="K+"><div class="m-num" role="img" aria-label="100K+"></div><div class="m-lbl">Patients tested</div></div>
+    <div class="metric reveal" data-n="200" data-suf="K+"><div class="m-num" role="img" aria-label="200K+"></div><div class="m-lbl">Investigations completed</div></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why Choose Us</span>
+      <h2>Built on Accuracy, Experience, and Care</h2>
+      <p>Everything about how we work comes back to three things: getting the result right, getting it to you fast, and treating you like a patient, not a sample number.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 5v5l3 3"/></svg></div>
+        <h3>Fast Turnaround</h3>
+        <p>Modern equipment means most reports reach you the same day, without cutting corners on accuracy.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></div>
+        <h3>Accurate Results</h3>
+        <p>Every report is personally reviewed by our pathologist. Not satisfied? We offer free repeat testing.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Personal Care</h3>
+        <p>Direct access to our pathologist when you need it. We see the patient behind every sample.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>19+ Years Established</h3>
+        <p>One of the oldest running pathology labs in Ankleshwar, trusted across generations of local families.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="timeline-section" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Journey</span>
+      <h2>Two Decades of Building Trust</h2>
+      <p>Scroll to move through the years.</p>
+    </div>
+    <div class="jr-now" id="jrNow" aria-hidden="true"><span class="pulse"></span><span class="m-num" id="jrOd" style="font-size:inherit"></span></div>
+    <div class="jr" id="jr">
+      <div class="jr-rail"><div class="jr-fill"></div><div class="jr-head"></div></div>
+      <div id="jrList"></div>
+    </div>
+  </div>
+</section>
+
+<section id="doctor">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Pathologist</span>
+      <h2>The Doctor Behind Every Report</h2>
+    </div>
+    <div class="doctor-card reveal">
+      <div class="photo"><img src="assets/dr-chhabra.jpg" alt="Dr. Aakash Chhabra, Chief Pathologist, in the Aakash Pathology Laboratory" loading="lazy"></div>
+      <div class="body">
+        <h3>Dr. Aakash Chhabra</h3>
+        <div class="role">Chief Pathologist &amp; Owner</div>
+        <p>MBBS from B.J. Medical College, Ahmedabad (1997), followed by an M.D. in Pathology from N.H.L. Medical College. Former faculty at V.S. Hospital and Surat Municipal Medical College, with 4 published research papers.</p>
+        <p>Every report from this lab passes through his personal review before it reaches you.</p>
+        <div class="credentials">
+          <span class="credential-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5-10-5Zm4 2v5c3 3 9 3 12 0v-5"/></svg>MBBS &amp; MD pathology</span>
+          <span class="credential-pill"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/><path d="M6.5 2H20v15H6.5A2.5 2.5 0 0 1 4 14.5v-10A2.5 2.5 0 0 1 6.5 2Z"/></svg>4 research papers</span>
+        </div>
+        <a href="about.html" class="btn btn-outline btn-block">Read Full Profile</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Find Us</span>
+      <h2>4 Locations Across Ankleshwar</h2>
+    </div>
+    <div class="locations-grid">
+      <div class="loc-card reveal"><span class="tag">Main Lab</span><h4>Station Road</h4><p>1st Floor, Vyapar Bhavan, Nr. Dave Orthopaedic, Ankleshwar&ndash;393001.</p></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Ganesh Plaza, GIDC</h4><p>4, Ravidarshan Society, GIDC, Ankleshwar 393002.</p></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Sardar Park, GIDC</h4><p>3rd Floor, Sardar Park-2, G.I.D.C. Ankleshwar.</p></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Valia Road</h4><p>F-13, Rameshwar Residency, Ankleshwar.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="contact">
+  <div class="wrap">
+    <h2>Ready to Book Your Test?</h2>
+    <p>Call our helpline, message us on WhatsApp, or visit any of our 4 locations.</p>
+    <div class="actions">
+      <a href="tel:+916353315640" class="btn btn-primary">Call +91 63533 15640</a>
+      <a href="https://wa.me/919824015108" class="btn btn-outline-light">Message on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fl">
+    <div class="fl-brand">
+      <a href="index.html" class="fl-logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+      <span class="fl-sub">Station Road, Ankleshwar &middot; &copy; 2026</span>
+    </div>
+    <nav class="fl-links" aria-label="Footer">
+      <a href="about.html">About Us</a><a href="packages.html">Tests &amp; Packages</a><a href="faqs.html">FAQs</a><a href="csr.html">CSR</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="fl-contact">
+      <a class="fl-tel" href="tel:+916353315640">+91 63533 15640</a>
+      <span class="fl-hours">Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-bar">
+  <a href="tel:+916353315640" class="primary">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+    Call
+  </a>
+  <a href="https://wa.me/919824015108">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20Z"/></svg>
+    WhatsApp
+  </a>
+  <a href="packages.html">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    Packages
+  </a>
+  <a href="#" id="bottomMenuBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    Menu
+  </a>
+</nav>
+
+<script>
+// Mobile menu
+const menuToggle = document.getElementById('menuToggle');
+const bottomMenuBtn = document.getElementById('bottomMenuBtn');
+const menuClose = document.getElementById('menuClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function openMenu(){ mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); }
+function closeMenu(){ mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); }
+menuToggle.addEventListener('click', openMenu);
+bottomMenuBtn.addEventListener('click', (e)=>{ e.preventDefault(); openMenu(); });
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+
+// Reveal on scroll
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); } });
+},{threshold:0.15});
+revealEls.forEach(el=>io.observe(el));
+
+// Rolling digits (used by the metrics and the year ticker)
+function buildOdo(el, text, cycles){
+  el.innerHTML = '';
+  [...text].forEach(ch => {
+    if(!/\d/.test(ch)){ const s = document.createElement('span'); s.className = 'm-suf'; s.textContent = ch; el.appendChild(s); return; }
+    const dg = document.createElement('span'); dg.className = 'dg'; dg.setAttribute('aria-hidden','true');
+    const col = document.createElement('span'); col.className = 'col';
+    for(let c=0;c<=cycles;c++) for(let d=0;d<10;d++){ const i = document.createElement('i'); i.textContent = d; col.appendChild(i); }
+    dg.appendChild(col); el.appendChild(dg);
+  });
+}
+function setOdo(el, text, cycles, stagger){
+  const cols = [...el.querySelectorAll('.col')]; let k = 0;
+  [...text].forEach(ch => { if(!/\d/.test(ch)) return; const col = cols[k]; col.style.setProperty('--dl', (k*stagger)+'s'); col.style.transform = `translateY(${-(cycles*10 + +ch)}em)`; k++; });
+}
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Metrics: digits roll up when the tiles arrive, one tile after another
+document.querySelectorAll('.metric').forEach(m => {
+  const num = m.querySelector('.m-num'), n = m.dataset.n, suf = m.dataset.suf;
+  buildOdo(num, n, 2);
+  const s = document.createElement('span'); s.className = 'm-suf'; s.textContent = suf; num.appendChild(s);
+  m._roll = () => setOdo(num, n, reduceMotion ? 0 : 2, 0.12);
+  if(reduceMotion) m._roll();
+});
+const metricIO = new IntersectionObserver((es)=>{
+  es.forEach(en => { if(en.isIntersecting){ const tiles=[...document.querySelectorAll('.metric')]; const i=tiles.indexOf(en.target); setTimeout(()=>en.target._roll(), i*160); metricIO.unobserve(en.target); } });
+},{threshold:.35});
+document.querySelectorAll('.metric').forEach(m => metricIO.observe(m));
+
+// Journey
+const timelineData = [
+  {year:'2005', label:'Founded', badge:'The Beginning', title:'Aakash Pathology Laboratory Opens Its Doors', text:'One of the first dedicated pathology labs in Ankleshwar, built on a simple promise: honest, accurate testing the city could rely on.', impact:'Started what is now 19+ years of continuous service'},
+  {year:'2009', label:'Industrial Health', badge:'Expertise Expands', title:'Distinction in Industrial Health', text:'Dr. Chhabra completes a Certificate Course in Industrial Health from M.S. University, Vadodara, with distinction, adding occupational health testing for local factory workers to the lab\'s services.', impact:'Enabled workplace health screening for GIDC industries'},
+  {year:'2014', label:'New Diagnostics', badge:'A Regional First', title:'Specialised Testing Arrives in Ankleshwar', text:'Hormone testing, advanced cardiac markers, and nephelometry (used for kidney and rheumatoid conditions) become available locally for the first time, tests that previously meant a trip to Surat or Vadodara.', impact:'Patients no longer needed to travel for specialised tests'},
+  {year:'2020', label:'COVID-19', badge:'Rising to the Moment', title:'RT-PCR Testing Scales Up', text:'The lab rapidly expands testing capacity through the pandemic. Prices were never raised above the government-mandated cap, even as input costs rose worldwide.', impact:'Served the community without profiting from crisis'},
+  {year:'2021', label:'Hospital Management', badge:'Operational Excellence', title:'Government Certification in Hospital Management', text:'Dr. Chhabra completes a Government Certificate course from IDEMI Pune, strengthening lab operations, turnaround times, and patient experience across all locations.', impact:'Sharper systems behind every report you receive'},
+  {year:'2024', label:'1 Lakh Patients', badge:'A Milestone', title:'100,000+ Patients, 200,000+ Investigations', text:'Two decades of consistent, accurate care add up: over one lakh patients tested and two lakh individual investigations completed, across 4 locations in Ankleshwar.', impact:'The trust of an entire generation of local families'}
+];
+const jr = document.getElementById('jr'), jrList = document.getElementById('jrList'), jrNow = document.getElementById('jrNow'), jrOd = document.getElementById('jrOd');
+jrList.innerHTML = timelineData.map(d => `
+  <article class="jr-item" data-year="${d.year}">
+    <span class="jr-node"></span>
+    <div class="jr-year"><b>${d.year}</b><small>${d.label}</small></div>
+    <div class="jr-card">
+      <span class="badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M12 2 2 7l10 5 10-5-10-5Zm0 10L2 17l10 5 10-5"/></svg>${d.badge}</span>
+      <h4>${d.title}</h4>
+      <p>${d.text}</p>
+      <div class="impact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>${d.impact}</div>
+    </div>
+  </article>`).join('');
+const jrItems = [...jrList.querySelectorAll('.jr-item')];
+buildOdo(jrOd, timelineData[0].year, 0); setOdo(jrOd, timelineData[0].year, 0, 0.05);
+let jrYear = timelineData[0].year, jrTick = false;
+function jrUpdate(){
+  jrTick = false;
+  const vh = innerHeight, r = jr.getBoundingClientRect();
+  jr.style.setProperty('--p', Math.max(0, Math.min(1, (vh*0.55 - r.top) / r.height)).toFixed(4));
+  let cur = -1;
+  jrItems.forEach((it,i) => { const on = it.getBoundingClientRect().top < vh*0.62; it.classList.toggle('on', on); if(on) cur = i; });
+  const year = timelineData[Math.max(0,cur)].year;
+  if(year !== jrYear){ jrYear = year; setOdo(jrOd, year, 0, 0.05); }
+  jrNow.classList.toggle('show', r.top < vh*0.5 && r.bottom > vh*0.25);
+}
+if(reduceMotion){ jrItems.forEach(it => it.classList.add('on')); }
+else { jr.classList.add('armed'); addEventListener('scroll', ()=>{ if(!jrTick){ jrTick = true; requestAnimationFrame(jrUpdate); } }, {passive:true}); addEventListener('resize', jrUpdate); jrUpdate(); }
+
+// The site nav appears once the hero (which has its own nav) has scrolled away
+(function(){
+  const hdr = document.querySelector('body > header'), hero = document.getElementById('hero-root');
+  document.documentElement.style.setProperty('--hh', hdr.offsetHeight + 'px');
+  const tick = () => hdr.classList.toggle('show', scrollY > hero.offsetHeight - 120);
+  tick(); addEventListener('scroll', tick, {passive:true}); addEventListener('resize', tick);
+})();
+</script>
+<script src="assets/hero.js?v=dark59" defer></script>
+</body>
+</html>

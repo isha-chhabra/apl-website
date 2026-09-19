@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Contact Us | Aakash Pathology Laboratory, Ankleshwar</title>
+<meta name="description" content="Reach Aakash Pathology Laboratory at our 4 locations across Ankleshwar, or call our helpline to book a test or home visit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css?v=dark59">
+<style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<style>
+  .contact-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px;display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;}
+  .contact-card .ci{width:40px;height:40px;border-radius:9px;background:var(--copper-pale);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .contact-card .ci svg{width:20px;height:20px;color:var(--copper);}
+  .contact-card h4{font-size:14.5px;margin-bottom:3px;}
+  .contact-card p, .contact-card a{font-size:14px;color:var(--ink-soft);}
+  .helpline-box{color:#fff;border-radius:var(--radius);padding:24px;margin-top:8px;}
+  .helpline-box .eyebrow{color:var(--copper-light);}
+  .helpline-box h3{color:#fff;font-size:17px;margin-bottom:14px;}
+  .helpline-numbers{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
+  .helpline-numbers a{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700;color:#fff;min-height:var(--tap-min);}
+  .helpline-numbers svg{width:18px;height:18px;color:var(--copper-light);}
+  .helpline-box .hours{font-size:13px;color:rgba(251,248,244,.7);border-top:1px solid rgba(255,255,255,.15);padding-top:14px;}
+  .locations-section{background:var(--cream-dim);}
+  .locations-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  @media (min-width:640px){ .locations-grid{grid-template-columns:1fr 1fr;} }
+  .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;}
+  .loc-card .tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--copper-light);background:var(--copper-pale);padding:3px 9px;border-radius:5px;display:inline-block;margin-bottom:8px;}
+  .loc-card h4{font-size:16px;margin-bottom:6px;}
+  .loc-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;line-height:1.5;}
+  .loc-card .link{font-size:13px;font-weight:700;color:var(--copper);display:inline-flex;align-items:center;gap:5px;}
+  .map-embed{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);margin-top:24px;}
+  .map-embed iframe{width:100%;height:280px;border:0;display:block;}
+</style>
+</head>
+<body>
+
+<div class="utility-bar"><div class="wrap"><div class="phones"><a href="tel:+916353315640">Helpline: +91 63533 15640</a><a href="tel:+919824015108">+91 98240 15108</a></div><span>Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span></div></div>
+
+<header>
+  <nav class="wrap">
+    <a href="index.html" class="logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="about.html">About</a><a href="packages.html">Tests &amp; Packages</a>
+      <a href="faqs.html">FAQs</a><a href="gallery.html">Gallery</a><a href="csr.html">CSR</a><a href="contact.html" class="active">Contact</a>
+    </div>
+    <div class="nav-cta"><a href="contact.html" class="btn btn-outline btn-sm">Book a Visit</a></div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg></button>
+  </nav>
+</header>
+
+<div class="mobile-menu-overlay" id="menuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-head"><img src="assets/logo.png" alt="Aakash Pathology Laboratory" style="height:30px;">
+    <button class="mobile-menu-close" id="menuClose" aria-label="Close menu"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+  </div>
+  <a href="index.html">Home</a><a href="about.html">About Us</a><a href="packages.html">Tests &amp; Packages</a>
+  <a href="faqs.html">FAQs</a><a href="gallery.html">Gallery</a><a href="csr.html">CSR Activities</a><a href="contact.html" class="active">Contact Us</a>
+  <div class="mobile-menu-foot"><a href="tel:+916353315640" class="btn btn-primary btn-block">Call +91 63533 15640</a><a href="https://wa.me/919824015108" class="btn btn-outline btn-block">WhatsApp Us</a></div>
+</div>
+
+<div class="page-header">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Home</a> / Contact Us</div>
+    <h1>Reach Out to Us</h1>
+    <p>For all your pathology test requirements, across 4 locations in Ankleshwar.</p>
+  </div>
+</div>
+
+<section style="padding-bottom:24px;">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="contact-card">
+        <div class="ci"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div><h4>Phone</h4><a href="tel:+916353315640">+91 63533 15640</a><br><a href="tel:+919824015108">+91 98240 15108</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="ci"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20Z"/></svg></div>
+        <div><h4>WhatsApp</h4><a href="https://wa.me/919824015108">+91 98240 15108</a></div>
+      </div>
+      <div class="contact-card">
+        <div class="ci"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg></div>
+        <div><h4>Email</h4><a href="mailto:aakashpathlab@gmail.com">aakashpathlab@gmail.com</a></div>
+      </div>
+      <div class="helpline-box" id="home-collection">
+        <span class="eyebrow">Helpline</span>
+        <h3>For Home Collection, Inquiries &amp; Feedback</h3>
+        <div class="helpline-numbers">
+          <a href="tel:+916353315640"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 63533 15640</a>
+          <a href="tel:+919824015108"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>+91 98240 15108</a>
+        </div>
+        <div class="hours">Mon&ndash;Sat: 7:00 am &ndash; 9:00 pm<br>Sunday: 7:00 am &ndash; 2:00 pm<br>Collection centre hours may vary, please call to confirm.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="locations-section">
+  <div class="wrap">
+    <div class="section-head reveal"><span class="eyebrow">Our Locations</span><h2>4 Locations Across Ankleshwar</h2></div>
+    <div class="locations-grid">
+      <div class="loc-card reveal"><span class="tag">Main Lab</span><h4>Station Road</h4><p>1st Floor, Vyapar Bhavan, Nr. Dave Orthopaedic, Station Road, Ankleshwar&ndash;393001.</p><a href="https://maps.app.goo.gl/6vuLMD4YvkCsP4Wj8" target="_blank" rel="noopener" class="link">Get directions &rarr;</a></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre &amp; Residence</span><h4>Ganesh Plaza, GIDC</h4><p>4, Ravidarshan Society, GIDC, Ankleshwar 393002.</p><a href="https://www.google.com/maps/dir//FIRST+FLOOR+FF%2F1,+Ganesh+Plaza,+GIDC,+Ankleshwar" target="_blank" rel="noopener" class="link">Get directions &rarr;</a></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Sardar Park, GIDC</h4><p>3rd Floor, Sardar Park-2, G.I.D.C. Ankleshwar.</p><a href="https://www.google.com/maps/dir//Sardar+Park+1,+GIDC,+Ankleshwar" target="_blank" rel="noopener" class="link">Get directions &rarr;</a></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Valia Road</h4><p>F-13, Rameshwar Residency, Opp. Kum Kum Bunglows, Ankleshwar&ndash;2.</p><a href="https://maps.app.goo.gl/ifEjGwKrjYyFJAM66" target="_blank" rel="noopener" class="link">Get directions &rarr;</a></div>
+    </div>
+    <div class="map-embed reveal">
+      <iframe src="https://maps.google.com/maps?q=aakash%20pathology%20lab%20ankleshwar&t=m&z=14&output=embed&iwloc=near" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Aakash Pathology Laboratory location map"></iframe>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2>Ready to Book Your Test?</h2>
+    <p>Call, WhatsApp, or walk in to any of our 4 locations.</p>
+    <div class="actions"><a href="tel:+916353315640" class="btn btn-primary">Call +91 63533 15640</a><a href="https://wa.me/919824015108" class="btn btn-outline-light">Message on WhatsApp</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fl">
+    <div class="fl-brand">
+      <a href="index.html" class="fl-logo"><img src="assets/logo.png" alt="Aakash Pathology Laboratory"></a>
+      <span class="fl-sub">Station Road, Ankleshwar &middot; &copy; 2026</span>
+    </div>
+    <nav class="fl-links" aria-label="Footer">
+      <a href="about.html">About Us</a><a href="packages.html">Tests &amp; Packages</a><a href="faqs.html">FAQs</a><a href="csr.html">CSR</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="fl-contact">
+      <a class="fl-tel" href="tel:+916353315640">+91 63533 15640</a>
+      <span class="fl-hours">Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
+    </div>
+  </div>
+</footer>
+
+<nav class="bottom-bar">
+  <a href="tel:+916353315640" class="primary"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Call</a>
+  <a href="https://wa.me/919824015108"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.1.2-.3.3-.4.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.2 3.4 5.4 4.7.8.3 1.4.5 1.8.7.8.2 1.5.2 2 .1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.1-1.4-.1-.1-.3-.2-.5-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .9.9-2.9-.2-.3A8 8 0 1 1 12 20Z"/></svg>WhatsApp</a>
+  <a href="packages.html"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
+  <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
+</nav>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const bottomMenuBtn = document.getElementById('bottomMenuBtn');
+const menuClose = document.getElementById('menuClose');
+const mobileMenu = document.getElementById('mobileMenu');
+const menuOverlay = document.getElementById('menuOverlay');
+function openMenu(){ mobileMenu.classList.add('open'); menuOverlay.classList.add('open'); }
+function closeMenu(){ mobileMenu.classList.remove('open'); menuOverlay.classList.remove('open'); }
+menuToggle.addEventListener('click', openMenu);
+bottomMenuBtn.addEventListener('click', (e)=>{ e.preventDefault(); openMenu(); });
+menuClose.addEventListener('click', closeMenu);
+menuOverlay.addEventListener('click', closeMenu);
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries)=>{ entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); } }); },{threshold:0.1});
+revealEls.forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

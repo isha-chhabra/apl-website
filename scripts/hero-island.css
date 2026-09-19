@@ -1,0 +1,68 @@
+/* Tailwind for the home hero only (no preflight, so the rest of the static site is untouched). */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@import "tw-animate-css";
+@source "../components/ui/hero-1.tsx";
+@source "../components/ui/dialog.tsx";
+@source "./hero-island-entry.tsx";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+}
+
+/* Dark tokens: near-black with copper. On :root because the mobile menu is portaled to <body>. */
+:root {
+  --background: #070504;
+  --foreground: #f7f0ea;
+  --card: #110b09;
+  --card-foreground: #f7f0ea;
+  --popover: #110b09;
+  --popover-foreground: #f7f0ea;
+  --primary: #b4634d;
+  --primary-foreground: #ffffff;
+  --muted: #1b120f;
+  --muted-foreground: #b9aca3;
+  --accent: rgba(255, 255, 255, 0.08);
+  --accent-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.14);
+  --ring: #e8b8a4;
+}
+
+/* The static site sets headings in a serif; the hero template is sans. */
+@layer base {
+  #hero-root h1 { font-family: inherit; }
+}
+
+/* The static site gives every <button> a filled look; inside the hero and its menu they are plain, as in the template. */
+@layer base {
+  #hero-root button,
+  [data-slot="dialog-content"] button { background: transparent; border: 0; min-height: 0; min-width: 0; font: inherit; }
+}
+
+/* ...and the site's header rule (cream bar) must not paint over the hero's own header. */
+@layer base {
+  #hero-root header { background: transparent; border: 0; }
+}
+
+/* The logo art is copper on cream; lift it a little so it reads on black. */
+@layer base {
+  #hero-root header img,
+  [data-slot="dialog-content"] img { filter: brightness(1.5); }
+}
+
+/* overflow-x-hidden makes the hero a scroll container of its own (the glows hang below it).
+   Clip instead, so only the page scrolls. */
+#hero-root > div { overflow: clip !important; }
