@@ -34,6 +34,9 @@ const items = [
   { kind: "info", t: "Vision & Mission", s: "How the lab works and what it stands for", u: "about.html#vision", k: "values mission vision" },
 
   { kind: "info", t: "Home Collection", s: "Home or hospital sample collection, by appointment", u: "contact.html#home-collection", k: "home visit sample pickup phlebotomist" },
+  { kind: "info", t: "Book a Test", s: "Walk in, or call first for special tests", u: "contact.html#book", k: "appointment booking walk in schedule" },
+  { kind: "info", t: "Get My Report", s: "Same day, on WhatsApp or email", u: "contact.html#report", k: "results report collect download email whatsapp" },
+  { kind: "info", t: "Give Feedback", s: "Call, message or email us", u: "contact.html#feedback", k: "complaint suggestion review" },
   { kind: "info", t: "Call the Lab", s: "+91 63533 15640 · +91 98240 15108", u: "tel:+916353315640", k: "phone number helpline call telephone" },
   { kind: "info", t: "WhatsApp", s: "Message us on +91 98240 15108", u: "https://wa.me/919824015108", k: "chat message whatsapp report" },
   { kind: "info", t: "Email", s: "aakashpathlab@gmail.com", u: "contact.html", k: "mail email address" },
