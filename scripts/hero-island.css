@@ -4,6 +4,7 @@
 @import "tw-animate-css";
 @source "../components/ui/hero-1.tsx";
 @source "../components/ui/dialog.tsx";
+@source "../components/ui/site-search.tsx";
 @source "./hero-island-entry.tsx";
 
 @theme inline {
@@ -60,3 +61,15 @@
 /* overflow-x-hidden makes the hero a scroll container of its own (the glows hang below it).
    Clip instead, so only the page scrolls. */
 #hero-root > div { overflow: clip !important; }
+
+/* the search field's example word slides in and stays until the next one */
+@keyframes ss-idea-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+.ss-idea { display: inline-block; animation: ss-idea-in 0.5s cubic-bezier(0.32, 0.72, 0, 1) both; }
+@keyframes ss-panel-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+.ss-panel { animation: ss-panel-in 0.22s cubic-bezier(0.32, 0.72, 0, 1) both; }
+@media (prefers-reduced-motion: reduce) { .ss-idea, .ss-panel { animation: none; } }
+
+/* the site gives every <button> a filled look; the search's small buttons are plain */
+@layer base {
+  #hero-root [role="search"] button, #hero-root #site-search-results button { min-height: 0; min-width: 0; font: inherit; }
+}

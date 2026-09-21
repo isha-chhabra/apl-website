@@ -39,6 +39,8 @@ interface HeroLandingProps {
   description: string
   announcementBanner?: AnnouncementBanner
   callToActions?: CallToAction[]
+  /** Anything to show under the buttons (the home page puts its search here) */
+  search?: React.ReactNode
   
   // Styling options
   titleSize?: 'small' | 'medium' | 'large'
@@ -86,6 +88,7 @@ export function HeroLanding(props: HeroLandingProps) {
     description,
     announcementBanner,
     callToActions,
+    search,
     titleSize,
     gradientColors,
     className
@@ -105,14 +108,14 @@ export function HeroLanding(props: HeroLandingProps) {
     }
   }
 
-  // The extra `relative` + `after:` box only enlarges the tap area; the look is unchanged.
+  // Two equal-height buttons (48px, a comfortable tap target): a filled one and an outlined one.
   const renderCallToAction = (cta: CallToAction, index: number) => {
     if (cta.variant === 'primary') {
       return (
         <a
           key={index}
           href={cta.href}
-          className="relative after:absolute after:-inset-x-1 after:-inset-y-2 rounded-lg bg-primary px-3 py-2 sm:px-3.5 sm:py-2.5 text-xs sm:text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-colors"
+          className="inline-flex h-12 items-center justify-center rounded-xl bg-primary px-7 text-[15px] sm:text-base font-semibold text-primary-foreground shadow-[0_12px_24px_-12px_rgba(180,83,9,0.7)] hover:bg-primary/90 active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-[background-color,transform]"
         >
           {cta.text}
         </a>
@@ -122,7 +125,7 @@ export function HeroLanding(props: HeroLandingProps) {
         <a
           key={index}
           href={cta.href}
-          className="relative after:absolute after:-inset-x-1 after:-inset-y-3 text-xs sm:text-sm/6 font-semibold text-foreground hover:text-muted-foreground transition-colors"
+          className="inline-flex h-12 items-center justify-center gap-1.5 rounded-xl border border-[#D9C9A6] bg-white/70 px-6 text-[15px] sm:text-base font-semibold text-foreground hover:bg-white active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring transition-[background-color,transform]"
         >
           {cta.text} <span aria-hidden="true">→</span>
         </a>
@@ -259,7 +262,7 @@ export function HeroLanding(props: HeroLandingProps) {
         <div className="mx-auto max-w-4xl pt-[4.5rem] sm:pt-25">
           {/* Announcement banner (shown on phones too, since that is where most visitors are) */}
           {announcementBanner && (
-            <div className="mb-2 flex justify-center">
+            <div className="mb-3 flex justify-center">
               <div className="relative rounded-full px-2 py-1 text-xs sm:px-3 sm:text-sm/6 text-muted-foreground ring-1 ring-border hover:ring-ring transition-all">
                 {announcementBanner.text}{' '}
                 <a href={announcementBanner.linkHref} className="font-semibold text-primary hover:text-primary/80 transition-colors">
@@ -274,16 +277,18 @@ export function HeroLanding(props: HeroLandingProps) {
             <h1 className={`${getTitleSizeClasses()} font-semibold tracking-tight text-balance text-foreground`}>
               {title}
             </h1>
-            <p className="mt-6 sm:mt-8 text-base sm:text-lg font-medium text-pretty text-muted-foreground sm:text-xl/8">
+            <p className="mt-4 sm:mt-8 text-base sm:text-lg font-medium text-pretty text-muted-foreground sm:text-xl/8">
               {description}
             </p>
             
             {/* Call to action buttons */}
             {callToActions && callToActions.length > 0 && (
-              <div className="mt-8 sm:mt-10 flex items-center justify-center gap-x-4 sm:gap-x-6">
+              <div className="mt-7 sm:mt-10 flex items-center justify-center gap-x-3 sm:gap-x-4">
                 {callToActions.map((cta, index) => renderCallToAction(cta, index))}
               </div>
             )}
+
+            {search && <div className="mt-6 sm:mt-8">{search}</div>}
           </div>
         </div>
       </div>

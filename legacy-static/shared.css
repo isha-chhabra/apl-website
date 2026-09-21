@@ -105,13 +105,6 @@ button, .btn{
   .btn-outline-light:hover{background:rgba(255,255,255,.16);}
 }
 
-/* ---------- Top utility strip (desktop only — saves space on phone) ---------- */
-.utility-bar{display:none;background:var(--cream-dim);color:var(--ink-soft);font-size:13px;padding:8px 0;}
-.utility-bar .wrap{display:flex;justify-content:space-between;align-items:center;}
-.utility-bar a{display:inline-flex;align-items:center;gap:6px;color:var(--navy);font-weight:500;}
-.utility-bar .phones{display:flex;gap:20px;}
-@media (min-width:900px){ .utility-bar{display:block;} }
-
 /* ---------- Header ---------- */
 :root{--hdr-h:72px;}
 @media (min-width:768px){ :root{--hdr-h:80px;} }
@@ -216,15 +209,23 @@ section{padding:44px 0;}
 .section-head p{color:var(--ink-soft);font-size:15px;margin-top:12px;}
 .center{text-align:center;margin-left:auto;margin-right:auto;}
 
-/* ---------- CTA band ---------- */
-.cta-band{background:radial-gradient(70% 120% at 15% 0%,rgba(253,186,116,.45),transparent 70%),linear-gradient(135deg,#C2620F,#92400E);color:#fff;text-align:center;padding:44px 0;}
-.cta-band h2{color:#fff;font-size:clamp(22px,5vw,30px);margin-bottom:12px;}
-.cta-band p{color:rgba(255,255,255,.88);margin-bottom:24px;font-size:15px;}
-.cta-band .actions{display:flex;flex-direction:column;gap:12px;}
-.cta-band .btn-primary{background:#fff;color:var(--copper-deep);box-shadow:0 8px 22px -10px rgba(0,0,0,.35);}
-@media (hover:hover){ .cta-band .btn-primary:hover{background:#FFF3E3;} }
-@media (min-width:600px){ .cta-band .actions{flex-direction:row;justify-content:center;} }
-@media (min-width:768px){ .cta-band{padding:64px 0;} }
+/* ---------- Closing call-to-action: one quiet card, the same on every page ---------- */
+.cta-band{background:none;padding:8px 0 40px;}
+.cta-card{
+  position:relative;isolation:isolate;overflow:hidden;display:grid;gap:14px;padding:20px 18px;border:1px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(135deg,#FFFDF9,#F8EEDC);box-shadow:0 14px 30px -24px rgba(74,59,51,.35);
+}
+.cta-card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 120% at 0% 0%,rgba(217,119,6,.13),transparent 70%);}
+.cta-band h2{font-size:clamp(17px,4.4vw,21px);line-height:1.25;margin-bottom:4px;}
+.cta-band p{color:var(--ink-soft);font-size:14px;line-height:1.5;}
+.cta-band .actions{display:flex;flex-wrap:wrap;gap:10px;}
+.cta-band .btn{min-height:44px;padding:10px 18px;font-size:14.5px;}
+@media (min-width:768px){
+  .cta-band{padding:16px 0 64px;}
+  .cta-card{grid-template-columns:1fr auto;align-items:center;gap:2px 28px;padding:24px 32px;}
+  .cta-card h2,.cta-card p{grid-column:1;margin:0;}
+  .cta-card .actions{grid-column:2;grid-row:1 / span 2;}
+}
 
 /* ---------- Footer: logo on the left, phone on the right, links between; one row on a laptop ---------- */
 footer{color:var(--ink-soft);padding:28px 0 96px;border-top:1px solid var(--line);}

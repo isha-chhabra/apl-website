@@ -22,6 +22,7 @@ To look at it locally: `npx serve legacy-static` (or `python3 -m http.server -d 
 | `index.html`, `about.html`, `packages.html`, `faqs.html`, `gallery.html`, `csr.html`, `contact.html` | The pages |
 | `shared.css` | Design tokens and shared styles (dark theme, header, footer, bands) |
 | `packages-data.js` | Every package, price and test (from the printed chart). Edit prices and tests here |
+| `search-data.js` | What the home-page search looks through besides tests and packages (pages, facts, FAQs). Generated: run `npm run build:search` after editing FAQs or facts in `scripts/build-search-index.mjs` |
 | `assets/` | Logo, doctor photo, placeholder photos, and the built React bundles (`hero`, `offer`, `csr-stack`) |
 
 ## Common edits
@@ -37,7 +38,7 @@ Three pieces are React "islands" whose source lives outside `legacy-static/`:
 
 | Bundle | Page | Source |
 |---|---|---|
-| `assets/hero.{js,css}` | Home hero and mobile menu | `components/ui/hero-1.tsx`, `scripts/hero-island-*` |
+| `assets/hero.{js,css}` | Home hero, site search and mobile menu | `components/ui/hero-1.tsx`, `components/ui/site-search.tsx`, `scripts/hero-island-*` |
 | `assets/offer.{js,css}` | About page radial "What We Offer" dial | `components/ui/radial-orbital-timeline.tsx`, `lib/data/offer.ts`, `scripts/offer-island-*` |
 | `assets/csr-stack.{js,css}` | CSR stacking cards | `components/ui/stacking-card.tsx`, `lib/data/csr.ts`, `scripts/csr-island-*` |
 

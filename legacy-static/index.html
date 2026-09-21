@@ -10,11 +10,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=light1") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
-<link rel="stylesheet" href="assets/hero.css?v=light1">
+<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=light5") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<link rel="stylesheet" href="assets/hero.css?v=light5">
 <style>
   /* ---------- Home: the hero brings its own nav; the site nav slides in once you scroll past it ---------- */
-  body.home .utility-bar{display:none;}
   body.home > header{position:fixed;left:0;right:0;top:0;transform:translateY(-101%);transition:transform .35s cubic-bezier(.32,.72,0,1);}
   body.home > header.show{transform:none;box-shadow:0 8px 24px -16px rgba(74,59,51,.3);}
   #hero-root{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(180deg,#FFFFFF,#FBF3E6);}
@@ -178,16 +177,6 @@
 </head>
 <body class="home">
 
-<div class="utility-bar">
-  <div class="wrap">
-    <div class="phones">
-      <a href="tel:+916353315640">Helpline: +91 63533 15640</a>
-      <a href="tel:+919824015108">+91 98240 15108</a>
-    </div>
-    <span>Mon&ndash;Sat 7am&ndash;9pm &middot; Sun 7am&ndash;2pm</span>
-  </div>
-</div>
-
 <header>
   <nav class="wrap">
     <a href="index.html" class="logo">
@@ -240,7 +229,7 @@
 
 <section class="metrics" id="stats">
   <div class="wrap metrics-grid">
-    <div class="metric reveal" data-n="19" data-suf="+"><div class="m-num" role="img" aria-label="19+"></div><div class="m-lbl">Years serving Ankleshwar</div></div>
+    <div class="metric reveal" data-n="21" data-suf="+"><div class="m-num" role="img" aria-label="21+"></div><div class="m-lbl">Years serving Ankleshwar</div></div>
     <div class="metric reveal" data-n="25" data-suf="+"><div class="m-num" role="img" aria-label="25+"></div><div class="m-lbl">Years of pathologist experience</div></div>
     <div class="metric reveal" data-n="100" data-suf="K+"><div class="m-num" role="img" aria-label="100K+"></div><div class="m-lbl">Patients tested</div></div>
     <div class="metric reveal" data-n="200" data-suf="K+"><div class="m-num" role="img" aria-label="200K+"></div><div class="m-lbl">Investigations completed</div></div>
@@ -272,7 +261,7 @@
       </div>
       <div class="why-card reveal">
         <div class="why-icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <h3>19+ Years Established</h3>
+        <h3>21+ Years Established</h3>
         <p>One of the oldest running pathology labs in Ankleshwar, trusted across generations of local families.</p>
       </div>
     </div>
@@ -301,9 +290,9 @@
       <h2>The Doctor Behind Every Report</h2>
     </div>
     <div class="doctor-card reveal">
-      <div class="photo"><img src="assets/dr-chhabra.jpg" alt="Dr. Aakash Chhabra, Chief Pathologist, in the Aakash Pathology Laboratory" loading="lazy"></div>
+      <div class="photo"><img src="assets/dr-chhabra.jpg" alt="Dr. Akash Chhabra, Chief Pathologist, in the Aakash Pathology Laboratory" loading="lazy"></div>
       <div class="body">
-        <h3>Dr. Aakash Chhabra</h3>
+        <h3>Dr. Akash Chhabra</h3>
         <div class="role">Chief Pathologist &amp; Owner</div>
         <p>MBBS from B.J. Medical College, Ahmedabad (1997), followed by an M.D. in Pathology from N.H.L. Medical College. Former faculty at V.S. Hospital and Surat Municipal Medical College, with 4 published research papers.</p>
         <p>Every report from this lab passes through his personal review before it reaches you.</p>
@@ -334,11 +323,13 @@
 
 <section class="cta-band" id="contact">
   <div class="wrap">
+    <div class="cta-card">
     <h2>Ready to Book Your Test?</h2>
     <p>Call our helpline, message us on WhatsApp, or visit any of our 4 locations.</p>
     <div class="actions">
       <a href="tel:+916353315640" class="btn btn-primary">Call +91 63533 15640</a>
-      <a href="https://wa.me/919824015108" class="btn btn-outline-light">Message on WhatsApp</a>
+      <a href="https://wa.me/919824015108" class="btn btn-outline">Message on WhatsApp</a>
+    </div>
     </div>
   </div>
 </section>
@@ -474,6 +465,8 @@ else { jr.classList.add('armed'); addEventListener('scroll', ()=>{ if(!jrTick){ 
   tick(); addEventListener('scroll', tick, {passive:true}); addEventListener('resize', tick);
 })();
 </script>
-<script src="assets/hero.js?v=light1" defer></script>
+<script src="packages-data.js?v=light5" defer></script>
+<script src="search-data.js?v=light5" defer></script>
+<script src="assets/hero.js?v=light5" defer></script>
 </body>
 </html>
