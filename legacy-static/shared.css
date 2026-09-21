@@ -248,14 +248,15 @@ footer{color:var(--ink-soft);padding:28px 0 96px;border-top:1px solid var(--line
 .fl-tel{grid-area:tel;justify-self:end;font-size:15px;font-weight:600;color:var(--navy);letter-spacing:-.01em;white-space:nowrap;padding:8px 0;}
 .fl-hours{grid-area:hours;font-size:12.5px;color:var(--ink-soft);}
 footer a:hover{color:var(--copper-light);}
-/* phones: slim footer; the phone number sits right beside the timings (the bottom bar already has its own room) */
+/* phones: the footer only signs off; links, phone and hours are in the menu and the bottom bar */
+.fl-short{display:none;}
 @media (max-width:767px){
-  footer{padding:20px 0 14px;}
-  .fl{grid-template-columns:1fr;grid-template-areas:"brand" "links" "contact";gap:2px;}
-  .fl-links{margin:0;}
-  .fl-links a{padding:7px 0;}
-  .fl-contact{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 12px;grid-area:contact;}
-  .fl-tel{padding:4px 0;}
+  footer{padding:18px 0 14px;}
+  .fl{grid-template-columns:1fr;grid-template-areas:"brand";gap:0;}
+  .fl-links,.fl-contact{display:none;}
+  .fl-brand{flex-direction:row;align-items:center;justify-content:space-between;gap:16px;}
+  .fl-full{display:none;}
+  .fl-short{display:block;text-align:right;font-size:12px;line-height:1.4;}
 }
 @media (min-width:768px){
   .fl{grid-template-columns:1fr auto;grid-template-areas:"brand tel" "links hours";gap:14px 32px;}
