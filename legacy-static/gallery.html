@@ -10,49 +10,30 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light17">
+<link rel="stylesheet" href="shared.css?v=light15">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
-  /* ---------- Gallery: photos first, no captions to read, tap for the big picture ---------- */
-  .g-filter{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;}
-  .g-filter[hidden]{display:none;}
-  .g-chip{min-height:40px;padding:8px 16px;border-radius:999px;border:1.5px solid #D9C9A6;background:#fff;color:var(--navy);font-size:14px;font-weight:600;}
-  .g-chip.on{background:var(--copper);border-color:var(--copper);color:#fff;}
-  .g-grid{columns:2;column-gap:8px;}
-  @media (min-width:768px){ .g-grid{columns:3;column-gap:12px;} }
-  .g-item{break-inside:avoid;margin:0 0 8px;position:relative;}
-  @media (min-width:768px){ .g-item{margin-bottom:12px;} }
-  .g-item:first-child{column-span:all;margin-bottom:8px;}
-  .g-item:first-child .g-photo{aspect-ratio:16/10;}
-  @media (min-width:768px){ .g-item:first-child .g-photo{aspect-ratio:21/9;} }
-  .g-photo{display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:var(--cream-dim);cursor:zoom-in;min-height:0;position:relative;}
-  .g-photo img{display:block;width:100%;height:auto;transition:transform .5s cubic-bezier(.16,1,.3,1);}
-  .g-item:first-child .g-photo img{height:100%;object-fit:cover;}
-  @media (hover:hover){ .g-photo:hover img{transform:scale(1.03);} }
-  .g-photo:focus-visible{outline:3px solid var(--blue);outline-offset:2px;}
-  .sample{position:absolute;left:8px;top:8px;padding:3px 9px;border-radius:999px;background:rgba(255,253,249,.92);color:var(--ink-soft);font-size:11px;font-weight:600;letter-spacing:.02em;}
-  .g-equip{margin-top:28px;border-top:1px solid var(--line);}
-  .g-equip summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 0;font-size:15px;font-weight:600;color:var(--navy);min-height:var(--tap-min);}
-  .g-equip summary::-webkit-details-marker{display:none;}
-  .g-equip summary svg{width:18px;height:18px;color:var(--ink-soft);transition:transform .25s ease;}
-  .g-equip[open] summary svg{transform:rotate(180deg);}
-  .g-equip ul{list-style:none;columns:1;column-gap:32px;padding:0 0 12px;}
-  @media (min-width:640px){ .g-equip ul{columns:2;} }
-  .g-equip li{break-inside:avoid;padding:7px 0;font-size:14px;color:var(--ink-soft);border-top:1px solid var(--line);}
-  /* full-screen viewer */
-  .lb{position:fixed;inset:0;z-index:200;background:rgba(24,17,12,.97);display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:opacity .25s ease,visibility .25s;touch-action:pan-y;}
-  .lb.open{opacity:1;visibility:visible;}
-  .lb-top{display:flex;align-items:center;justify-content:space-between;padding:calc(10px + env(safe-area-inset-top,0px)) 14px 8px;color:#F6EFE2;font-size:14px;font-weight:600;}
-  .lb-x{width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;display:flex;align-items:center;justify-content:center;padding:0;min-height:0;}
-  .lb-x svg{width:22px;height:22px;}
-  .lb-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 8px;position:relative;}
-  .lb-stage img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px;transition:opacity .2s ease;}
-  .lb-nav{position:absolute;top:50%;translate:0 -50%;width:48px;height:48px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;display:flex;align-items:center;justify-content:center;padding:0;min-height:0;}
-  .lb-nav svg{width:22px;height:22px;}
-  .lb-prev{left:10px;} .lb-next{right:10px;}
-  @media (max-width:640px){ .lb-nav{background:rgba(255,255,255,.2);} }
-  .lb-cap{padding:12px 18px calc(18px + env(safe-area-inset-bottom,0px));color:#EADFC6;font-size:15px;line-height:1.5;text-align:center;min-height:56px;}
-  @media (prefers-reduced-motion:reduce){ .lb,.lb-stage img,.g-photo img{transition:none;} }
+  .gallery-tabs{display:flex;gap:26px;margin-bottom:20px;border-bottom:1px solid var(--line);}
+  .gallery-tab{flex:none;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;margin-bottom:-1px;padding:10px 2px;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink-soft);min-height:46px;text-align:center;}
+  .gallery-tab.active{background:none;color:var(--copper);border-bottom-color:var(--copper);}
+  .gallery-group{display:none;}
+  .gallery-group.active{display:block;}
+  .gallery-note{
+    border-left:2px solid var(--rail);padding:2px 0 2px 14px;margin-bottom:20px;font-size:13px;color:var(--ink-soft);display:flex;gap:10px;align-items:flex-start;
+  }
+  .gallery-note svg{width:18px;height:18px;flex-shrink:0;margin-top:1px;}
+  .instrument-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media (min-width:640px){ .instrument-grid{grid-template-columns:repeat(3,1fr);} }
+  @media (min-width:980px){ .instrument-grid{grid-template-columns:repeat(4,1fr);} }
+  .instrument-card{overflow:hidden;}
+  .instrument-card .img{aspect-ratio:4/3;border-radius:var(--radius-sm);background:var(--cream-dim);display:flex;align-items:center;justify-content:center;}
+  .instrument-card .img svg{width:34px;height:34px;color:var(--copper-light);}
+  .instrument-card .label{padding:8px 2px 0;}
+  .instrument-card .label p{font-size:11.5px;font-weight:600;color:var(--navy);line-height:1.35;}
+  .lab-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+  @media (min-width:640px){ .lab-photo-grid{grid-template-columns:repeat(3,1fr);} }
+  .lab-photo{aspect-ratio:1;background:var(--cream-dim);border-radius:var(--radius-sm);overflow:hidden;}
+  .lab-photo img{width:100%;height:100%;object-fit:cover;}
 </style>
 </head>
 <body>
@@ -83,31 +64,26 @@
   <div class="wrap">
     <div class="breadcrumb"><a href="index.html">Home</a> / Gallery</div>
     <h1>Inside the Lab</h1>
-    <p>A look around our lab in Ankleshwar.</p>
+    <p>A look at the equipment and facility behind every accurate report.</p>
   </div>
 </div>
 
 <section>
   <div class="wrap">
-    <div class="g-filter reveal" id="gFilter" role="group" aria-label="Filter photos" hidden></div>
-    <div class="g-grid" id="gGrid"></div>
+    <div class="gallery-tabs reveal">
+      <button class="gallery-tab active" data-group="instruments">Lab Instruments</button>
+      <button class="gallery-tab" data-group="facility">Lab Facility</button>
+    </div>
 
-    <details class="g-equip">
-      <summary>Equipment we use<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
-      <ul id="gEquip"></ul>
-    </details>
+    <div class="gallery-group active" id="group-instruments">
+      <div class="instrument-grid" id="instrumentGrid"></div>
+    </div>
+
+    <div class="gallery-group" id="group-facility">
+      <div class="lab-photo-grid" id="facilityGrid"></div>
+    </div>
   </div>
 </section>
-
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" aria-hidden="true">
-  <div class="lb-top"><span id="lbCount"></span><button type="button" class="lb-x" id="lbClose" aria-label="Close photo viewer"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>
-  <div class="lb-stage" id="lbStage">
-    <button type="button" class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 6-6 6 6 6"/></svg></button>
-    <img id="lbImg" alt="">
-    <button type="button" class="lb-nav lb-next" id="lbNext" aria-label="Next photo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg></button>
-  </div>
-  <p class="lb-cap" id="lbCap"></p>
-</div>
 
 <section class="cta-band">
   <div class="wrap">
@@ -144,79 +120,47 @@
 
 <script>
 // Real instrument names transcribed from the original site's Gallery page.
-/* ---------------------------------------------------------------
-   THE PHOTOS. To add one: save the file in assets/photos/ and add a line here.
-     src     the file            alt   what the photo shows (read aloud by screen readers)
-     caption a short line shown when the photo is opened
-     kind    a group name; two or more different kinds show filter buttons
-     sample  true while it is a stand-in photo (shows a small "Sample photo" tag); remove it, or set false, for a real one
-   The first photo is shown large.
-   --------------------------------------------------------------- */
-const photos = [
-  {src:'assets/photos/facility-2.jpg', alt:'Inside the laboratory', caption:'Inside the laboratory', kind:'The lab', sample:true},
-  {src:'assets/photos/facility-4.jpg', alt:'Laboratory workspace', caption:'Laboratory workspace', kind:'The lab', sample:true},
-  {src:'assets/photos/facility-5.jpg', alt:'Testing area', caption:'Testing area', kind:'The lab', sample:true},
-  {src:'assets/photos/facility-6.jpg', alt:'Sample handling', caption:'Sample handling', kind:'The lab', sample:true},
-  {src:'assets/photos/facility-7.jpg', alt:'Laboratory equipment', caption:'Laboratory equipment', kind:'The lab', sample:true},
-  {src:'assets/photos/facility-8.jpg', alt:'Analysis equipment', caption:'Analysis equipment', kind:'The lab', sample:true}
+const instruments = [
+  'Sysmex 3-Part Cell Counter','Fully Automated Urine Analyser','Microscope Olympus CX21i',
+  'Fully Automated 5-Part Cell Counter XS-800i','Fluorescence Immunochromatographic Analysing System (FINECARE)',
+  'Ion Selective Electrode Analyser – NULYTE','Fully Automated Nephelometer – Mispa i3',
+  'Semi Autoanalyser ERBA Chem 5 Plus','Fully Automated Biochemistry Analyser – EM 200',
+  'Chemiluminescence-Based Hormone Analyser – Beckman Coulter Access 2','ERBA ECL 105 Coagulometer',
+  'Nano H5 HPLC System','Sysmex CA101 Coagulometer','Laser-Based Vein Viewer',
+  'Mispa Nanoplus – Fully Automatic Biochemistry Analyser'
 ];
-const equipment = [
-  'Sysmex 3-Part Cell Counter','Fully Automated 5-Part Cell Counter XS-800i','Microscope Olympus CX21i','Fully Automated Urine Analyser',
-  'Fully Automated Biochemistry Analyser EM 200','Mispa Nanoplus Fully Automatic Biochemistry Analyser','Semi Autoanalyser ERBA Chem 5 Plus',
-  'Ion Selective Electrode Analyser NULYTE','Chemiluminescence-Based Hormone Analyser Beckman Coulter Access 2','Fluorescence Immunochromatographic Analysing System (FINECARE)',
-  'Fully Automated Nephelometer Mispa i3','Nano H5 HPLC System','ERBA ECL 105 Coagulometer','Sysmex CA101 Coagulometer','Laser-Based Vein Viewer'
-];
-document.getElementById('gEquip').innerHTML = equipment.map(n => `<li>${n}</li>`).join('');
-
-const grid = document.getElementById('gGrid'), filterEl = document.getElementById('gFilter');
-let shown = photos.slice();
-function renderGrid(){
-  grid.innerHTML = shown.map((p,i) => `<figure class="g-item"><button type="button" class="g-photo" data-i="${i}" aria-label="Open photo: ${p.alt}"><img src="${p.src}" alt="${p.alt}" loading="${i<2?'eager':'lazy'}">${p.sample?'<span class="sample">Sample photo</span>':''}</button></figure>`).join('');
-}
-const kinds = [...new Set(photos.map(p => p.kind))];
-if(kinds.length > 1){
-  filterEl.hidden = false;
-  filterEl.innerHTML = ['All',...kinds].map((k,i) => `<button type="button" class="g-chip${i?'':' on'}" data-k="${k}">${k}</button>`).join('');
-  filterEl.addEventListener('click', e => {
-    const b = e.target.closest('.g-chip'); if(!b) return;
-    filterEl.querySelectorAll('.g-chip').forEach(c => c.classList.toggle('on', c === b));
-    shown = b.dataset.k === 'All' ? photos.slice() : photos.filter(p => p.kind === b.dataset.k);
-    renderGrid();
-  });
-}
-renderGrid();
-
-/* full-screen viewer: swipe, arrows, or keys */
-const lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap'), lbCount = document.getElementById('lbCount');
-let cur = 0, opener = null;
-function show(i){
-  cur = (i + shown.length) % shown.length;
-  const p = shown[cur];
-  lbImg.style.opacity = 0;
-  lbImg.onload = () => lbImg.style.opacity = 1;
-  lbImg.src = p.src; lbImg.alt = p.alt;
-  if(lbImg.complete) lbImg.style.opacity = 1;
-  lbCap.textContent = p.caption;
-  lbCount.textContent = (cur + 1) + ' of ' + shown.length;
-  const nx = new Image(); nx.src = shown[(cur + 1) % shown.length].src;
-}
-function openLb(i, from){ opener = from; show(i); lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; document.getElementById('lbClose').focus(); }
-function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; opener && opener.focus(); }
-grid.addEventListener('click', e => { const b = e.target.closest('.g-photo'); if(b) openLb(+b.dataset.i, b); });
-document.getElementById('lbClose').addEventListener('click', closeLb);
-document.getElementById('lbPrev').addEventListener('click', () => show(cur - 1));
-document.getElementById('lbNext').addEventListener('click', () => show(cur + 1));
-lb.addEventListener('click', e => { if(e.target === lb || e.target.id === 'lbStage') closeLb(); });
-document.addEventListener('keydown', e => {
-  if(!lb.classList.contains('open')) return;
-  if(e.key === 'Escape') closeLb(); else if(e.key === 'ArrowRight') show(cur + 1); else if(e.key === 'ArrowLeft') show(cur - 1);
+const instGrid = document.getElementById('instrumentGrid');
+instruments.forEach(name=>{
+  const card = document.createElement('div');
+  card.className = 'instrument-card';
+  card.innerHTML = `<div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div><div class="label"><p>${name}</p></div>`;
+  instGrid.appendChild(card);
 });
-let sx = 0, sy = 0;
-lb.addEventListener('touchstart', e => { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, {passive:true});
-lb.addEventListener('touchend', e => {
-  const dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
-  if(Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) show(cur + (dx < 0 ? 1 : -1));
-}, {passive:true});
+
+const facGrid = document.getElementById('facilityGrid');
+const facilityPhotos = [
+  'assets/photos/facility-2.jpg',
+  'assets/photos/facility-4.jpg',
+  'assets/photos/facility-5.jpg',
+  'assets/photos/facility-6.jpg',
+  'assets/photos/facility-7.jpg',
+  'assets/photos/facility-8.jpg'
+];
+for(let i=0;i<facilityPhotos.length;i++){
+  const div = document.createElement('div');
+  div.className = 'lab-photo';
+  div.innerHTML = `<img src="${facilityPhotos[i]}" alt="Aakash Pathology Laboratory facility" loading="lazy">`;
+  facGrid.appendChild(div);
+}
+
+document.querySelectorAll('.gallery-tab').forEach(tab=>{
+  tab.addEventListener('click', ()=>{
+    document.querySelectorAll('.gallery-tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.gallery-group').forEach(g=>g.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('group-' + tab.dataset.group).classList.add('active');
+  });
+});
 
 const menuToggle = document.getElementById('menuToggle');
 const bottomMenuBtn = document.getElementById('bottomMenuBtn');

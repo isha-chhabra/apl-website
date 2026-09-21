@@ -29,7 +29,7 @@ To look at it locally: `npx serve legacy-static` (or `python3 -m http.server -d 
 
 - **Phone numbers, hours, addresses:** search the HTML files for the number or address and change it (they repeat in the header, footer and bottom bar).
 - **Prices and tests:** `legacy-static/packages-data.js`.
-- **Photos:** CSR uses `legacy-static/assets/photos/csr-*.jpg` and the doctor photo is `assets/dr-chhabra.jpg`. **Gallery:** save each photo in `assets/photos/`, then edit the `photos` list at the top of the script in `gallery.html` (file, alt text, caption, group). Stand-in photos show a small "Sample photo" tag; delete `sample:true` from a line once it is a real photo of the lab.
+- **Photos:** replace files in `legacy-static/assets/photos/` (gallery and CSR use them) and `legacy-static/assets/dr-chhabra.jpg`.
 - **Cache busting:** stylesheets and scripts are linked with `?v=darkNN`; bump it in the HTML files after a change so phones fetch the new file.
 
 ## Rebuilding the React bundles (only if you edit them)
