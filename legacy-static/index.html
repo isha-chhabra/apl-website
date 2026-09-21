@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=dark60") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:only dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
-<link rel="stylesheet" href="assets/hero.css?v=dark60">
+<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=dark61") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:only dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<link rel="stylesheet" href="assets/hero.css?v=dark61">
 <style>
   /* ---------- Home: the hero brings its own nav; the site nav slides in once you scroll past it ---------- */
   body.home .utility-bar{display:none;}
@@ -21,29 +21,18 @@
   #hero-root .fallback{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;color:#f7f0ea;gap:14px;}
   #hero-root .fallback a{color:#E8B8A4;font-weight:600;}
 
-  /* ---------- Metrics: rolling digits on glowing glass ---------- */
-  @property --a{syntax:"<angle>";inherits:false;initial-value:0deg;}
-  @keyframes spin{to{--a:360deg;}}
-  @keyframes breathe{0%,100%{opacity:.55;transform:scale(1);}50%{opacity:1;transform:scale(1.15);}}
+  /* ---------- Metrics: rolling digits ---------- */
   .metrics{padding:24px 0 8px;}
   @media (min-width:768px){ .metrics{padding:88px 0 32px;} }
-  .metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
-  @media (min-width:900px){ .metrics-grid{grid-template-columns:repeat(4,1fr);gap:18px;} }
-  .metric{
-    position:relative;isolation:isolate;overflow:hidden;text-align:center;border-radius:18px;padding:16px 8px 14px;
-    background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.02));
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 24px 40px -28px rgba(0,0,0,.9);
-  }
-  .metric::before{ /* a bright arc travelling round the edge */
-    content:"";position:absolute;inset:0;border-radius:inherit;padding:1.5px;z-index:-1;pointer-events:none;
-    background:conic-gradient(from var(--a),rgba(255,255,255,.08) 0 62%,#F0C4B3 84%,rgba(255,255,255,.08) 100%);
-    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
-    animation:spin 7s linear infinite;
-  }
-  .metric:nth-child(2)::before{animation-delay:-1.7s;} .metric:nth-child(3)::before{animation-delay:-3.4s;} .metric:nth-child(4)::before{animation-delay:-5.1s;}
-  .metric::after{ /* warm glow under the number */
-    content:"";position:absolute;left:50%;top:38%;width:70%;aspect-ratio:1;translate:-50% -50%;z-index:-1;pointer-events:none;border-radius:50%;
-    background:radial-gradient(circle,rgba(245,143,104,.34),transparent 68%);animation:breathe 4.5s ease-in-out infinite;
+  /* no boxes: the numbers stand on the page, split by hairlines */
+  .metrics-grid{display:grid;grid-template-columns:1fr 1fr;}
+  .metric{position:relative;text-align:center;padding:20px 8px 18px;}
+  .metric:nth-child(odd){border-right:1px solid rgba(255,255,255,.09);}
+  .metric:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.09);}
+  @media (min-width:900px){
+    .metrics-grid{grid-template-columns:repeat(4,1fr);}
+    .metric{padding:8px 18px;border:0 !important;border-right:1px solid rgba(255,255,255,.09) !important;}
+    .metric:last-child{border-right:0 !important;}
   }
   .m-num{display:flex;justify-content:center;align-items:flex-start;font-size:clamp(30px,8.4vw,52px);font-weight:700;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums;}
   .dg{display:inline-block;height:1em;overflow:hidden;}
@@ -51,8 +40,8 @@
   .dg i,.m-suf{font-style:normal;display:block;height:1em;line-height:1;background:linear-gradient(180deg,#fff 10%,#F0C4B3 62%,#C2705A);-webkit-background-clip:text;background-clip:text;color:transparent;}
   .m-suf{display:inline-block;margin-left:.04em;background:linear-gradient(180deg,#F0C4B3,#B4634D);-webkit-background-clip:text;background-clip:text;}
   .m-lbl{margin-top:8px;font-size:12px;line-height:1.35;color:var(--ink-soft);letter-spacing:.02em;}
-  @media (min-width:768px){ .m-lbl{font-size:14.5px;} .metric{padding:28px 14px 24px;border-radius:22px;} }
-  @media (prefers-reduced-motion:reduce){ .metric::before,.metric::after{animation:none;} .dg .col{transition:none;} }
+  @media (min-width:768px){ .m-lbl{font-size:14.5px;} }
+  @media (prefers-reduced-motion:reduce){ .dg .col{transition:none;} }
 
   /* ---------- Why choose us ---------- */
   .why-grid{display:grid;grid-template-columns:1fr;gap:14px;}
@@ -163,7 +152,7 @@
   /* ---------- Phones: quieter type and tighter cards on the home page ---------- */
   @media (max-width:767px){
     .m-num{font-size:clamp(24px,6.6vw,40px);}
-    .metric{padding:12px 6px 11px;border-radius:16px;}
+    .metric{padding:16px 6px 14px;}
     .m-lbl{margin-top:6px;font-size:11px;}
     .section-head h2{font-size:clamp(19px,5.2vw,24px);}
     .section-head p{font-size:13.5px;margin-top:8px;}
@@ -485,6 +474,6 @@ else { jr.classList.add('armed'); addEventListener('scroll', ()=>{ if(!jrTick){ 
   tick(); addEventListener('scroll', tick, {passive:true}); addEventListener('resize', tick);
 })();
 </script>
-<script src="assets/hero.js?v=dark60" defer></script>
+<script src="assets/hero.js?v=dark61" defer></script>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=dark60">
+<link rel="stylesheet" href="shared.css?v=dark61">
 <style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:only dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .contact-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px;display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;}
@@ -31,10 +31,7 @@
   .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;}
   .loc-card .tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--copper-light);background:var(--copper-pale);padding:3px 9px;border-radius:5px;display:inline-block;margin-bottom:8px;}
   .loc-card h4{font-size:16px;margin-bottom:6px;}
-  .loc-card p{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px;line-height:1.5;}
-  .loc-card .link{font-size:13px;font-weight:700;color:var(--copper);display:inline-flex;align-items:center;gap:5px;}
-  .map-embed{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);margin-top:24px;}
-  .map-embed iframe{width:100%;height:280px;border:0;display:block;}
+  .loc-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.5;}
 </style>
 </head>
 <body>
@@ -103,13 +100,10 @@
   <div class="wrap">
     <div class="section-head reveal"><span class="eyebrow">Our Locations</span><h2>4 Locations Across Ankleshwar</h2></div>
     <div class="locations-grid">
-      <div class="loc-card reveal"><span class="tag">Main Lab</span><h4>Station Road</h4><p>1st Floor, Vyapar Bhavan, Nr. Dave Orthopaedic, Station Road, Ankleshwar&ndash;393001.</p><a href="https://maps.app.goo.gl/6vuLMD4YvkCsP4Wj8" target="_blank" rel="noopener" class="link">Get directions &rarr;</a></div>
-      <div class="loc-card reveal"><span class="tag">Collection Centre &amp; Residence</span><h4>Ganesh Plaza, GIDC</h4><p>4, Ravidarshan Society, GIDC, Ankleshwar 393002.</p><a href="https://www.google.com/maps/dir//FIRST+FLOOR+FF%2F1,+Ganesh+Plaza,+GIDC,+Ankleshwar" target="_blank" rel="noopener" class="link">Get directions &rarr;</a></div>
-      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Sardar Park, GIDC</h4><p>3rd Floor, Sardar Park-2, G.I.D.C. Ankleshwar.</p><a href="https://www.google.com/maps/dir//Sardar+Park+1,+GIDC,+Ankleshwar" target="_blank" rel="noopener" class="link">Get directions &rarr;</a></div>
-      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Valia Road</h4><p>F-13, Rameshwar Residency, Opp. Kum Kum Bunglows, Ankleshwar&ndash;2.</p><a href="https://maps.app.goo.gl/ifEjGwKrjYyFJAM66" target="_blank" rel="noopener" class="link">Get directions &rarr;</a></div>
-    </div>
-    <div class="map-embed reveal">
-      <iframe src="https://maps.google.com/maps?q=aakash%20pathology%20lab%20ankleshwar&t=m&z=14&output=embed&iwloc=near" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Aakash Pathology Laboratory location map"></iframe>
+      <div class="loc-card reveal"><span class="tag">Main Lab</span><h4>Station Road</h4><p>1st Floor, Vyapar Bhavan, Nr. Dave Orthopaedic, Station Road, Ankleshwar&ndash;393001.</p></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre &amp; Residence</span><h4>Ganesh Plaza, GIDC</h4><p>4, Ravidarshan Society, GIDC, Ankleshwar 393002.</p></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Sardar Park, GIDC</h4><p>3rd Floor, Sardar Park-2, G.I.D.C. Ankleshwar.</p></div>
+      <div class="loc-card reveal"><span class="tag">Collection Centre</span><h4>Valia Road</h4><p>F-13, Rameshwar Residency, Opp. Kum Kum Bunglows, Ankleshwar&ndash;2.</p></div>
     </div>
   </div>
 </section>

@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=dark60">
+<link rel="stylesheet" href="shared.css?v=dark61">
 <style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:only dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .page-header{padding:22px 0 18px;}
@@ -183,6 +183,30 @@
     .hd{margin:8px 4px 10px;width:calc(100% - 8px);}
   }
 
+
+  /* note on a test that is also listed under another group */
+  .tests .lab .note{display:block;margin-top:2px;font-size:10.5px;font-weight:500;line-height:1.3;color:var(--ink-soft);}
+
+  /* first-visit nudge: for five seconds a callout and pulsing arrows say the rows open */
+  #groups{position:relative;}
+  .hint{
+    position:absolute;z-index:4;left:calc(100% - 5 * var(--cw) + 4px);top:0;height:30px;display:flex;align-items:center;pointer-events:none;
+    animation:hint-life 5s cubic-bezier(.32,.72,0,1) both;
+  }
+  .hint span{
+    position:relative;margin-left:9px;padding:7px 12px 7px 11px;border-radius:999px;white-space:nowrap;
+    font-size:12px;font-weight:700;letter-spacing:.01em;line-height:1;color:#fff;
+    background:linear-gradient(180deg,#C9735C,#A3543F);box-shadow:0 10px 24px -8px rgba(0,0,0,.85),0 0 0 1px rgba(255,255,255,.14) inset,0 0 22px -4px rgba(245,143,104,.55);
+  }
+  .hint i{ /* arrow pointing back at the row label */
+    width:0;height:0;border:6px solid transparent;border-right:8px solid #B4634D;border-left:0;margin-right:-9px;z-index:1;
+    animation:hint-point 1s ease-in-out infinite;
+  }
+  @keyframes hint-life{0%{opacity:0;transform:translateX(10px);}9%{opacity:1;transform:none;}88%{opacity:1;}100%{opacity:0;}}
+  @keyframes hint-point{0%,100%{transform:translateX(0);}50%{transform:translateX(-4px);}}
+  @keyframes chev-nudge{0%,100%{transform:translateX(0);color:var(--ink-soft);}50%{transform:translateX(3px);color:var(--copper-light);}}
+  .hinting .grp:not(.open) .chev{animation:chev-nudge 1s ease-in-out infinite;}
+  @media (prefers-reduced-motion:reduce){ .hint{animation:none;} .hint i,.hinting .grp:not(.open) .chev{animation:none;} }
   /* pulse a column when arriving from a link */
   .tbl[data-hl="0"] .c0,.tbl[data-hl="1"] .c1,.tbl[data-hl="2"] .c2,.tbl[data-hl="3"] .c3,.tbl[data-hl="4"] .c4{background:rgba(240,196,179,.10);}
   .cell{transition:background .6s ease;}
@@ -313,7 +337,7 @@
   <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
   <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
 </nav>
-<script src="packages-data.js?v=dark60"></script>
+<script src="packages-data.js?v=dark61"></script>
 <script>
 const P = APL_PACKAGES, G = APL_GROUPS;
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
@@ -349,7 +373,7 @@ function groupRow(g){
   /* every test in a group starts in the same package, except where the chart splits them: those are separate rows */
   const first = Math.min(...g.tests.map(t => t[1]));
   const cells = cols((p,i) => i >= first ? CHECK(i) : DASH);
-  const tests = g.tests.map(t => `<div class="row" role="row" data-t="${esc(t[0])}"><div class="lab" role="rowheader">${esc(t[0])}</div>${
+  const tests = g.tests.map(t => `<div class="row" role="row" data-t="${esc(t[0])}"><div class="lab" role="rowheader"><span>${esc(t[0])}${t[2] ? `<small class="note">${esc(t[2])}</small>` : ''}</span></div>${
     cols((p,i)=> i >= t[1] ? CHECK(i) : DASH)}</div>`).join('');
   return `<div class="grp" data-g="${g.id}">
     <button class="grp-btn" aria-expanded="false"><div class="row" role="row"><div class="lab" role="rowheader">${CHEV}<span>${esc(g.name)}</span></div>${cells}</div></button>
@@ -388,7 +412,8 @@ function matches(q){
       if(rank >= 0) out.push({name:t[0], from:t[1], group:g, rank});
     });
   });
-  return out.sort((a,b) => a.rank - b.rank).slice(0, 8);
+  /* a test listed under two groups shows once, under the group that matched best */
+  return out.sort((a,b) => a.rank - b.rank).filter((r,i,all) => all.findIndex(o => o.name === r.name) === i).slice(0, 8);
 }
 let results = [], active = -1;
 function renderList(){
@@ -449,6 +474,23 @@ function observeRows(){
   groupsEl.querySelectorAll('.grp').forEach(el => rowIO.observe(el));
 }
 observeRows();
+
+
+/* first-visit nudge: once the rows are on screen, point at them for five seconds (every visit; a tap ends it early) */
+(function(){
+  const first = groupsEl.querySelector('.grp'); if(!first) return;
+  const tblEl = document.getElementById('tbl');
+  const hint = document.createElement('div');
+  hint.className = 'hint'; hint.setAttribute('aria-hidden','true'); hint.innerHTML = '<i></i><span>Tap to view tests</span>';
+  let timer;
+  const stop = () => { clearTimeout(timer); hint.remove(); tblEl.classList.remove('hinting'); };
+  const go = () => {
+    hint.style.top = first.querySelector('.grp-btn').offsetHeight / 2 - 15 + 'px';
+    groupsEl.prepend(hint); tblEl.classList.add('hinting'); timer = setTimeout(stop, 5000);
+    groupsEl.addEventListener('click', stop, {once:true}); expandBtn.addEventListener('click', stop, {once:true});
+  };
+  new IntersectionObserver((es, io) => { if(es[0].isIntersecting){ io.disconnect(); go(); } }, {threshold:.6}).observe(first);
+})();
 
 /* keep the sticky header under the site header */
 const siteHeader = document.querySelector('header');
