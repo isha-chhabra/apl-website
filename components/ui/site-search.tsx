@@ -107,7 +107,7 @@ const SECTION_ORDER: Section[] = ["Tests & Packages", "Pages & Info", "FAQs"];
 const PER_SECTION = 4;
 
 const IDEAS = ["thyroid", "Package 3", "home collection", "opening hours", "diabetes", "fasting"];
-const TRY = ["Thyroid", "Package 3", "Home collection", "Opening hours", "Gold"];
+const TRY = ["Thyroid", "Diabetes", "Package 3", "Home collection", "Opening hours"];
 
 function Highlight({ text, words }: { text: string; words: string[] }) {
   if (!words.length) return <>{text}</>;
@@ -279,7 +279,7 @@ export function SiteSearch() {
         >
           {!query && (
             <div className="px-3 pb-3.5 pt-3">
-              <p className="mb-2 text-[10.5px] font-bold uppercase tracking-[0.08em] text-muted-foreground">Try searching for</p>
+              <p className="mb-2 text-[10.5px] font-bold uppercase tracking-[0.08em] text-muted-foreground">Popular searches</p>
               <div className="flex flex-wrap gap-2">
                 {TRY.map((t) => (
                   <button
