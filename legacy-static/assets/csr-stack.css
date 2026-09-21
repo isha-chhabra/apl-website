@@ -2,7 +2,6 @@
 @layer properties;
 @layer theme {
   :root, :host {
-    --color-white: #fff;
     --spacing: 0.25rem;
     --container-xl: 36rem;
     --text-sm: 0.875rem;
@@ -139,17 +138,14 @@
     border-style: var(--tw-border-style);
     border-width: 1px;
   }
-  .border-white\/15 {
-    border-color: color-mix(in srgb, #fff 15%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      border-color: color-mix(in oklab, var(--color-white) 15%, transparent);
-    }
+  .border-\[\#E4D9BC\] {
+    border-color: #E4D9BC;
   }
-  .bg-\[\#0D0908\] {
-    background-color: #0D0908;
+  .bg-\[\#FDFBF7\] {
+    background-color: #FDFBF7;
   }
-  .bg-\[\#070504\] {
-    background-color: #070504;
+  .bg-\[\#FFFDF9\] {
+    background-color: #FFFDF9;
   }
   .object-cover {
     object-fit: cover;
@@ -200,20 +196,17 @@
     --tw-tracking: var(--tracking-tight);
     letter-spacing: var(--tracking-tight);
   }
-  .text-white {
-    color: var(--color-white);
+  .text-\[\#3B2A20\] {
+    color: #3B2A20;
   }
-  .text-white\/75 {
-    color: color-mix(in srgb, #fff 75%, transparent);
-    @supports (color: color-mix(in lab, red, red)) {
-      color: color-mix(in oklab, var(--color-white) 75%, transparent);
-    }
+  .text-\[\#6F6862\] {
+    color: #6F6862;
   }
   .underline {
     text-decoration-line: underline;
   }
-  .shadow-\[inset_0_1px_0_rgba\(255\,255\,255\,0\.14\)\,0_-12px_30px_-14px_rgba\(0\,0\,0\,0\.6\)\] {
-    --tw-shadow: inset 0 1px 0 var(--tw-shadow-color, rgba(255,255,255,0.14)), 0 -12px 30px -14px var(--tw-shadow-color, rgba(0,0,0,0.6));
+  .shadow-\[0_-12px_30px_-14px_rgba\(74\,59\,51\,0\.35\)\] {
+    --tw-shadow: 0 -12px 30px -14px var(--tw-shadow-color, rgba(74,59,51,0.35));
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
   }
   @media (width >= 40rem) {

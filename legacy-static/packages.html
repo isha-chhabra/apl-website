@@ -2,16 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="color-scheme" content="only dark">
-<meta name="theme-color" content="#070504">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#FDFBF7">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Preventive Health Check-Up Packages | Aakash Pathology Laboratory, Ankleshwar</title>
 <meta name="description" content="Compare all five preventive health check-up packages at Aakash Pathology Laboratory, Ankleshwar: MRP, offer price, you save and every test included, by body function.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=dark63">
-<style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:only dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<link rel="stylesheet" href="shared.css?v=light1">
+<style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .page-header{padding:22px 0 18px;}
   @media (max-width:767px){ .page-header .breadcrumb{display:none;} }
@@ -26,7 +26,7 @@
   .finder-search{position:relative;margin-bottom:6px;}
   .finder-search input{
     width:100%;padding:12px 44px;border-radius:var(--radius-sm);border:1px solid var(--line);
-    font-family:'Inter',sans-serif;font-size:16px;background:rgba(255,255,255,.06);color:var(--ink);min-height:var(--tap-min);
+    font-family:'Inter',sans-serif;font-size:16px;background:#fff;color:var(--ink);min-height:var(--tap-min);
   }
   .finder-search input:focus{outline:2px solid var(--copper);outline-offset:1px;}
   .finder-search input::-webkit-search-cancel-button{display:none;}
@@ -41,21 +41,30 @@
   /* ---------- comparison table ---------- */
   .tbl{
     --cw:clamp(38px,12vw,84px);--lab:minmax(0,1fr);position:relative;border:1px solid var(--line);border-radius:var(--radius);
-    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));box-shadow:0 12px 30px -18px rgba(0,0,0,.7);
+    background:#fff;box-shadow:0 22px 44px -26px rgba(74,59,51,.45),0 2px 6px -2px rgba(74,59,51,.12);
   }
   @media (min-width:768px){ .tbl{--cw:clamp(96px,11vw,132px);} }
   .row{display:grid;grid-template-columns:var(--lab) repeat(5,var(--cw));align-items:stretch;}
   .row>*{min-width:0;}
   .cell{display:grid;place-items:center;text-align:center;position:relative;}
   /* side by side: every other package column is a touch lighter, so the columns read as lanes without lines or colour blocks */
-  .price-rows .row>.c1,.price-rows .row>.c3,#groups .row>.c1,#groups .row>.c3{background:rgba(255,255,255,.032);}
+  .price-rows .row>.c1,.price-rows .row>.c3,#groups .row>.c1,#groups .row>.c3{background:rgba(228,192,144,.16);}
+  /* columns are split by hairlines, rows by rules */
+  .price-rows .row>.cell,#groups .row>.cell{border-left:1px solid #EADFC6;}
+  /* Gold is a rail: a warm wash and gold edges run the full height of its column */
+  .price-rows .row>.c4,#groups .row>.c4{
+    background:linear-gradient(180deg,rgba(247,214,120,.42),rgba(247,225,150,.22));
+    border-left:2px solid #DDB447;border-right:2px solid #DDB447;
+  }
+  #groups{overflow:clip;border-radius:0 0 calc(var(--radius) - 1px) calc(var(--radius) - 1px);}
+  .price-rows .row+.row{border-top:1px solid #EADFC6;}
   .lab{padding:8px 4px 8px 10px;font-size:clamp(11px,3.1vw,14px);line-height:1.25;color:var(--ink);display:flex;align-items:center;gap:5px;text-align:left;}
 
   /* header (sticky, frosted) */
   .head{
     position:sticky;top:var(--hh,73px);z-index:30;border-radius:var(--radius) var(--radius) 0 0;border-bottom:1px solid var(--line);
-    background:linear-gradient(180deg,rgba(20,13,10,.94),rgba(12,8,7,.88));-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
-    box-shadow:0 8px 16px -12px rgba(0,0,0,.7);
+    background:rgba(255,253,249,.94);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    box-shadow:0 8px 16px -12px rgba(74,59,51,.4);
   }
   .head .cap{grid-column:2 / span 4;text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft);
     padding:8px 0 0;position:relative;}
@@ -65,10 +74,10 @@
   .hd{
     --c:var(--copper);position:relative;width:calc(100% - 6px);height:clamp(42px,11.5vw,52px);margin:6px 3px 9px;border-radius:10px;
     display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;
-    background:linear-gradient(170deg,rgba(255,255,255,.11),rgba(255,255,255,.035));border:1px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12);
-    color:#fff;text-align:center;line-height:1;
+    background:linear-gradient(170deg,#FFFFFF,#F5EEE0);border:1px solid #E4D9BC;box-shadow:0 3px 8px -4px rgba(74,59,51,.3);
+    color:var(--navy);text-align:center;line-height:1;
   }
-  .hd::after{content:"";position:absolute;left:24%;right:24%;bottom:-1px;height:2px;border-radius:2px;background:var(--c);box-shadow:0 0 10px color-mix(in srgb,var(--c) 70%,transparent);}
+  .hd::after{content:"";position:absolute;left:24%;right:24%;bottom:-1px;height:2px;border-radius:2px;background:var(--c);box-shadow:0 0 8px color-mix(in srgb,var(--c) 55%,transparent);}
   .hd-t{display:flex;align-items:baseline;gap:5px;}
   .hd small{display:none;font-size:14px;font-weight:600;}
   .hd b{font-size:clamp(16px,4.6vw,21px);font-weight:700;font-family:'Inter',sans-serif;}
@@ -84,9 +93,9 @@
 
   /* Gold is the prize: its header box is champagne gold with a slow sheen, and its price glows gold. No tags, no extra rows. */
   .head .c4 .hd{
-    overflow:hidden;color:#2b1d06;border-color:rgba(255,238,178,.65);
-    background:linear-gradient(160deg,#F7E19E 0%,#E5BF5E 55%,#CC9E3E 100%);
-    box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 10px 24px -10px rgba(232,197,110,.75);
+    overflow:hidden;color:#2b1d06;border-color:#C99A26;
+    background:linear-gradient(160deg,#F9E7A6 0%,#E8C45E 55%,#CF9F35 100%);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.7),0 10px 22px -10px rgba(180,120,10,.65);
   }
   .head .c4 .hd::after{display:none;}
   .head .c4 .hd::before{content:"";position:absolute;top:-30%;bottom:-30%;left:0;width:38%;pointer-events:none;
@@ -94,17 +103,17 @@
   @keyframes sheen{0%,58%{transform:translateX(-160%) skewX(-18deg);}100%{transform:translateX(420%) skewX(-18deg);}}
   @media (prefers-reduced-motion:reduce){ .head .c4 .hd::before{animation:none;display:none;} }
   .head .c4 .tp i.star{color:#5b3f0b;}
-  .price-rows .offer .c4 .pv{color:#F6DE95;text-shadow:0 0 18px rgba(232,197,110,.55);}
-  .save .c4 .pv{font-weight:800;text-shadow:0 0 14px rgba(122,217,177,.55);}
+  .price-rows .offer .c4 .pv{color:#7A4E00;}
+  .save .c4 .pv{font-weight:800;}
 
   /* price rows */
   .price-rows{border-bottom:1px solid var(--line);}
   .price-rows .row{min-height:38px;}
   .price-rows .lab{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);}
   .pv{font-variant-numeric:tabular-nums;font-size:clamp(9px,2.7vw,13px);font-weight:600;white-space:nowrap;letter-spacing:-.01em;}
-  .price-rows .offer{background:linear-gradient(90deg,rgba(180,99,77,.28),rgba(180,99,77,.08));}
-  .price-rows .offer .lab{color:var(--copper-light);}
-  .price-rows .offer .pv{font-size:clamp(9.5px,3vw,15px);font-weight:700;color:#fff;}
+  .price-rows .offer{background:linear-gradient(90deg,rgba(180,83,9,.16),rgba(180,83,9,.05));}
+  .price-rows .offer .lab{color:var(--copper);}
+  .price-rows .offer .pv{font-size:clamp(9.5px,3vw,15px);font-weight:700;color:var(--navy);}
   .price-rows .mrp .pv{color:var(--ink-soft);text-decoration:line-through;font-weight:500;}
   .price-rows .save .pv{color:var(--success);}
   @media (min-width:768px){
@@ -120,44 +129,44 @@
   .grp-btn .lab{font-weight:600;color:var(--navy);}
   .chev{flex-shrink:0;width:10px;height:10px;color:var(--ink-soft);transition:transform .25s ease;}
   .grp.open .chev{transform:rotate(90deg);}
-  .grp-btn:focus-visible{outline:2px solid var(--copper-light);outline-offset:-2px;}
-  .tests{display:none;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015));border-top:1px dashed var(--line);}
+  .grp-btn:focus-visible{outline:2px solid var(--blue);outline-offset:-2px;}
+  .tests{display:none;background:linear-gradient(180deg,rgba(241,233,218,.7),rgba(241,233,218,.3));border-top:1px dashed #D9C9A6;}
   .grp.open .tests{display:block;animation:down .3s cubic-bezier(.32,.72,0,1);}
   @keyframes down{from{opacity:0;transform:translateY(-6px);}to{opacity:1;transform:none;}}
-  .tests .row{min-height:44px;border-top:1px solid color-mix(in srgb,var(--line) 55%,transparent);}
+  .tests .row{min-height:44px;border-top:1px solid color-mix(in srgb,var(--line) 70%,transparent);}
   .tests .row:first-child{border-top:none;}
   .tests .lab{font-size:12px;padding-left:22px;}
   @media (min-width:768px){ .tests .lab{padding-left:36px;font-size:13.5px;} }
-  .tests mark{background:rgba(245,143,104,.35);color:inherit;border-radius:3px;padding:0 1px;}
+  .tests mark{background:rgba(217,119,6,.28);color:inherit;border-radius:3px;padding:0 1px;}
 
   /* search results: one row per test, ticks under every package that includes it */
   .hit-rows{border-bottom:none;}
   .hit-rows .row{min-height:56px;border-bottom:1px solid var(--line);}
   .hit-rows .row:last-child{border-bottom:none;}
-  .hit-rows .lab{font-size:13px;font-weight:600;color:#fff;}
+  .hit-rows .lab{font-size:13px;font-weight:600;color:var(--navy);}
   .hit-rows .lab span{display:block;}
-  .hit-rows .lab small{display:block;margin-top:2px;font-size:11px;font-weight:600;color:var(--copper-light);letter-spacing:.01em;}
+  .hit-rows .lab small{display:block;margin-top:2px;font-size:11px;font-weight:600;color:var(--copper);letter-spacing:.01em;}
   @media (min-width:768px){ .hit-rows .lab{font-size:15px;} .hit-rows .lab small{font-size:12px;} }
 
   /* search dropdown: each result says which packages include the test */
   .ac{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:60;max-height:min(62vh,430px);overflow-y:auto;margin:0;padding:6px;list-style:none;border-radius:16px;
-    background:linear-gradient(180deg,rgba(30,20,17,.98),rgba(14,10,9,.98));border:1px solid rgba(255,255,255,.16);box-shadow:0 26px 54px -22px rgba(0,0,0,.95);
+    background:#fff;border:1px solid var(--line);box-shadow:0 26px 54px -22px rgba(74,59,51,.5);
     -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);}
   .ac[hidden]{display:none;}
   .ac li{display:grid;gap:9px;padding:12px 12px 11px;border-radius:12px;cursor:pointer;-webkit-tap-highlight-color:transparent;}
-  .ac li[aria-selected="true"]{background:rgba(255,255,255,.075);}
-  @media (hover:hover){ .ac li:hover{background:rgba(255,255,255,.06);} }
-  .ac-main b{display:block;font-size:14.5px;font-weight:600;color:#fff;line-height:1.3;}
+  .ac li[aria-selected="true"]{background:rgba(180,83,9,.09);}
+  @media (hover:hover){ .ac li:hover{background:rgba(180,83,9,.06);} }
+  .ac-main b{display:block;font-size:14.5px;font-weight:600;color:var(--navy);line-height:1.3;}
   .ac-main small{display:block;margin-top:2px;font-size:12px;color:var(--ink-soft);}
-  .ac-main mark{background:rgba(245,143,104,.35);color:inherit;border-radius:3px;padding:0 1px;}
+  .ac-main mark{background:rgba(217,119,6,.28);color:inherit;border-radius:3px;padding:0 1px;}
   .ac-pk{display:flex;align-items:center;flex-wrap:wrap;gap:5px;}
   .pip{--c:var(--copper);min-width:26px;height:24px;padding:0 8px;border-radius:999px;display:inline-flex;align-items:center;justify-content:center;font-size:11.5px;font-weight:700;line-height:1;
-    color:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.12);}
+    color:#B5AEA6;border:1px solid var(--line);}
   .pip.on{color:var(--ink-c);background:color-mix(in srgb,var(--c) 20%,transparent);border-color:color-mix(in srgb,var(--c) 42%,transparent);}
-  .ac-note{margin-left:4px;font-size:12px;font-weight:600;color:var(--copper-light);}
+  .ac-note{margin-left:4px;font-size:12px;font-weight:600;color:var(--copper);}
   .ac-empty{padding:16px 12px;font-size:14px;color:var(--ink-soft);}
-  .row.hl{background:rgba(240,196,179,.13) !important;box-shadow:inset 0 0 0 1px rgba(240,196,179,.45);animation:hlfade 2.8s ease forwards;}
-  @keyframes hlfade{0%,70%{box-shadow:inset 0 0 0 1px rgba(240,196,179,.55);}100%{box-shadow:inset 0 0 0 1px rgba(240,196,179,0);background:rgba(240,196,179,0);}}
+  .row.hl{background:rgba(217,119,6,.14) !important;box-shadow:inset 0 0 0 1px rgba(180,83,9,.45);animation:hlfade 2.8s ease forwards;}
+  @keyframes hlfade{0%,70%{box-shadow:inset 0 0 0 1px rgba(180,83,9,.5);}100%{box-shadow:inset 0 0 0 1px rgba(180,83,9,0);background:rgba(217,119,6,0);}}
 
   /* marks */
   .tick{width:18px;height:18px;color:var(--c);}
@@ -190,24 +199,24 @@
   /* first-visit nudge: for ten seconds the title asks you to tap, and a ripple runs down the row arrows */
   #status{display:grid;}
   #status>span{grid-area:1/1;transition:opacity .5s ease,transform .6s cubic-bezier(.32,.72,0,1);}
-  #status .t-b{display:flex;align-items:center;gap:7px;color:var(--copper-light);opacity:0;transform:translateY(7px);}
+  #status .t-b{display:flex;align-items:center;gap:7px;color:var(--blue);opacity:0;transform:translateY(7px);}
   #status .t-b svg{width:13px;height:13px;flex-shrink:0;animation:hint-bob 1s ease-in-out infinite;}
   .tools.hinting #status .t-a{opacity:0;transform:translateY(-7px);}
   .tools.hinting #status .t-b{opacity:1;transform:none;}
   .grp-btn .lab{position:relative;}
-  .grp-btn .lab::after{content:"";position:absolute;left:4px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;border:1.5px solid var(--copper-light);opacity:0;pointer-events:none;}
+  .grp-btn .lab::after{content:"";position:absolute;left:4px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;border:1.5px solid var(--blue);opacity:0;pointer-events:none;}
   .hinting .grp:not(.open) .grp-btn .lab::after{animation:hint-ring 1.7s cubic-bezier(.16,1,.3,1) infinite;animation-delay:calc(var(--n,0) * 140ms);}
   .hinting .grp:not(.open) .chev{animation:chev-nudge 1.7s ease-in-out infinite;animation-delay:calc(var(--n,0) * 140ms);}
   @keyframes hint-bob{0%,100%{transform:translateY(-2px);}50%{transform:translateY(2px);}}
   @keyframes hint-ring{0%{transform:scale(.35);opacity:.85;}70%,100%{transform:scale(1.2);opacity:0;}}
-  @keyframes chev-nudge{0%,100%{transform:translateX(0);color:var(--ink-soft);}30%{transform:translateX(3px);color:var(--copper-light);}}
+  @keyframes chev-nudge{0%,100%{transform:translateX(0);color:var(--ink-soft);}30%{transform:translateX(3px);color:var(--blue);}}
   @media (prefers-reduced-motion:reduce){ #status .t-b svg,.hinting .grp:not(.open) .chev,.hinting .grp:not(.open) .grp-btn .lab::after{animation:none;} }
   /* pulse a column when arriving from a link */
-  .tbl[data-hl="0"] .c0,.tbl[data-hl="1"] .c1,.tbl[data-hl="2"] .c2,.tbl[data-hl="3"] .c3,.tbl[data-hl="4"] .c4{background:rgba(240,196,179,.10);}
+  .tbl[data-hl="0"] .c0,.tbl[data-hl="1"] .c1,.tbl[data-hl="2"] .c2,.tbl[data-hl="3"] .c3,.tbl[data-hl="4"] .c4{background:rgba(180,83,9,.10);}
   .cell{transition:background .6s ease;}
 
   .fast-note{
-    background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:16px 0 28px;
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:16px;margin:16px 0 28px;
     display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--ink-soft);
   }
   .fast-note svg{width:22px;height:22px;color:var(--copper);flex-shrink:0;}
@@ -332,7 +341,7 @@
   <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
   <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
 </nav>
-<script src="packages-data.js?v=dark63"></script>
+<script src="packages-data.js?v=light1"></script>
 <script>
 const P = APL_PACKAGES, G = APL_GROUPS;
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');

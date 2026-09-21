@@ -3,16 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <script>document.documentElement.classList.add('js')</script>
-<meta name="color-scheme" content="only dark">
-<meta name="theme-color" content="#070504">
+<meta name="color-scheme" content="only light">
+<meta name="theme-color" content="#FDFBF7">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>About Us | Aakash Pathology Laboratory, Ankleshwar</title>
 <meta name="description" content="Established in 2005, Aakash Pathology Laboratory is one of Ankleshwar's oldest pathology labs. Meet Chief Pathologist Dr. Aakash Chhabra and learn what sets the lab apart.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=dark63") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the dark ground so it always wins */html{color-scheme:only dark;background:#070504}body{background:#070504;color:#EFE7E1;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
-<link rel="stylesheet" href="assets/offer.css?v=dark63">
+<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=light1") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<link rel="stylesheet" href="assets/offer.css?v=light1">
 <style>
   .story-text p{color:var(--ink-soft);font-size:15px;margin-bottom:16px;}
   .story-text h3{font-size:18px;margin:24px 0 12px;}
@@ -53,7 +53,7 @@
   @media (prefers-reduced-motion:reduce){ .specialty-section .section-head > *{opacity:1;transform:none;filter:none;} }
   #offer-orbit .offer-fallback{list-style:none;padding:0 18px;display:grid;gap:10px;}
   #offer-orbit .offer-fallback li{font-size:14px;color:var(--ink-soft);}
-  #offer-orbit .offer-fallback b{color:#fff;}
+  #offer-orbit .offer-fallback b{color:var(--navy);}
   .offer-hint{margin-top:-6px;text-align:center;font-size:13px;color:var(--ink-soft);}
   /* left-aligned like the rest of the page; the dial is a centred graphic between the heading and the note */
   .offer-layout{display:grid;gap:6px;}
@@ -71,11 +71,11 @@
   /* the record: four groups, two entries each, so it reads as a short CV rather than a pile of facts */
   .dr-record{display:grid;grid-template-columns:1fr 1fr;gap:30px 24px;margin-top:6px;}
   .rec-group{position:relative;padding-top:16px;border-top:1px solid var(--line);}
-  .rec-group::before{content:"";position:absolute;left:0;top:-1px;width:30px;height:2px;border-radius:2px;background:linear-gradient(90deg,#F0C4B3,#B4634D);transform-origin:left;transform:scaleX(0);transition:transform .8s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i) * 120ms + .15s);}
+  .rec-group::before{content:"";position:absolute;left:0;top:-1px;width:30px;height:2px;border-radius:2px;background:linear-gradient(90deg,#D97706,#B45309);transform-origin:left;transform:scaleX(0);transition:transform .8s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i) * 120ms + .15s);}
   .doctor-content.in .rec-group::before{transform:none;}
   .rec-group h4{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--copper-light);margin-bottom:14px;}
   .rec-item + .rec-item{margin-top:14px;}
-  .rec-item b{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:14.5px;font-weight:600;color:#fff;letter-spacing:-.01em;line-height:1.3;}
+  .rec-item b{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:14.5px;font-weight:600;color:var(--navy);letter-spacing:-.01em;line-height:1.3;}
   .rec-item b span{flex-shrink:0;font-weight:500;font-size:12.5px;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
   .rec-item p{margin:3px 0 0;font-size:12.5px;line-height:1.45;color:var(--ink-soft);}
   /* phones: line each entry up with its neighbour in the other column, so the two columns end together */
@@ -350,6 +350,6 @@ revealEls.forEach(el=>io.observe(el));
   }), {threshold:.6}).observe(strip);
 })();
 </script>
-<script src="assets/offer.js?v=dark63" defer></script>
+<script src="assets/offer.js?v=light1" defer></script>
 </body>
 </html>

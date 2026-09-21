@@ -22,8 +22,8 @@ const heroProps: HeroLandingProps = {
     { text: "View Packages", href: "packages.html", variant: "secondary" },
   ],
   titleSize: "large",
-  // copper into deep brown over near-black
-  gradientColors: { from: "#F58F68", to: "#A24A32" },
+  // soft amber into burnt orange, faint over cream
+  gradientColors: { from: "#FED7AA", to: "#F59E0B" },
   className: "sm:min-h-screen",
 };
 

@@ -1,6 +1,6 @@
 # Aakash Pathology Laboratory, Ankleshwar
 
-Website for Aakash Pathology Laboratory. Built phone-first (about 99% of visitors are on a phone) and dark only, in near-black with copper accents.
+Website for Aakash Pathology Laboratory. Built phone-first (about 99% of visitors are on a phone), light only: warm cream and white with a burnt-orange accent and tiny sky-blue hints.
 
 **The site is the plain static folder [`legacy-static/`](legacy-static).** It needs no build step and no server: HTML, one stylesheet, and three small pre-built React bundles. Deploy that folder as it is.
 

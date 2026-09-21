@@ -61,7 +61,7 @@ export const Card = ({
           scale,
           top: `calc(-5vh + ${i * 25}px)`,
         }}
-        className={`flex flex-col relative -top-[25%] w-[92%] md:w-[70%] md:h-[450px] rounded-md p-5 md:p-10 origin-top border border-white/15 shadow-[inset_0_1px_0_rgba(255,255,255,0.14),0_-12px_30px_-14px_rgba(0,0,0,0.6)]`}
+        className={`flex flex-col relative -top-[25%] w-[92%] md:w-[70%] md:h-[450px] rounded-md p-5 md:p-10 origin-top border border-[#E4D9BC] shadow-[0_-12px_30px_-14px_rgba(74,59,51,0.35)]`}
       >
         <div className={`flex flex-col md:flex-row h-full gap-4 md:gap-10`}>
           <div className={`order-2 md:order-1 md:w-[40%] relative md:top-[10%]`}>
@@ -123,25 +123,25 @@ const Component = forwardRef<HTMLElement, ComponentRootProps>(({ projects, title
 
   return (
     <ReactLenis root>
-      <main className='bg-[#070504]' ref={container}>
+      <main className='bg-[#FDFBF7] text-[#3B2A20]' ref={container}>
         <>
           <section
-            className='text-white w-full bg-[#070504] grid place-content-center relative overflow-hidden pt-[calc(var(--hdr-h,72px)+2.5rem)] pb-4 md:pt-[calc(var(--hdr-h,72px)+3.5rem)] md:pb-6 -mt-[var(--hdr-h,72px)]'
+            className='w-full bg-[#FFFDF9] grid place-content-center relative overflow-hidden pt-[calc(var(--hdr-h,72px)+2.5rem)] pb-4 md:pt-[calc(var(--hdr-h,72px)+3.5rem)] md:pb-6 -mt-[var(--hdr-h,72px)]'
             // the same copper glows as the other pages' header bands, running up behind the site header
-            style={{ backgroundImage: 'radial-gradient(60% 110% at 22% -10%,rgba(245,143,104,.30),rgba(245,143,104,.10) 45%,transparent 72%),radial-gradient(55% 100% at 88% 110%,rgba(178,84,58,.42),rgba(162,74,50,.14) 48%,transparent 74%)' }}
+            style={{ backgroundImage: 'radial-gradient(60% 110% at 22% -10%,rgba(217,119,6,.20),rgba(217,119,6,.07) 45%,transparent 72%),radial-gradient(55% 100% at 88% 110%,rgba(180,83,9,.18),rgba(180,83,9,.06) 48%,transparent 74%),linear-gradient(180deg,#FFFFFF,#F6EEDF)' }}
           >
             <h1 className='relative 2xl:text-7xl text-4xl sm:text-5xl px-6 sm:px-8 font-semibold text-center tracking-tight leading-[120%]'>
               {title}
             </h1>
             {intro && (
-              <p className='relative mx-auto mt-5 max-w-xl px-6 text-center text-sm sm:text-base text-white/75 leading-relaxed'>
+              <p className='relative mx-auto mt-5 max-w-xl px-6 text-center text-sm sm:text-base text-[#6F6862] leading-relaxed'>
                 {intro}
               </p>
             )}
           </section>
         </>
 
-        <section className='text-white w-full bg-[#0D0908]'>
+        <section className='w-full bg-[#FDFBF7]'>
           {projects.map((project, i) => {
             const targetScale = 1 - (projects.length - i) * 0.05;
             return (

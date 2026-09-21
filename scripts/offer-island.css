@@ -11,9 +11,9 @@
   --color-border: var(--border);
 }
 :root {
-  --card: #0c0807;
-  --card-foreground: #f7f0ea;
-  --border: rgba(255, 255, 255, 0.14);
+  --card: #fffdf9;
+  --card-foreground: #3b2a20;
+  --border: #e4d9bc;
 }
 
 /* the static site colours headings itself; the orbit's card title takes the colour it is given */

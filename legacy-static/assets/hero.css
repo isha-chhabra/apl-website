@@ -811,20 +811,20 @@
   initial-value: 0;
 }
 :root {
-  --background: #070504;
-  --foreground: #f7f0ea;
-  --card: #110b09;
-  --card-foreground: #f7f0ea;
-  --popover: #110b09;
-  --popover-foreground: #f7f0ea;
-  --primary: #b4634d;
+  --background: #fdfbf7;
+  --foreground: #3b2a20;
+  --card: #f8f4ee;
+  --card-foreground: #3b2a20;
+  --popover: #f8f4ee;
+  --popover-foreground: #3b2a20;
+  --primary: #b45309;
   --primary-foreground: #ffffff;
-  --muted: #1b120f;
-  --muted-foreground: #b9aca3;
-  --accent: rgba(255, 255, 255, 0.08);
-  --accent-foreground: #ffffff;
-  --border: rgba(255, 255, 255, 0.14);
-  --ring: #e8b8a4;
+  --muted: #f1e9da;
+  --muted-foreground: #6f6862;
+  --accent: rgba(180, 83, 9, 0.08);
+  --accent-foreground: #3b2a20;
+  --border: #e4d9bc;
+  --ring: #0284c7;
 }
 @layer base {
   #hero-root h1 {
@@ -841,10 +841,6 @@
   #hero-root header {
     background: transparent;
     border: 0;
-  }
-  #hero-root header img,
-  [data-slot="dialog-content"] img {
-    filter: brightness(1.5);
   }
 }
 #hero-root > div {
