@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light10">
+<link rel="stylesheet" href="shared.css?v=light11">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .faq-tabs{display:flex;gap:26px;margin-bottom:6px;border-bottom:1px solid var(--line);}
@@ -116,33 +116,33 @@
 
 <script>
 const popularFAQs = [
-  {q:"What Are the Lab Timings?", a:`<p>Monday to Saturday: 7:00 am to 9:00 pm. Sunday: 7:00 am to 2:00 pm. Collection centre timings may differ slightly and can vary on holidays, please call ahead to confirm.</p>`},
-  {q:"Do We Require a Prescription to Get Our Tests Done?", a:`<p>Usually not, for most pathology or microbiology tests. Some tests may require a signed consent form to meet government and medical-legal guidelines.</p>`},
-  {q:"When Do We Get Our Reports?", a:`<p>Most tests are done in-house, so reports are typically ready the same day. You'll be told the exact timing at sample collection, and it will be noted on your acknowledgement slip.</p>`},
-  {q:"What Are the Lab Rules Regarding Cancellation of Tests?", a:`<p>Choose your tests carefully before registration. Cancellation fees:</p><ol><li>No charge before registration</li><li>₹50 after registration (entry in software)</li><li>100% fee if cancelled after submission for processing</li><li>If sent to an outside lab, we'll try to cancel before processing begins</li><li>100% fee if outside processing has already started</li><li>Home visit charges remain the patient's responsibility</li></ol>`},
-  {q:"Do You Have Any Policies Regarding Emergency Charges?", a:`<p>On Sundays and public holidays, we keep limited hours to ensure timely reports. Because costs are higher on these days, a nominal fee of ₹50&ndash;100 may apply, waived if your total bill exceeds ₹500.</p>`},
-  {q:"Do You Need an Appointment for Giving Your Sample?", a:`<p>No appointment is needed for most tests (except special procedures like FNAC), walk in during working hours. Home or hospital collection needs a prior appointment.</p>`},
-  {q:"How Should I Prepare for My Testing?", a:`<p>Most tests need no preparation. Some require 10&ndash;12 hours of fasting, see the Test prep tab for details.</p>`},
-  {q:"Are My Reports Shared with Anyone Except Me?", a:`<p>Only with you and your attending physician. Please share your doctor's name and contact details at registration.</p>`},
-  {q:"What Happens to My Mobile Number, Name, and Other Details in Your Database?", a:`<p>Never shared with a third party without your consent, except where required for Mediclaim reimbursement or by government order.</p>`},
-  {q:"What Should I Do If I Require Confidentiality and Secrecy in Testing and Reports?", a:`<p>All tests and reports are kept confidential. For extra privacy, contact our pathologist directly at 9328392835.</p>`},
-  {q:"What Is Your Policy If I Am Not Satisfied with My Reports or My Treating Doctor Has Doubts?", a:`<p>Contact our helpline, our pathologist will address your concerns and, if needed, provide free repeat collection and retesting at our cost.</p>`},
-  {q:"What Is Your Policy Regarding the Addition of Extra Tests?", a:`<p>We're happy to add tests, payment is required upfront and may need a repeat sample. <strong>Exception:</strong> once a Preventive package or Profile is registered, it cannot be modified or converted, please finalise before registration.</p>`},
-  {q:"Do We Offer Home Visits?", a:`<p id="home-collection">Yes, with prior appointment. Call +91 63533 15640 or +91 98240 15108 to schedule.</p>`},
-  {q:"Do We Offer Reports on Email / WhatsApp?", a:`<p>Yes, alongside hard copies. Share the correct number and we'll send reports there too.</p>`},
-  {q:"Where Can We Leave Our Feedback?", a:`<p>Call 98240 15108 or email us. For urgent concerns, the notice board at our centres has direct numbers too.</p>`},
-  {q:"What Are the Payment Options?", a:`<p>Cash, UPI, Google Pay, PhonePe, Paytm, and online banking. A QR code is at the counter of every location.</p>`}
+  {q:"What are the lab timings?", a:`<p>Monday to Saturday: 7:00 am to 9:00 pm. Sunday: 7:00 am to 2:00 pm. Collection centre timings may differ slightly and can vary on holidays, please call ahead to confirm.</p>`},
+  {q:"Do we require a prescription to get our tests done?", a:`<p>Usually not, for most pathology or microbiology tests. Some tests may require a signed consent form to meet government and medical-legal guidelines.</p>`},
+  {q:"When do we get our reports?", a:`<p>Most tests are done in-house, so reports are typically ready the same day. You'll be told the exact timing at sample collection, and it will be noted on your acknowledgement slip.</p>`},
+  {q:"What are the lab rules regarding cancellation of tests?", a:`<p>Choose your tests carefully before registration. Cancellation fees:</p><ol><li>No charge before registration</li><li>₹50 after registration (entry in software)</li><li>100% fee if cancelled after submission for processing</li><li>If sent to an outside lab, we'll try to cancel before processing begins</li><li>100% fee if outside processing has already started</li><li>Home visit charges remain the patient's responsibility</li></ol>`},
+  {q:"Do you have any policies regarding emergency charges?", a:`<p>On Sundays and public holidays, we keep limited hours to ensure timely reports. Because costs are higher on these days, a nominal fee of ₹50&ndash;100 may apply, waived if your total bill exceeds ₹500.</p>`},
+  {q:"Do you need an appointment for giving your sample?", a:`<p>No appointment is needed for most tests (except special procedures like FNAC), walk in during working hours. Home or hospital collection needs a prior appointment.</p>`},
+  {q:"How should I prepare for my testing?", a:`<p>Most tests need no preparation. Some require 10&ndash;12 hours of fasting, see the Test prep tab for details.</p>`},
+  {q:"Are my reports shared with anyone except me?", a:`<p>Only with you and your attending physician. Please share your doctor's name and contact details at registration.</p>`},
+  {q:"What happens to my mobile number, name, and other details in your database?", a:`<p>Never shared with a third party without your consent, except where required for Mediclaim reimbursement or by government order.</p>`},
+  {q:"What should I do if I require confidentiality and secrecy in testing and reports?", a:`<p>All tests and reports are kept confidential. For extra privacy, contact our pathologist directly at 9328392835.</p>`},
+  {q:"What is your policy if I am not satisfied with my reports or my treating doctor has doubts?", a:`<p>Contact our helpline, our pathologist will address your concerns and, if needed, provide free repeat collection and retesting at our cost.</p>`},
+  {q:"What is your policy regarding the addition of extra tests?", a:`<p>We're happy to add tests, payment is required upfront and may need a repeat sample. <strong>Exception:</strong> once a Preventive package or Profile is registered, it cannot be modified or converted, please finalise before registration.</p>`},
+  {q:"Do we offer home visits?", a:`<p id="home-collection">Yes, with prior appointment. Call +91 63533 15640 or +91 98240 15108 to schedule.</p>`},
+  {q:"Do we offer reports on email / WhatsApp?", a:`<p>Yes, alongside hard copies. Share the correct number and we'll send reports there too.</p>`},
+  {q:"Where can we leave our feedback?", a:`<p>Call 98240 15108 or email us. For urgent concerns, the notice board at our centres has direct numbers too.</p>`},
+  {q:"What are the payment options?", a:`<p>Cash, UPI, Google Pay, PhonePe, Paytm, and online banking. A QR code is at the counter of every location.</p>`}
 ];
 const generalFAQs = [
-  {q:"What Tests Usually Require Fasting?", a:`<p>Fasting blood sugar, fasting insulin, fasting C-peptide, lipid profile, and electrolytes &amp; calcium test. If unsure, ask your doctor or call our helpline.</p>`},
-  {q:"What Does Fasting Mean?", a:`<p>Nothing except plain water for 10&ndash;12 hours. Eat normally the day before, avoid tobacco, smoking, and exercise during the fast, and keep taking prescribed medication unless told otherwise.</p>`},
-  {q:"What If I Make a Mistake and Eat or Drink Before My Fasting Test?", a:`<p>Tell us. Sometimes it won't affect results, other times we'll need to reschedule.</p>`},
-  {q:"When Can I Eat and Drink Normally Again?", a:`<p>Right after your test. Bringing a snack is a good idea.</p>`},
-  {q:"Should I Stop My Medications Before a Thyroid or Diabetes Test?", a:`<p>No, unless your doctor specifically says so. Skipping medication can throw off your results.</p>`},
-  {q:"How Do I Prepare for the 2-Hour Post-Lunch (PP2BS) Test?", a:`<p>Fast 10&ndash;12 hours overnight, then eat a normal meal (at least 75g carbs) within 15&ndash;20 minutes. Your blood draw should happen exactly 2 hours after your first bite, e.g. start eating at 12:00 pm, draw at 2:00 pm. Rest during the wait.</p>`},
-  {q:"How Do I Give a Urine Culture Sample?", a:`<p>First morning urine is best. Use the sterile container we provide: void the first stream into the toilet, collect the next 10&ndash;20ml, seal it, and bring it in. If there's a delay, refrigerate at 4&ndash;8&deg;C, don't freeze.</p>`},
-  {q:"How Do I Prepare for a 24-Hour Urine Test?", a:`<p>Get the special container from us first. Day 1: void your first urine into the toilet (not the container), then collect every drop after that. Day 2: void straight into the container on waking to finish. Keep it capped, labelled, and refrigerated at 2&ndash;8&deg;C throughout.</p>`},
-  {q:"How Do I Prepare for a Semen Examination?", a:`<p>Avoid ejaculation for at least 2 days (ideally no more than 5&ndash;7) before the test. Stay relaxed, and provide the full sample in the container we give you.</p>`}
+  {q:"What tests usually require fasting?", a:`<p>Fasting blood sugar, fasting insulin, fasting C-peptide, lipid profile, and electrolytes &amp; calcium test. If unsure, ask your doctor or call our helpline.</p>`},
+  {q:"What does fasting mean?", a:`<p>Nothing except plain water for 10&ndash;12 hours. Eat normally the day before, avoid tobacco, smoking, and exercise during the fast, and keep taking prescribed medication unless told otherwise.</p>`},
+  {q:"What if I make a mistake and eat or drink before my fasting test?", a:`<p>Tell us. Sometimes it won't affect results, other times we'll need to reschedule.</p>`},
+  {q:"When can I eat and drink normally again?", a:`<p>Right after your test. Bringing a snack is a good idea.</p>`},
+  {q:"Should I stop my medications before a thyroid or diabetes test?", a:`<p>No, unless your doctor specifically says so. Skipping medication can throw off your results.</p>`},
+  {q:"How do I prepare for the 2-hour post-lunch (PP2BS) test?", a:`<p>Fast 10&ndash;12 hours overnight, then eat a normal meal (at least 75g carbs) within 15&ndash;20 minutes. Your blood draw should happen exactly 2 hours after your first bite, e.g. start eating at 12:00 pm, draw at 2:00 pm. Rest during the wait.</p>`},
+  {q:"How do I give a urine culture sample?", a:`<p>First morning urine is best. Use the sterile container we provide: void the first stream into the toilet, collect the next 10&ndash;20ml, seal it, and bring it in. If there's a delay, refrigerate at 4&ndash;8&deg;C, don't freeze.</p>`},
+  {q:"How do I prepare for a 24-hour urine test?", a:`<p>Get the special container from us first. Day 1: void your first urine into the toilet (not the container), then collect every drop after that. Day 2: void straight into the container on waking to finish. Keep it capped, labelled, and refrigerated at 2&ndash;8&deg;C throughout.</p>`},
+  {q:"How do I prepare for a semen examination?", a:`<p>Avoid ejaculation for at least 2 days (ideally no more than 5&ndash;7) before the test. Stay relaxed, and provide the full sample in the container we give you.</p>`}
 ];
 function buildFAQItem(item){
   const el = document.createElement('div'); el.className = 'faq-item';
