@@ -259,13 +259,12 @@ export function HeroLanding(props: HeroLandingProps) {
       </header>
 
       <div className="relative isolate px-6 pt-4 pb-10 overflow-hidden sm:pb-0 sm:min-h-screen sm:flex sm:flex-col sm:justify-center">        
-        <div className="mx-auto max-w-4xl pt-[4.5rem] sm:pt-25">
+        <div className="mx-auto max-w-4xl pt-[5.5rem] sm:pt-25">
           {/* Announcement banner (shown on phones too, since that is where most visitors are) */}
           {announcementBanner && (
             <div className="mb-3 flex justify-center">
-              <div className="relative inline-flex items-center gap-2.5 rounded-full px-3.5 py-1 text-xs sm:px-4 sm:text-sm/6 text-muted-foreground ring-1 ring-border hover:ring-ring transition-all">
+              <div className="relative inline-flex items-center gap-1.5 rounded-full px-3.5 py-1 text-xs sm:px-4 sm:text-sm/6 text-muted-foreground ring-1 ring-border hover:ring-ring transition-all">
                 <span>{announcementBanner.text}</span>
-                <span aria-hidden="true" className="h-3 w-px bg-border" />
                 <a href={announcementBanner.linkHref} className="font-semibold text-primary hover:text-primary/80 transition-colors">
                   <span aria-hidden="true" className="absolute inset-0" />
                   {announcementBanner.linkText} <span aria-hidden="true">&rarr;</span>

@@ -238,9 +238,6 @@
     width: 18px;
     height: 18px;
   }
-  .h-3 {
-    height: calc(var(--spacing) * 3);
-  }
   .h-6 {
     height: calc(var(--spacing) * 6);
   }
@@ -264,9 +261,6 @@
   }
   .w-full {
     width: 100%;
-  }
-  .w-px {
-    width: 1px;
   }
   .w-screen {
     width: 100vw;
@@ -344,9 +338,6 @@
   }
   .gap-2 {
     gap: calc(var(--spacing) * 2);
-  }
-  .gap-2\.5 {
-    gap: calc(var(--spacing) * 2.5);
   }
   .gap-3 {
     gap: calc(var(--spacing) * 3);
@@ -428,9 +419,6 @@
     @supports (color: color-mix(in lab, red, red)) {
       background-color: color-mix(in oklab, var(--color-black) 10%, transparent);
     }
-  }
-  .bg-border {
-    background-color: var(--border);
   }
   .bg-card {
     background-color: var(--card);
@@ -516,8 +504,8 @@
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }
-  .pt-\[4\.5rem\] {
-    padding-top: 4.5rem;
+  .pt-\[5\.5rem\] {
+    padding-top: 5.5rem;
   }
   .pr-11 {
     padding-right: calc(var(--spacing) * 11);
