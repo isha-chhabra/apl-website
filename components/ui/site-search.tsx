@@ -199,7 +199,7 @@ export function SiteSearch() {
   let optionIndex = -1;
 
   return (
-    <div ref={wrap} className="relative mx-auto w-full max-w-md text-left sm:max-w-xl">
+    <div ref={wrap} className="relative mx-auto w-full max-w-md text-left sm:max-w-xl md:max-w-[46rem]">
       <div role="search" className="relative">
         <svg
           aria-hidden="true"
@@ -208,7 +208,7 @@ export function SiteSearch() {
           stroke="currentColor"
           strokeWidth="2"
           strokeLinecap="round"
-          className="pointer-events-none absolute left-4 top-1/2 size-[18px] -translate-y-1/2 text-muted-foreground"
+          className="pointer-events-none absolute left-4 top-1/2 size-[18px] -translate-y-1/2 text-muted-foreground md:left-[18px] md:size-5"
         >
           <circle cx="11" cy="11" r="7.5" />
           <path d="m20.5 20.5-4-4" />
@@ -231,14 +231,14 @@ export function SiteSearch() {
           onChange={(e) => setQ(e.target.value)}
           onFocus={() => setFocused(true)}
           onKeyDown={onKey}
-          className="h-12 w-full rounded-xl border border-border bg-white pl-11 pr-11 text-base text-foreground shadow-[0_10px_26px_-16px_rgba(74,59,51,0.45)] outline-none transition-[border-color,box-shadow] placeholder:text-transparent focus:border-ring focus:shadow-[0_0_0_3px_rgba(2,132,199,0.16),0_10px_26px_-16px_rgba(74,59,51,0.45)]"
+          className="h-12 w-full rounded-xl border border-border bg-white pl-11 pr-11 text-base md:h-14 md:pl-12 md:text-lg text-foreground shadow-[0_10px_26px_-16px_rgba(74,59,51,0.45)] outline-none transition-[border-color,box-shadow] placeholder:text-transparent focus:border-ring focus:shadow-[0_0_0_3px_rgba(2,132,199,0.16),0_10px_26px_-16px_rgba(74,59,51,0.45)]"
           placeholder="Search tests, packages, FAQs"
         />
 
         {!q && (
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute left-11 right-11 top-1/2 flex -translate-y-1/2 items-baseline gap-1.5 overflow-hidden whitespace-nowrap text-base text-muted-foreground"
+            className="pointer-events-none absolute left-11 right-11 top-1/2 flex -translate-y-1/2 items-baseline gap-1.5 overflow-hidden whitespace-nowrap text-base text-muted-foreground md:left-12 md:text-lg"
           >
             {focused ? (
               <>Search tests, packages, FAQs</>

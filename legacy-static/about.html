@@ -11,8 +11,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=light5") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
-<link rel="stylesheet" href="assets/offer.css?v=light5">
+<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=light7") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<link rel="stylesheet" href="assets/offer.css?v=light7">
 <style>
   .story-text p{color:var(--ink-soft);font-size:15px;margin-bottom:16px;}
   .story-text h3{font-size:18px;margin:24px 0 12px;}
@@ -32,11 +32,11 @@
     .milestone-box .num{font-size:22px;}
   }
 
-  .first-grid{display:grid;grid-template-columns:1fr;gap:10px;}
+  .first-grid{display:grid;grid-template-columns:1fr;gap:0 40px;}
   @media (min-width:640px){ .first-grid{grid-template-columns:1fr 1fr;} }
-  .first-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px;display:flex;gap:12px;align-items:flex-start;}
-  .first-card .fi{width:36px;height:36px;border-radius:8px;background:var(--copper-pale);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
-  .first-card .fi svg{width:18px;height:18px;color:var(--copper);}
+  .first-card{padding:14px 0;border-top:1px solid var(--line);display:flex;gap:14px;align-items:flex-start;}
+  .first-card .fi{width:22px;display:flex;justify-content:center;flex-shrink:0;padding-top:2px;}
+  .first-card .fi svg{width:20px;height:20px;color:var(--copper);}
   .first-card p{font-size:13.5px;color:var(--ink);line-height:1.5;}
 
   /* ---------- What we offer: the orbit is a React island (assets/offer.js) ---------- */
@@ -102,11 +102,11 @@
     .dr-chip{left:16px;bottom:16px;font-size:12.5px;}
   }
 
-  .vm-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .vm-grid{display:grid;grid-template-columns:1fr;gap:6px 56px;}
   @media (min-width:768px){ .vm-grid{grid-template-columns:1fr 1fr;} }
-  .vm-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:24px;}
-  .vm-card .vm-icon{width:42px;height:42px;border-radius:10px;background:var(--copper-pale);display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
-  .vm-card .vm-icon svg{width:21px;height:21px;color:var(--copper);}
+  .vm-card{padding:18px 0 4px;border-top:1px solid var(--line);}
+  .vm-card .vm-icon{margin-bottom:10px;}
+  .vm-card .vm-icon svg{width:24px;height:24px;color:var(--copper);}
   .vm-card h3{font-size:18px;margin-bottom:10px;}
   .vm-card p{font-size:14px;color:var(--ink-soft);}
 </style>
@@ -345,6 +345,6 @@ revealEls.forEach(el=>io.observe(el));
   }), {threshold:.6}).observe(strip);
 })();
 </script>
-<script src="assets/offer.js?v=light5" defer></script>
+<script src="assets/offer.js?v=light7" defer></script>
 </body>
 </html>

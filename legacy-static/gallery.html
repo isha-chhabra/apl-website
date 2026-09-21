@@ -10,30 +10,29 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light5">
+<link rel="stylesheet" href="shared.css?v=light7">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
-  .gallery-tabs{display:flex;gap:8px;margin-bottom:20px;}
-  .gallery-tab{flex:1;background:var(--white);border:1px solid var(--line);border-radius:var(--radius-pill);padding:12px 14px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);min-height:46px;text-align:center;}
-  .gallery-tab.active{background:var(--copper);border-color:var(--copper);color:#fff;}
+  .gallery-tabs{display:flex;gap:26px;margin-bottom:20px;border-bottom:1px solid var(--line);}
+  .gallery-tab{flex:none;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;margin-bottom:-1px;padding:10px 2px;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink-soft);min-height:46px;text-align:center;}
+  .gallery-tab.active{background:none;color:var(--copper);border-bottom-color:var(--copper);}
   .gallery-group{display:none;}
   .gallery-group.active{display:block;}
   .gallery-note{
-    background:var(--copper-pale);border:1px solid var(--copper-light);border-radius:var(--radius-sm);
-    padding:14px 16px;margin-bottom:20px;font-size:13px;color:var(--copper-light);display:flex;gap:10px;align-items:flex-start;
+    padding:0;margin-bottom:20px;font-size:13px;color:var(--ink-soft);display:flex;gap:10px;align-items:flex-start;
   }
   .gallery-note svg{width:18px;height:18px;flex-shrink:0;margin-top:1px;}
   .instrument-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   @media (min-width:640px){ .instrument-grid{grid-template-columns:repeat(3,1fr);} }
   @media (min-width:980px){ .instrument-grid{grid-template-columns:repeat(4,1fr);} }
-  .instrument-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);overflow:hidden;}
-  .instrument-card .img{aspect-ratio:4/3;background:var(--cream-dim);display:flex;align-items:center;justify-content:center;}
+  .instrument-card{overflow:hidden;}
+  .instrument-card .img{aspect-ratio:4/3;border-radius:var(--radius-sm);background:var(--cream-dim);display:flex;align-items:center;justify-content:center;}
   .instrument-card .img svg{width:34px;height:34px;color:var(--copper-light);}
-  .instrument-card .label{padding:10px 11px;}
+  .instrument-card .label{padding:8px 2px 0;}
   .instrument-card .label p{font-size:11.5px;font-weight:600;color:var(--navy);line-height:1.35;}
   .lab-photo-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
   @media (min-width:640px){ .lab-photo-grid{grid-template-columns:repeat(3,1fr);} }
-  .lab-photo{aspect-ratio:1;background:var(--cream-dim);border-radius:var(--radius-sm);border:1px solid var(--line);overflow:hidden;}
+  .lab-photo{aspect-ratio:1;background:var(--cream-dim);border-radius:var(--radius-sm);overflow:hidden;}
   .lab-photo img{width:100%;height:100%;object-fit:cover;}
 </style>
 </head>

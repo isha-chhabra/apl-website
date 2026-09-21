@@ -10,15 +10,16 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light5">
+<link rel="stylesheet" href="shared.css?v=light7">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
-  .contact-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);padding:18px;display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;}
-  .contact-card .ci{width:40px;height:40px;border-radius:9px;background:var(--copper-pale);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+  .contact-card{padding:16px 0;border-top:1px solid var(--line);display:flex;gap:14px;align-items:flex-start;}
+  .contact-card .ci{width:22px;flex-shrink:0;display:flex;justify-content:center;padding-top:2px;}
   .contact-card .ci svg{width:20px;height:20px;color:var(--copper);}
   .contact-card h4{font-size:14.5px;margin-bottom:3px;}
   .contact-card p, .contact-card a{font-size:14px;color:var(--ink-soft);}
-  .helpline-box{color:var(--noir-ink);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin-top:8px;}
+  .helpline-box{color:var(--noir-ink);background:none;border-top:1px solid var(--line);border-radius:0;padding:18px 0 0;margin-top:0;overflow:visible;}
+  .helpline-box::before,.helpline-box::after{display:none;}
   .helpline-box .eyebrow{color:var(--copper);}
   .helpline-box h3{color:var(--navy);font-size:17px;margin-bottom:14px;}
   .helpline-numbers{display:flex;flex-direction:column;gap:10px;margin-bottom:16px;}
@@ -26,10 +27,10 @@
   .helpline-numbers svg{width:18px;height:18px;color:var(--copper);}
   .helpline-box .hours{font-size:13px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px;}
   .locations-section{background:var(--cream-dim);}
-  .locations-grid{display:grid;grid-template-columns:1fr;gap:14px;}
+  .locations-grid{display:grid;grid-template-columns:1fr;gap:0 48px;}
   @media (min-width:640px){ .locations-grid{grid-template-columns:1fr 1fr;} }
-  .loc-card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:18px;}
-  .loc-card .tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--copper-light);background:var(--copper-pale);padding:3px 9px;border-radius:5px;display:inline-block;margin-bottom:8px;}
+  .loc-card{padding:16px 0;border-top:1px solid var(--line);}
+  .loc-card .tag{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--copper);display:block;margin-bottom:4px;}
   .loc-card h4{font-size:16px;margin-bottom:6px;}
   .loc-card p{font-size:13.5px;color:var(--ink-soft);line-height:1.5;}
 </style>

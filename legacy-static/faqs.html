@@ -10,21 +10,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light5">
+<link rel="stylesheet" href="shared.css?v=light7">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
-  .faq-tabs{display:flex;gap:8px;margin-bottom:24px;}
-  .faq-tab{flex:1;background:var(--white);border:1px solid var(--line);border-radius:var(--radius-pill);padding:12px 14px;font-size:13.5px;font-weight:600;cursor:pointer;color:var(--ink);min-height:46px;text-align:center;}
-  .faq-tab.active{background:var(--copper);border-color:var(--copper);color:#fff;}
+  .faq-tabs{display:flex;gap:26px;margin-bottom:6px;border-bottom:1px solid var(--line);}
+  .faq-tab{flex:none;background:none;border:0;border-bottom:2px solid transparent;border-radius:0;margin-bottom:-1px;padding:10px 2px;font-size:14px;font-weight:600;cursor:pointer;color:var(--ink-soft);min-height:46px;text-align:center;}
+  .faq-tab.active{background:none;color:var(--copper);border-bottom-color:var(--copper);}
   .faq-group{display:none;}
   .faq-group.active{display:block;}
-  .faq-item{background:var(--white);border:1px solid var(--line);border-radius:var(--radius-sm);margin-bottom:10px;overflow:hidden;}
-  .faq-q{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px;cursor:pointer;font-size:15px;font-weight:600;color:var(--navy);min-height:var(--tap-min);}
+  .faq-item{border-bottom:1px solid var(--line);overflow:hidden;}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 0;cursor:pointer;font-size:15px;font-weight:600;color:var(--navy);min-height:var(--tap-min);}
   .faq-q .chevron{width:18px;height:18px;color:var(--ink-soft);transition:transform .25s ease;flex-shrink:0;}
   .faq-item.open .chevron{transform:rotate(180deg);}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;}
   .faq-item.open .faq-a{max-height:900px;}
-  .faq-a-inner{padding:0 16px 18px;font-size:14px;color:var(--ink-soft);border-top:1px solid var(--line);padding-top:14px;line-height:1.6;}
+  .faq-a-inner{padding:0 0 18px;font-size:14px;color:var(--ink-soft);line-height:1.6;}
   .faq-a-inner p{margin-bottom:10px;}
   .faq-a-inner ol, .faq-a-inner ul{margin:10px 0 10px 18px;}
   .faq-a-inner li{margin-bottom:6px;}

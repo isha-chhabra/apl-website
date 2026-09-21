@@ -212,8 +212,8 @@ section{padding:44px 0;}
 /* ---------- Closing call-to-action: one quiet card, the same on every page ---------- */
 .cta-band{background:none;padding:8px 0 40px;}
 .cta-card{
-  position:relative;isolation:isolate;overflow:hidden;display:grid;gap:14px;padding:20px 18px;border:1px solid var(--line);border-radius:var(--radius);
-  background:linear-gradient(135deg,#FFFDF9,#F8EEDC);box-shadow:0 14px 30px -24px rgba(74,59,51,.35);
+  position:relative;isolation:isolate;overflow:hidden;display:grid;gap:14px;padding:20px 18px;border-radius:var(--radius);
+  background:linear-gradient(135deg,#FFFDF9,#F7EBD6);
 }
 .cta-card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 120% at 0% 0%,rgba(217,119,6,.13),transparent 70%);}
 .cta-band h2{font-size:clamp(17px,4.4vw,21px);line-height:1.25;margin-bottom:4px;}
