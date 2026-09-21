@@ -1,4 +1,4 @@
-// Builds the React islands used by the static site into legacy-static/assets/.
+// Builds the React islands used by the static site into ../assets/ (the website folder, one level up).
 //   stacking-card -> csr-stack.{js,css}   (csr.html)
 //   hero-1        -> hero.{js,css}        (index.html)
 //   radial-orbital-timeline -> offer.{js,css} (about.html)
@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const out = path.join(root, "legacy-static/assets");
+const out = path.resolve(root, "..", "assets");
 const lenis = await readFile(path.join(root, "node_modules/lenis/dist/lenis.css"), "utf8");
 
 const islands = [

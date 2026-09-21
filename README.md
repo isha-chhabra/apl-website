@@ -1,54 +1,29 @@
-# Aakash Pathology Laboratory, Ankleshwar
+# Aakash Pathology Laboratory website
 
-Website for Aakash Pathology Laboratory. Built phone-first (about 99% of visitors are on a phone), light only: warm cream and white with a burnt-orange accent and tiny sky-blue hints.
+This folder **is** the website. Every file you see here is published as it is. There is nothing to install and nothing to build.
 
-**The site is the plain static folder [`legacy-static/`](legacy-static).** It needs no build step and no server: HTML, one stylesheet, and three small pre-built React bundles. Deploy that folder as it is.
+## What do you need to do?
 
-## Deploy (pick one)
-
-| Host | Steps |
+| I want to... | Read this |
 |---|---|
-| **Vercel** | Import the repo. `vercel.json` already sets the output folder. Click Deploy. |
-| **Netlify** | Import the repo. `netlify.toml` already sets the publish folder. Click Deploy. |
-| **GitHub Pages** | Copy `deploy/github-pages.yml` to `.github/workflows/pages.yml` (GitHub blocks some tokens from adding workflow files, so it is not pre-installed). Then Settings, Pages, Source: **GitHub Actions**, and push to `main`. |
-| **Any static host** | Upload the contents of `legacy-static/` (Cloudflare Pages, S3, Firebase Hosting, an nginx folder). |
+| Put our real photos on the website | [guides/1-ADD-PHOTOS.md](guides/1-ADD-PHOTOS.md) |
+| Make the website open on our own domain (replace the old WordPress site) | [guides/2-PUT-THE-WEBSITE-ON-OUR-DOMAIN.md](guides/2-PUT-THE-WEBSITE-ON-OUR-DOMAIN.md) |
 
-To look at it locally: `npx serve legacy-static` (or `python3 -m http.server -d legacy-static`).
+Do them in that order: photos first, then the domain.
 
-## What is in `legacy-static/`
+## Please only touch these
 
-| File | What |
+- The photos folder: [`assets/photos`](assets/photos)
+- The doctor's photo: [`assets/dr-chhabra.jpg`](assets/dr-chhabra.jpg)
+
+Do not edit or delete any other file. If something looks wrong, do not try to fix it. Send the designer the page link and a screenshot.
+
+## What is in this folder (for information only)
+
+| Name | What it is |
 |---|---|
-| `index.html`, `about.html`, `packages.html`, `faqs.html`, `gallery.html`, `csr.html`, `contact.html` | The pages |
-| `shared.css` | Design tokens and shared styles (dark theme, header, footer, bands) |
-| `packages-data.js` | Every package, price and test (from the printed chart). Edit prices and tests here |
-| `search-data.js` | What the home-page search looks through besides tests and packages (pages, facts, FAQs). Generated: run `npm run build:search` after editing FAQs or facts in `scripts/build-search-index.mjs` |
-| `assets/` | Logo, doctor photo, placeholder photos, and the built React bundles (`hero`, `offer`, `csr-stack`) |
-
-## Common edits
-
-- **Phone numbers, hours, addresses:** search the HTML files for the number or address and change it (they repeat in the header, footer and bottom bar).
-- **Prices and tests:** `legacy-static/packages-data.js`.
-- **Photos:** replace files in `legacy-static/assets/photos/` (gallery and CSR use them) and `legacy-static/assets/dr-chhabra.jpg`.
-- **Cache busting:** stylesheets and scripts are linked with `?v=darkNN`; bump it in the HTML files after a change so phones fetch the new file.
-
-## Rebuilding the React bundles (only if you edit them)
-
-Three pieces are React "islands" whose source lives outside `legacy-static/`:
-
-| Bundle | Page | Source |
-|---|---|---|
-| `assets/hero.{js,css}` | Home hero, site search and mobile menu | `components/ui/hero-1.tsx`, `components/ui/site-search.tsx`, `scripts/hero-island-*` |
-| `assets/offer.{js,css}` | About page radial "What We Offer" dial | `components/ui/radial-orbital-timeline.tsx`, `lib/data/offer.ts`, `scripts/offer-island-*` |
-| `assets/csr-stack.{js,css}` | CSR stacking cards | `components/ui/stacking-card.tsx`, `lib/data/csr.ts`, `scripts/csr-island-*` |
-
-```bash
-npm install
-npm run build:csr   # rebuilds all three into legacy-static/assets/
-```
-
-The built files are committed, so deploying never needs this.
-
-## Repo notes
-
-`app/`, `docs/` and the `next`/`shadcn` parts of `package.json` are an earlier Next.js redesign that was not used. They are kept for reference and are not deployed.
+| `index.html`, `about.html`, `packages.html`, `faqs.html`, `gallery.html`, `csr.html`, `contact.html` | The seven pages of the website |
+| `shared.css`, `packages-data.js`, `search-data.js` | Colours and layout, package prices, and what the search box looks through |
+| `assets` | Logo, doctor photo, all other photos, and the small programs that make the home page and the animations work |
+| `guides` | The step-by-step instructions for this project |
+| `dev` | The designer's workshop. Never needed to publish the website |

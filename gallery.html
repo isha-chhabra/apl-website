@@ -26,7 +26,8 @@
   @media (min-width:640px){ .instrument-grid{grid-template-columns:repeat(3,1fr);} }
   @media (min-width:980px){ .instrument-grid{grid-template-columns:repeat(4,1fr);} }
   .instrument-card{overflow:hidden;}
-  .instrument-card .img{aspect-ratio:4/3;border-radius:var(--radius-sm);background:var(--cream-dim);display:flex;align-items:center;justify-content:center;}
+  .instrument-card .img{aspect-ratio:4/3;border-radius:var(--radius-sm);background:var(--cream-dim);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .instrument-card .img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
   .instrument-card .img svg{width:34px;height:34px;color:var(--copper-light);}
   .instrument-card .label{padding:8px 2px 0;}
   .instrument-card .label p{font-size:11.5px;font-weight:600;color:var(--navy);line-height:1.35;}
@@ -130,26 +131,20 @@ const instruments = [
   'Mispa Nanoplus – Fully Automatic Biochemistry Analyser'
 ];
 const instGrid = document.getElementById('instrumentGrid');
-instruments.forEach(name=>{
+instruments.forEach((name,n)=>{
+  const file = 'assets/photos/instrument-' + String(n+1).padStart(2,'0') + '.jpg'; // e.g. instrument-01.jpg is the first name above
   const card = document.createElement('div');
   card.className = 'instrument-card';
-  card.innerHTML = `<div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg></div><div class="label"><p>${name}</p></div>`;
+  card.innerHTML = `<div class="img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><img src="${file}" alt="${name}" loading="lazy" onerror="this.remove()"></div><div class="label"><p>${name}</p></div>`;
   instGrid.appendChild(card);
 });
 
 const facGrid = document.getElementById('facilityGrid');
-const facilityPhotos = [
-  'assets/photos/facility-2.jpg',
-  'assets/photos/facility-4.jpg',
-  'assets/photos/facility-5.jpg',
-  'assets/photos/facility-6.jpg',
-  'assets/photos/facility-7.jpg',
-  'assets/photos/facility-8.jpg'
-];
-for(let i=0;i<facilityPhotos.length;i++){
+// Photos are picked up by file name: assets/photos/facility-01.jpg, facility-02.jpg ... up to facility-12.jpg. A number with no file is skipped.
+for(let n=1;n<=12;n++){
   const div = document.createElement('div');
   div.className = 'lab-photo';
-  div.innerHTML = `<img src="${facilityPhotos[i]}" alt="Aakash Pathology Laboratory facility" loading="lazy">`;
+  div.innerHTML = `<img src="assets/photos/facility-${String(n).padStart(2,'0')}.jpg" alt="Aakash Pathology Laboratory facility" loading="lazy" onerror="this.parentNode.remove()">`;
   facGrid.appendChild(div);
 }
 

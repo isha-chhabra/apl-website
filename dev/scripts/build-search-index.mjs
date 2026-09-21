@@ -1,4 +1,4 @@
-// Builds legacy-static/search-data.js: the pages, sections, FAQs and facts the home-page search looks through.
+// Builds ../search-data.js (the website folder, one level up): the pages, sections, FAQs and facts the home-page search looks through.
 // Tests and packages are not listed here: the search reads them straight from packages-data.js.
 // Run after editing the FAQs:  npm run build:search
 import { readFile, writeFile } from "node:fs/promises";
@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 import path from "node:path";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const site = path.join(root, "legacy-static");
+const site = path.resolve(root, "..");
 
 const plain = (html) => html.replace(/<[^>]+>/g, " ").replace(/&ndash;/g, "-").replace(/&amp;/g, "&").replace(/&deg;/g, "°").replace(/&[a-z]+;/g, " ").replace(/\s+/g, " ").trim();
 const clip = (s, n) => (s.length > n ? s.slice(0, n - 1).replace(/\s+\S*$/, "") + "…" : s);
