@@ -31,6 +31,8 @@
   --line:          #E4D9BC;
   --white:         #F8F4EE;                 /* card */
   --raised:        #FFFFFF;                 /* a card lifted off a card */
+  --panel:         #F6EFE2;                 /* one soft panel that holds a group of peers */
+  --rail:          #D97706;                 /* the copper rail beside a passage of text */
 
   --success:       #15803D;
   --success-pale:  rgba(21,128,61,.10);
@@ -209,11 +211,18 @@ section{padding:44px 0;}
 .section-head p{color:var(--ink-soft);font-size:15px;margin-top:12px;}
 .center{text-align:center;margin-left:auto;margin-right:auto;}
 
+/* ---------- One card language, three moves ----------
+   List  : reference rows (FAQs, locations, records) sit between thin lines, no fill.
+   Panel : a few peers that belong together (Why Choose Us, Firsts, contact ways) share ONE soft panel, split by thin lines.
+   Rail  : a passage that speaks (vision, mission, a pull-line) gets a copper rail on its left, no box. */
+.panel{background:var(--panel);border-radius:12px;padding:2px 16px;}
+.rail{border-left:2px solid var(--rail);padding:2px 0 2px 16px;}
+
 /* ---------- Closing call-to-action: one quiet card, the same on every page ---------- */
 .cta-band{background:none;padding:8px 0 40px;}
 .cta-card{
   position:relative;isolation:isolate;overflow:hidden;display:grid;gap:14px;padding:20px 18px;border-radius:var(--radius);
-  background:linear-gradient(135deg,#FFFDF9,#F7EBD6);
+  background:var(--panel);
 }
 .cta-card::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(60% 120% at 0% 0%,rgba(217,119,6,.13),transparent 70%);}
 .cta-band h2{font-size:clamp(17px,4.4vw,21px);line-height:1.25;margin-bottom:4px;}
