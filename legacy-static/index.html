@@ -10,8 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=light9") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
-<link rel="stylesheet" href="assets/hero.css?v=light9">
+<style>@layer site, theme, base, components, utilities; @import url("shared.css?v=light10") layer(site);</style><style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
+<link rel="stylesheet" href="assets/hero.css?v=light10">
 <style>
   /* ---------- Home: the hero brings its own nav; the site nav slides in once you scroll past it ---------- */
   body.home > header{position:fixed;left:0;right:0;top:0;transform:translateY(-101%);transition:transform .35s cubic-bezier(.32,.72,0,1);}
@@ -92,14 +92,12 @@
   .jr-item.on .jr-node{background:#B45309;border-color:#B45309;transform:scale(1.25);box-shadow:0 0 0 5px rgba(180,83,9,.18),0 0 18px rgba(217,119,6,.5);}
   .jr-year b{display:block;font-size:clamp(40px,11vw,56px);font-weight:700;letter-spacing:-.05em;line-height:1;
     background:linear-gradient(180deg,#7C3A0C 5%,#B45309 60%,#D97706);-webkit-background-clip:text;background-clip:text;color:transparent;transition:opacity .7s ease,transform .7s cubic-bezier(.16,1,.3,1);}
-  .jr-year small{display:block;margin-top:8px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:var(--copper);}
+  .jr-year small{display:flex;align-items:center;gap:8px;margin-top:9px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--success);}
+  .jr-year small::before{content:"";width:8px;height:2px;border-radius:2px;background:currentColor;transition:width .6s cubic-bezier(.16,1,.3,1);}
+  .jr-item.on .jr-year small::before{width:20px;}
   .jr-card{margin-top:8px;max-width:54ch;transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1),filter .7s ease;}
-  .jr-card .badge{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--success);margin-bottom:6px;}
-  .jr-card h4{color:var(--navy);font-size:clamp(17px,4.2vw,20px);margin-bottom:6px;line-height:1.25;}
-  .jr-card p{color:var(--ink-soft);font-size:14px;line-height:1.6;}
-  .jr-card .impact{display:flex;gap:10px;align-items:flex-start;margin-top:10px;font-size:13px;font-weight:600;color:var(--success);}
-  .jr-card .impact svg{width:16px;height:16px;flex-shrink:0;margin-top:2px;}
-  .jr-card .badge svg{display:none;}
+  .jr-card h4{color:var(--navy);font-size:clamp(17px,4.2vw,20px);font-weight:600;margin-bottom:5px;line-height:1.3;}
+  .jr-card p{color:var(--ink-soft);font-size:14.5px;line-height:1.6;}
   /* hidden-until-reached only once the script is running, so nothing is lost without it */
   .jr.armed .jr-item:not(.on) .jr-card{opacity:0;transform:translateY(34px) scale(.97);filter:blur(6px);}
   .jr.armed .jr-item:not(.on) .jr-year b{opacity:.28;transform:translateX(-8px);}
@@ -109,6 +107,7 @@
     .jr-item{display:grid;grid-template-columns:1fr 1fr;column-gap:88px;align-items:start;padding-bottom:56px;}
     .jr-node{left:50%;translate:-50% 0;top:22px;}
     .jr-item:nth-child(odd) .jr-year{grid-column:1;grid-row:1;text-align:right;}
+    .jr-item:nth-child(odd) .jr-year small{justify-content:flex-end;}
     .jr-item:nth-child(odd) .jr-card{grid-column:2;grid-row:1;margin-top:0;}
     .jr-item:nth-child(even) .jr-year{grid-column:2;grid-row:1;}
     .jr-item:nth-child(even) .jr-card{grid-column:1;grid-row:1;margin-top:0;}
@@ -166,11 +165,9 @@
     .jr-year small{font-size:10.5px;margin-top:5px;}
     .jr-item{padding-bottom:28px;}
     .jr-card{margin-top:6px;}
-    .jr-card .badge{font-size:10px;margin-bottom:5px;}
-    .jr-card h4{font-size:clamp(15px,4vw,17px);margin-bottom:6px;}
+      .jr-card h4{font-size:clamp(15px,4vw,17px);margin-bottom:6px;}
     .jr-card p{font-size:13px;line-height:1.55;}
-    .jr-card .impact{font-size:12px;margin-top:8px;}
-    .doctor-card .role{font-size:12.5px;}
+      .doctor-card .role{font-size:12.5px;}
     .doctor-card p{font-size:13.5px;}
   }
 </style>
@@ -422,12 +419,12 @@ document.querySelectorAll('.metric').forEach(m => metricIO.observe(m));
 
 // Journey
 const timelineData = [
-  {year:'2005', label:'Founded', badge:'The Beginning', title:'Aakash Pathology Laboratory Opens Its Doors', text:'One of the first dedicated pathology labs in Ankleshwar, built on a simple promise: honest, accurate testing the city could rely on.', impact:'Started what is now 21+ years of continuous service'},
-  {year:'2009', label:'Industrial Health', badge:'Expertise Expands', title:'Distinction in Industrial Health', text:'Dr. Chhabra completes a Certificate Course in Industrial Health from M.S. University, Vadodara, with distinction, adding occupational health testing for local factory workers to the lab\'s services.', impact:'Enabled workplace health screening for GIDC industries'},
-  {year:'2014', label:'New Diagnostics', badge:'A Regional First', title:'Specialised Testing Arrives in Ankleshwar', text:'Hormone testing, advanced cardiac markers, and nephelometry (used for kidney and rheumatoid conditions) become available locally for the first time, tests that previously meant a trip to Surat or Vadodara.', impact:'Patients no longer needed to travel for specialised tests'},
-  {year:'2020', label:'COVID-19', badge:'Rising to the Moment', title:'RT-PCR Testing Scales Up', text:'The lab rapidly expands testing capacity through the pandemic. Prices were never raised above the government-mandated cap, even as input costs rose worldwide.', impact:'Served the community without profiting from crisis'},
-  {year:'2021', label:'Hospital Management', badge:'Operational Excellence', title:'Government Certification in Hospital Management', text:'Dr. Chhabra completes a Government Certificate course from IDEMI Pune, strengthening lab operations, turnaround times, and patient experience across all locations.', impact:'Sharper systems behind every report you receive'},
-  {year:'2024', label:'1 Lakh Patients', badge:'A Milestone', title:'100,000+ Patients, 200,000+ Investigations', text:'Two decades of consistent, accurate care add up: over one lakh patients tested and two lakh individual investigations completed, across 4 locations in Ankleshwar.', impact:'The trust of an entire generation of local families'}
+  {year:'2005', label:'Founded', title:'The lab opens in Ankleshwar', text:'One of the first dedicated pathology labs in the city.'},
+  {year:'2009', label:'Industrial health', title:'Dr. Chhabra earns a certificate in Industrial Health', text:'From M.S. University, Vadodara, with distinction. The lab starts health checks for factory workers.'},
+  {year:'2014', label:'New tests', title:'Hormone and cardiac tests arrive', text:'Along with nephelometry for kidney and rheumatoid conditions. Until then, these meant a trip to Surat or Vadodara.'},
+  {year:'2020', label:'COVID-19', title:'RT-PCR testing scales up', text:'Prices stayed within the government cap throughout.'},
+  {year:'2021', label:'Hospital management', title:'Dr. Chhabra completes a government course in Hospital Management', text:'Certificate course at IDEMI, Pune.'},
+  {year:'2024', label:'One lakh patients', title:'1,00,000+ patients tested', text:'Plus 2,00,000+ investigations, across four locations in Ankleshwar.'}
 ];
 const jr = document.getElementById('jr'), jrList = document.getElementById('jrList'), jrNow = document.getElementById('jrNow'), jrOd = document.getElementById('jrOd');
 jrList.innerHTML = timelineData.map(d => `
@@ -435,10 +432,8 @@ jrList.innerHTML = timelineData.map(d => `
     <span class="jr-node"></span>
     <div class="jr-year"><b>${d.year}</b><small>${d.label}</small></div>
     <div class="jr-card">
-      <span class="badge"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><path d="M12 2 2 7l10 5 10-5-10-5Zm0 10L2 17l10 5 10-5"/></svg>${d.badge}</span>
       <h4>${d.title}</h4>
       <p>${d.text}</p>
-      <div class="impact"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></svg>${d.impact}</div>
     </div>
   </article>`).join('');
 const jrItems = [...jrList.querySelectorAll('.jr-item')];
@@ -465,8 +460,8 @@ else { jr.classList.add('armed'); addEventListener('scroll', ()=>{ if(!jrTick){ 
   tick(); addEventListener('scroll', tick, {passive:true}); addEventListener('resize', tick);
 })();
 </script>
-<script src="packages-data.js?v=light9" defer></script>
-<script src="search-data.js?v=light9" defer></script>
-<script src="assets/hero.js?v=light9" defer></script>
+<script src="packages-data.js?v=light10" defer></script>
+<script src="search-data.js?v=light10" defer></script>
+<script src="assets/hero.js?v=light10" defer></script>
 </body>
 </html>
