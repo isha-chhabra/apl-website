@@ -7,7 +7,7 @@ const heroProps: HeroLandingProps = {
   logo: { src: "assets/logo.png", alt: "Aakash Pathology Laboratory", companyName: "Aakash Pathology Laboratory" },
   navigation: [
     { name: "About", href: "about.html" },
-    { name: "Tests & Packages", href: "packages.html" },
+    { name: "Packages & Profiles", href: "packages.html" },
     { name: "FAQs", href: "faqs.html" },
     { name: "Gallery", href: "gallery.html" },
     { name: "CSR", href: "csr.html" },

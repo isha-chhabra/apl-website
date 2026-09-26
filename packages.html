@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light25">
+<link rel="stylesheet" href="shared.css?v=light26">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .page-header{padding:22px 0 18px;}
@@ -303,10 +303,10 @@
 
   /* a way back up: every opened list ends with a button that closes it and returns to its row */
   .prow,.grp{scroll-margin-top:calc(var(--hh,73px) + 12px);}
-  .tests-hide,.p-hide{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;padding:12px 16px;background:none;border:0;border-top:1px solid var(--line);border-radius:0;font-size:14.5px;font-weight:700;color:var(--copper);}
+  .tests-hide,.p-hide{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:48px;padding:10px 16px;background:none;border:0;border-top:1px solid var(--line);border-radius:0;font-size:13.5px;font-weight:500;color:var(--ink-soft);}
   .tests-hide svg,.p-hide svg{width:16px;height:16px;}
-  .p-hide{margin-top:20px;border:1.5px solid #D9C9A6;border-radius:10px;background:#fff;color:var(--copper-deep);}
-  @media (hover:hover){ .tests-hide:hover{background:rgba(180,83,9,.06);} .p-hide:hover{background:#FFFAF2;} }
+  .p-hide{margin-top:18px;}
+  @media (hover:hover){ .tests-hide:hover{background:rgba(180,83,9,.06);} .p-hide:hover{background:rgba(74,59,51,.05);color:var(--navy);} }
 
   /* pulse a column when arriving from a link */
   .tbl[data-hl="0"] .c0,.tbl[data-hl="1"] .c1,.tbl[data-hl="2"] .c2,.tbl[data-hl="3"] .c3,.tbl[data-hl="4"] .c4{background:rgba(180,83,9,.10);}
@@ -328,7 +328,7 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <a href="packages.html" class="active">Tests &amp; Packages</a>
+      <a href="packages.html" class="active">Packages &amp; Profiles</a>
       <a href="faqs.html">FAQs</a>
       <a href="gallery.html">Gallery</a>
       <a href="csr.html">CSR</a>
@@ -351,7 +351,7 @@
   </div>
   <a href="index.html">Home</a>
   <a href="about.html">About Us</a>
-  <a href="packages.html" class="active">Tests &amp; Packages</a>
+  <a href="packages.html" class="active">Packages &amp; Profiles</a>
   <a href="faqs.html">FAQs</a>
   <a href="gallery.html">Gallery</a>
   <a href="csr.html">CSR Activities</a>
@@ -364,7 +364,7 @@
 
 <div class="page-header">
   <div class="wrap">
-    <div class="breadcrumb"><a href="index.html">Home</a> / Tests &amp; Packages</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> / Packages &amp; Profiles</div>
     <h1>Packages &amp; Profiles</h1>
     <p>A healthier you. A brighter tomorrow.</p>
   </div>
@@ -444,7 +444,7 @@
       <span class="fl-sub"><span class="fl-full">Station Road, Ankleshwar &middot; &copy; 2026</span><span class="fl-short">&copy; 2026<br>Ankleshwar</span></span>
     </div>
     <nav class="fl-links" aria-label="Footer">
-      <a href="about.html">About Us</a><a href="packages.html">Tests &amp; Packages</a><a href="faqs.html">FAQs</a><a href="csr.html">CSR</a><a href="contact.html">Contact</a>
+      <a href="about.html">About Us</a><a href="packages.html">Packages &amp; Profiles</a><a href="faqs.html">FAQs</a><a href="csr.html">CSR</a><a href="contact.html">Contact</a>
     </nav>
     <div class="fl-contact">
       <a class="fl-tel" href="tel:+916353315640">+91 63533 15640</a>
@@ -459,8 +459,8 @@
   <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
   <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
 </nav>
-<script src="packages-data.js?v=light25"></script>
-<script src="profiles-data.js?v=light25"></script>
+<script src="packages-data.js?v=light26"></script>
+<script src="profiles-data.js?v=light26"></script>
 <script>
 const P = APL_PACKAGES, G = APL_GROUPS;
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');

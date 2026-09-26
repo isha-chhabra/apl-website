@@ -69,7 +69,7 @@ function buildIndex(): Entry[] {
     const names = p.sections.flatMap((s) => s.tests.map((t) => (typeof t === "string" ? t : t.n + " " + (t.sub ?? []).join(" "))));
     out.push({
       title: p.name,
-      sub: `${names.length} tests · ${p.offer != null ? inr(p.offer) : "from " + inr(p.from ?? 0)}`,
+      sub: `Profile · ${names.length} tests · ${p.offer != null ? inr(p.offer) : "from " + inr(p.from ?? 0)}`,
       href: `packages.html#profile-${p.id}`,
       section: "Profiles",
       hay: `${p.name} profile ${p.keywords ?? ""}`.toLowerCase(),

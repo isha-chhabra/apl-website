@@ -20,7 +20,7 @@ const faqs = [...grab("popularFAQs"), ...grab("generalFAQs")].map(({ q, a }) => 
 
 // Pages, sections and facts. t = title, s = the line shown under it, k = extra words people might type.
 const items = [
-  { kind: "page", t: "Tests & Packages", s: "Five check-up packages and 15 health profiles", u: "packages.html", k: "price cost checkup health check preventive full body" },
+  { kind: "page", t: "Packages & Profiles", s: "Five check-up packages and 15 health profiles", u: "packages.html", k: "price cost checkup health check preventive full body" },
   { kind: "page", t: "Health Profiles", s: "Focused test sets: diabetes, heart, fever, allergy and more", u: "packages.html#profiles", k: "profile profiles diabetes cardiac fever allergy anemia hair loss infertility marriage kidney stone joint pain" },
   { kind: "page", t: "About Us", s: "Our story since 2005, milestones and pathologist", u: "about.html", k: "history founded lab team" },
   { kind: "page", t: "FAQs", s: "Timings, reports, fasting and test preparation", u: "faqs.html", k: "questions help" },
