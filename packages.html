@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light21">
+<link rel="stylesheet" href="shared.css?v=light22">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .page-header{padding:22px 0 18px;}
@@ -224,7 +224,7 @@
   .p-head{display:flex;justify-content:space-between;padding:11px 14px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line);background:rgba(255,253,249,.94);}
   .p-grp{padding:9px 14px;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);background:rgba(228,192,144,.2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
   .p-head + #pList .p-grp:first-child{border-top:0;}
-  .prow{border-bottom:1px solid var(--line);}
+  .prow{border-bottom:1px solid var(--line);transition:background-color .3s ease;}
   .prow:last-child{border-bottom:0;}
   .prow-btn{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;width:100%;min-height:66px;padding:13px 14px;background:none;border:0;border-radius:0;text-align:left;font:inherit;color:inherit;}
   .prow-btn:focus-visible{outline:2px solid var(--blue);outline-offset:-2px;}
@@ -236,48 +236,66 @@
   .p-price s{font-size:12px;color:var(--ink-soft);}
   .p-price em{display:block;font-style:normal;font-size:11px;color:var(--ink-soft);}
   .prow.open .chev{transform:rotate(90deg);}
-  .prow.open{background:rgba(241,233,218,.35);}
-  .p-detail{padding:2px 14px 20px 34px;border-top:1px dashed #D9C9A6;animation:down .3s cubic-bezier(.32,.72,0,1);}
-  .p-tag{margin:14px 0 0;font-size:13.5px;color:var(--ink-soft);}
-  .p-req{display:flex;gap:8px;align-items:flex-start;margin:12px 0 0;font-size:13.5px;color:var(--ink);line-height:1.45;}
-  .p-req svg{width:17px;height:17px;flex-shrink:0;margin-top:1px;color:var(--copper);}
-  .p-req a{color:var(--copper);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
-  .p-save{margin:12px 0 0;font-size:13.5px;font-weight:600;color:var(--success);}
-  .p-sec{margin-top:18px;}
-  .p-sec h4{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);margin:0 0 2px;font-family:'Inter',sans-serif;}
-  .p-sec .note{margin:0 0 2px;font-size:12.5px;line-height:1.45;color:var(--ink-soft);}
+  .prow.open{background:rgba(241,233,218,.4);}
+
+  /* the open profile: a short summary, then one small block per group, each test a tick and a name */
+  .p-detail{padding:4px 14px 22px;border-top:1px dashed #D9C9A6;animation:down .32s cubic-bezier(.32,.72,0,1);}
+  .p-facts{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px;}
+  .p-fact{display:inline-flex;align-items:center;gap:6px;min-height:32px;padding:5px 11px;border-radius:999px;background:#fff;border:1px solid #E4D9BC;font-size:13px;font-weight:600;color:var(--navy);line-height:1;}
+  .p-fact svg{width:15px;height:15px;color:var(--copper);flex-shrink:0;}
+  a.p-fact{color:var(--copper-deep);border-color:rgba(180,83,9,.35);}
+  .p-fact.save{background:var(--success-pale);border-color:transparent;color:var(--success);}
+  .p-tag{margin:10px 0 0;font-size:14px;color:var(--ink-soft);}
+  .p-secs{display:block;}
+  .p-sec{margin-top:22px;animation:pin .38s cubic-bezier(.32,.72,0,1) both;animation-delay:calc(var(--s,0) * 60ms + 60ms);}
+  .p-sec h4{display:flex;align-items:baseline;gap:8px;margin:0 0 3px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--copper-deep);}
+  .p-sec h4 span{font-size:12px;font-weight:600;letter-spacing:0;color:var(--ink-soft);}
+  .p-sec .note{margin:0 0 8px;font-size:13.5px;line-height:1.45;color:var(--ink-soft);}
   .p-tests{list-style:none;margin:0;padding:0;}
-  .p-tests li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:6px;padding:9px 0;border-top:1px solid rgba(217,201,166,.6);font-size:14px;line-height:1.4;color:var(--navy);}
-  .p-tests li:first-child{border-top:0;}
-  .p-tests .n{padding-top:1px;font-size:12px;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
-  .p-tests small{display:block;margin-top:1px;font-size:12.5px;color:var(--ink-soft);}
-  .p-detail mark{background:rgba(217,119,6,.28);color:inherit;border-radius:3px;padding:0 1px;}
-  .p-intro{margin-top:16px;}
-  .p-intro b{display:block;font-size:14px;color:var(--navy);margin-bottom:4px;}
-  .p-intro p{margin:0 0 4px;font-size:13px;color:var(--ink-soft);}
-  .p-intro ol{margin:6px 0 0 18px;padding:0;font-size:13.5px;color:var(--ink);line-height:1.5;}
-  .p-opts{margin-top:16px;border-top:1px solid rgba(217,201,166,.8);}
-  .p-opt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(217,201,166,.8);font-size:14px;color:var(--navy);}
-  .p-opt small{display:block;font-size:12px;color:var(--copper);font-weight:600;}
+  .p-tests li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;padding:6px 0;font-size:15px;line-height:1.4;color:var(--navy);animation:pin .34s cubic-bezier(.32,.72,0,1) both;animation-delay:calc(var(--i,0) * 32ms + 120ms);border-radius:8px;}
+  .p-tests li svg{width:18px;height:18px;margin-top:2px;color:var(--copper);}
+  .p-tests small{display:block;margin-top:1px;font-size:13px;line-height:1.4;color:var(--ink-soft);}
+  .p-tests li.hl{background:rgba(217,119,6,.18);box-shadow:0 0 0 6px rgba(217,119,6,.18);animation:hlfade 3s ease forwards;}
+  .p-head-note{margin:18px 0 2px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--copper-deep);}
+  .p-opts{margin-top:20px;}
+  .p-opts h4{margin:0 0 4px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--copper-deep);}
+  .p-opt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px;align-items:baseline;padding:11px 0;border-top:1px solid rgba(217,201,166,.8);font-size:15px;line-height:1.35;color:var(--navy);}
+  .p-opt small{display:block;margin-top:1px;font-size:13px;color:var(--copper-deep);font-weight:600;}
   .p-opt .pr{text-align:right;white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums;}
   .p-opt .pr s{display:block;font-size:12px;font-weight:500;color:var(--ink-soft);}
-  .p-note{margin-top:16px;font-size:13px;line-height:1.5;color:var(--ink-soft);}
-  .p-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
-  .p-acts .btn{min-height:46px;padding:10px 18px;font-size:14.5px;}
+  .p-more{margin-top:20px;border-top:1px solid rgba(217,201,166,.8);}
+  .p-more summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;font-size:14.5px;font-weight:600;color:var(--navy);}
+  .p-more summary::-webkit-details-marker{display:none;}
+  .p-more summary svg{width:16px;height:16px;color:var(--ink-soft);transition:transform .25s ease;}
+  .p-more[open] summary svg{transform:rotate(180deg);}
+  .p-more ol{margin:0 0 10px 18px;padding:0;font-size:14px;line-height:1.55;color:var(--ink);}
+  .p-more p{margin:0 0 6px;font-size:13.5px;color:var(--ink-soft);}
+  .p-note{margin-top:18px;font-size:13px;line-height:1.5;color:var(--ink-soft);}
+  .p-acts{display:grid;gap:10px;margin-top:22px;}
+  .p-acts .btn{min-height:50px;font-size:15.5px;}
   .p-foot{margin:14px 2px 0;font-size:13.5px;color:var(--ink-soft);}
-  .p-none{padding:26px 16px;text-align:center;font-size:14px;color:var(--ink-soft);}
+  @keyframes pin{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+  @keyframes tickdraw{from{stroke-dashoffset:26;}to{stroke-dashoffset:0;}}
+  .p-tests li svg path{stroke-dasharray:26;animation:tickdraw .5s cubic-bezier(.32,.72,0,1) both;animation-delay:calc(var(--i,0) * 32ms + 260ms);}
+  @media (prefers-reduced-motion:reduce){ .p-detail,.p-sec,.p-tests li,.p-tests li svg path{animation:none;} }
+
+  /* profile search dropdown: which profiles each test is in */
+  .ac-in{display:flex;flex-wrap:wrap;gap:6px;}
+  .ac-chip{display:inline-flex;align-items:center;min-height:26px;padding:3px 10px;border-radius:999px;background:rgba(180,83,9,.09);color:var(--copper-deep);font-size:12.5px;font-weight:600;line-height:1.2;}
+  .ac-chip.more{background:none;color:var(--ink-soft);font-weight:500;padding-left:2px;}
+
   @media (min-width:768px){
     .prow-btn{padding:16px 22px;min-height:74px;}
     .p-name{font-size:16px;}
     .p-price b{font-size:19px;}
     .p-head,.p-grp{padding-left:22px;padding-right:22px;}
-    .p-detail{padding:4px 22px 24px 52px;}
-    .p-secs{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;}
+    .p-detail{padding:6px 22px 26px 52px;}
+    .p-secs{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;}
     .p-secs.one{grid-template-columns:1fr;}
-    .p-secs.one .p-tests{columns:2;column-gap:48px;}
+    .p-secs.one .p-tests{columns:2;column-gap:56px;}
     .p-secs.one .p-tests li{break-inside:avoid;}
-    .p-secs.one .p-tests li:nth-child(n){border-top:1px solid rgba(217,201,166,.6);}
-    .p-tests li:first-child{border-top:0;}
+    .p-acts{display:flex;flex-wrap:wrap;}
+    .p-acts .btn{min-height:46px;font-size:14.5px;}
   }
 
   /* pulse a column when arriving from a link */
@@ -379,7 +397,8 @@
     <div id="view-profiles" role="tabpanel" aria-labelledby="tab-profiles" hidden>
       <div class="finder-search">
         <svg class="ic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-        <input type="search" id="profileSearch" placeholder="Find a profile or a test, e.g. fever" aria-label="Find a profile or a test" autocomplete="off">
+        <input type="search" id="profileSearch" placeholder="Find a test, e.g. thyroid" aria-label="Find a test or profile" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="pAcList" aria-autocomplete="list">
+        <ul class="ac" id="pAcList" role="listbox" aria-label="Matching tests and profiles" hidden></ul>
         <button class="clr" id="pClr" aria-label="Clear search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
       </div>
       <div class="tools">
@@ -430,8 +449,8 @@
   <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
   <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
 </nav>
-<script src="packages-data.js?v=light21"></script>
-<script src="profiles-data.js?v=light21"></script>
+<script src="packages-data.js?v=light22"></script>
+<script src="profiles-data.js?v=light22"></script>
 <script>
 const P = APL_PACKAGES, G = APL_GROUPS;
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
@@ -614,95 +633,159 @@ tabPr.addEventListener('click', () => { showTab('profiles'); setHash('profiles')
 }));
 
 const pList = document.getElementById('pList'), pInput = document.getElementById('profileSearch'), pClr = document.getElementById('pClr');
-const pExpand = document.getElementById('pExpand'), pStatus = document.getElementById('pStatus');
+const pExpand = document.getElementById('pExpand'), pAc = document.getElementById('pAcList');
 const openIds = new Set();
 const norm = t => (typeof t === 'string' ? t : t.n);
 const subOf = t => (typeof t === 'string' ? null : t.sub);
 const noteOf = t => (typeof t === 'string' ? '' : (t.note || ''));
-const testText = p => p.sections.flatMap(sec => sec.tests.map(t => norm(t) + ' ' + (subOf(t) ? subOf(t).join(' ') : '') + ' ' + noteOf(t))).join(' ');
-const hayOf = p => (p.name + ' ' + (p.keywords || '') + ' ' + testText(p) + ' ' + (p.options ? p.options.map(o => o.name).join(' ') : '')).toLowerCase();
-const HAY = Object.fromEntries(PR.map(p => [p.id, hayOf(p)]));
-const wordsOf = q => q.trim().toLowerCase().split(/\s+/).filter(Boolean);
-function mark(text, words){
-  if(!words.length) return esc(text);
-  const re = new RegExp('(' + words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'ig');
-  return text.split(re).map((part, i) => i % 2 ? '<mark>' + esc(part) + '</mark>' : esc(part)).join('');
-}
-const CLOCK = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
+const CLOCK = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
+const TICKI = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+const CARET = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
 
 function rowPrice(p){
   if(p.offer != null) return '<b>' + aplInr(p.offer) + '</b>' + (p.mrp ? '<s>' + aplInr(p.mrp) + (p.mrpPlus ? '+' : '') + '</s>' : '');
   return '<em>From</em><b>' + aplInr(p.from) + '</b>';
 }
-function detailHtml(p, words){
-  let n = 0, h = '';
+function detailHtml(p){
+  const count = aplTestCount(p), unit = p.unit || 'tests';
+  let n = 0, h = '<div class="p-facts"><span class="p-fact">' + count + ' ' + unit + '</span>';
+  if(p.fasting) h += '<a class="p-fact" href="faqs.html?q=fasting">' + CLOCK + 'Fasting needed</a>';
+  if(p.offer != null && p.mrp && !p.mrpPlus) h += '<span class="p-fact save">You save ' + aplInr(p.mrp - p.offer) + '</span>';
+  h += '</div>';
   if(p.tag) h += '<p class="p-tag">' + esc(p.tag) + '</p>';
-  if(p.fasting) h += '<p class="p-req">' + CLOCK + '<span>Fasting needed. <a href="faqs.html?q=fasting">See the fasting FAQs</a></span></p>';
-  if(p.offer != null && p.mrp && !p.mrpPlus) h += '<p class="p-save">You save ' + aplInr(p.mrp - p.offer) + '</p>';
-  if(p.intro) h += '<div class="p-intro rail"><b>' + esc(p.intro.title) + '</b><p>' + esc(p.intro.text) + '</p><ol>' + p.intro.list.map(x => '<li>' + esc(x) + '</li>').join('') + '</ol></div>';
-  if(p.options) h += '<div class="p-opts">' + p.options.map(o => '<div class="p-opt"><span>' + mark(o.name, words) + (o.note ? '<small>' + esc(o.note) + '</small>' : '') + '</span><span class="pr">' + aplInr(o.offer) + (o.mrp ? '<s>' + aplInr(o.mrp) + (o.mrpPlus ? '+' : '') + '</s>' : '') + '</span></div>').join('') + '</div>';
+  if(p.options) h += '<div class="p-opts"><h4>' + (p.id === 'allergy-profile' ? 'Price by combination' : 'Choose one') + '</h4>' + p.options.map(o => '<div class="p-opt"><span>' + esc(o.name) + (o.note ? '<small>' + esc(o.note) + '</small>' : '') + '</span><span class="pr">' + aplInr(o.offer) + (o.mrp ? '<s>' + aplInr(o.mrp) + (o.mrpPlus ? '+' : '') + '</s>' : '') + '</span></div>').join('') + '</div>';
   h += '<div class="p-secs' + (p.sections.length === 1 ? ' one' : '') + '">';
-  p.sections.forEach(sec => {
-    h += '<div class="p-sec">' + (sec.title ? '<h4>' + esc(sec.title) + '</h4>' : '') + (sec.note ? '<p class="note">' + esc(sec.note) + '</p>' : '') + '<ol class="p-tests">';
+  p.sections.forEach((sec, si) => {
+    h += '<div class="p-sec" style="--s:' + si + '">';
+    if(sec.title) h += '<h4>' + esc(sec.title) + '<span>' + sec.tests.length + '</span></h4>';
+    else if(p.sections.length === 1) h += '<h4>What is included</h4>';
+    if(sec.note) h += '<p class="note">' + esc(sec.note) + '</p>';
+    h += '<ul class="p-tests">';
     sec.tests.forEach(t => {
       n++;
-      const name = norm(t);
-      h += '<li><span class="n">' + n + '</span><span>' + mark(name, words) + (noteOf(t) ? '<small>' + esc(noteOf(t)) + '</small>' : '') + (subOf(t) ? '<small>' + mark(subOf(t).join(', '), words) + '</small>' : '') + '</span></li>';
+      const key = [norm(t)].concat(subOf(t) || []).join('|').toLowerCase();
+      h += '<li data-t="' + esc(key) + '" style="--i:' + (n - 1) + '">' + TICKI + '<span>' + esc(norm(t)) + (noteOf(t) ? '<small>' + esc(noteOf(t)) + '</small>' : '') + (subOf(t) ? '<small>' + esc(subOf(t).join(', ')) + '</small>' : '') + '</span></li>';
     });
-    h += '</ol></div>';
+    h += '</ul></div>';
   });
   h += '</div>';
-  (p.notes || []).forEach(t => { h += '<p class="p-note rail">' + esc(t) + '</p>'; });
+  if(p.intro) h += '<details class="p-more"><summary>' + esc(p.intro.title) + CARET + '</summary><p>' + esc(p.intro.text) + '</p><ol>' + p.intro.list.map(x => '<li>' + esc(x) + '</li>').join('') + '</ol></details>';
+  (p.notes || []).forEach(t => { h += '<p class="p-note">' + esc(t) + '</p>'; });
   const msg = encodeURIComponent('Hello, I would like to book the ' + p.name + '.');
   h += '<div class="p-acts"><a class="btn btn-primary" href="https://wa.me/919824015108?text=' + msg + '">Book This Profile</a>' +
        (p.report ? '<a class="btn btn-outline" href="' + p.report.file + '" target="_blank" rel="noopener">' + esc(p.report.label) + '</a>' : '') + '</div>';
   return h;
 }
-function profileRow(p, words){
+function profileRow(p){
   const count = aplTestCount(p), unit = p.unit || 'tests';
-  const open = openIds.has(p.id);
-  return '<div class="prow' + (open ? ' open' : '') + '" id="profile-' + p.id + '" data-id="' + p.id + '">' +
-    '<button type="button" class="prow-btn" aria-expanded="' + open + '" aria-controls="pd-' + p.id + '">' +
-      '<span class="p-main">' + CHEV + '<span class="p-name">' + mark(p.name, words) + '<small>' + count + ' ' + unit + (p.fasting ? ' · Fasting needed' : '') + '</small></span></span>' +
+  return '<div class="prow" id="profile-' + p.id + '" data-id="' + p.id + '">' +
+    '<button type="button" class="prow-btn" aria-expanded="false" aria-controls="pd-' + p.id + '">' +
+      '<span class="p-main">' + CHEV + '<span class="p-name">' + esc(p.name) + '<small>' + count + ' ' + unit + (p.fasting ? ' · Fasting needed' : '') + '</small></span></span>' +
       '<span class="p-price">' + rowPrice(p) + '</span></button>' +
-    '<div class="p-detail" id="pd-' + p.id + '"' + (open ? '' : ' hidden') + '>' + detailHtml(p, words) + '</div></div>';
+    '<div class="p-detail" id="pd-' + p.id + '" hidden></div></div>';
 }
 function renderProfiles(){
-  const words = wordsOf(pInput.value);
-  let shown = 0, html = '';
-  PGRP.forEach(g => {
-    const rows = g.ids.map(aplProfileById).filter(p => !words.length || words.every(w => HAY[p.id].includes(w)));
-    if(!rows.length) return;
-    shown += rows.length;
-    html += '<div class="p-grp">' + esc(g.name) + '</div>' + rows.map(p => {
-      if(words.length && !openIds.has(p.id) && !words.every(w => p.name.toLowerCase().includes(w))) openIds.add(p.id);   /* a match inside the tests opens the profile */
-      return profileRow(p, words);
-    }).join('');
-  });
-  pList.innerHTML = html || '<p class="p-none">No profile found for "' + esc(pInput.value.trim()) + '". Call our helpline and we\'ll help.</p>';
-  pStatus.textContent = words.length ? shown + (shown === 1 ? ' profile found' : ' profiles found') : 'Profiles';
-  pClr.classList.toggle('on', !!pInput.value);
+  pList.innerHTML = PGRP.map(g => '<div class="p-grp">' + esc(g.name) + '</div>' + g.ids.map(aplProfileById).map(profileRow).join('')).join('');
+}
+function syncExpand(){
   const all = [...pList.querySelectorAll('.prow')];
-  pExpand.textContent = all.length && all.every(r => r.classList.contains('open')) ? 'Hide Tests' : 'Show All Tests';
+  pExpand.textContent = all.every(r => r.classList.contains('open')) ? 'Hide Tests' : 'Show All Tests';
 }
 function toggleProfile(id, force){
   const row = document.getElementById('profile-' + id); if(!row) return;
   const open = force != null ? force : !row.classList.contains('open');
+  const det = row.querySelector('.p-detail');
+  if(open && !det.innerHTML) det.innerHTML = detailHtml(aplProfileById(id));     /* built the first time it opens */
   row.classList.toggle('open', open);
-  row.querySelector('.p-detail').hidden = !open;
+  det.hidden = !open;
   row.querySelector('.prow-btn').setAttribute('aria-expanded', open);
   open ? openIds.add(id) : openIds.delete(id);
-  const all = [...pList.querySelectorAll('.prow')];
-  pExpand.textContent = all.every(r => r.classList.contains('open')) ? 'Hide Tests' : 'Show All Tests';
+  syncExpand();
 }
 pList.addEventListener('click', e => { const b = e.target.closest('.prow-btn'); if(b) toggleProfile(b.parentElement.dataset.id); });
-pInput.addEventListener('input', () => { openIds.clear(); renderProfiles(); });
-pClr.addEventListener('click', () => { pInput.value = ''; openIds.clear(); renderProfiles(); pInput.focus(); });
 pExpand.addEventListener('click', () => {
   const rows = [...pList.querySelectorAll('.prow')], allOpen = rows.every(r => r.classList.contains('open'));
   rows.forEach(r => toggleProfile(r.dataset.id, !allOpen));
 });
 renderProfiles();
+
+/* search: type a test or a profile; each answer says which profiles it is in; picking opens them */
+const testKey = t => [norm(t)].concat(subOf(t) || []).join('|').toLowerCase();
+const PIDX = (() => {
+  const tests = new Map(), out = [];
+  PR.forEach(p => {
+    out.push({kind:'profile', name:p.name, ids:[p.id], hay:(p.name + ' ' + (p.keywords || '')).toLowerCase(), p});
+    p.sections.forEach(sec => sec.tests.forEach(t => {
+      const names = [norm(t)].concat(subOf(t) || []);
+      names.forEach((nm, k) => {
+        const id = nm.toLowerCase();
+        if(!tests.has(id)) tests.set(id, {kind:'test', name:nm, ids:[], keys:new Set(), hay:id});
+        const e = tests.get(id); if(!e.ids.includes(p.id)) e.ids.push(p.id);
+        e.keys.add(testKey(t));
+      });
+    }));
+  });
+  return out.concat([...tests.values()]);
+})();
+let pResults = [], pActive = -1;
+function pMatches(q){
+  const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  if(!words.length) return [];
+  return PIDX.map(e => {
+    if(!words.every(w => e.hay.includes(w))) return null;
+    const starts = e.name.toLowerCase().startsWith(words[0]);
+    return {e, rank:(starts ? 0 : 2) + (e.kind === 'test' ? 0 : 1)};
+  }).filter(Boolean).sort((a,b) => a.rank - b.rank || a.e.name.length - b.e.name.length).slice(0, 8).map(x => x.e);
+}
+function pHi(text, q){
+  const words = q.trim().toLowerCase().split(/\s+/).filter(Boolean); let out = esc(text);
+  words.forEach(w => { const i = text.toLowerCase().indexOf(w); if(i > -1 && words.length === 1) out = esc(text.slice(0,i)) + '<mark>' + esc(text.slice(i,i+w.length)) + '</mark>' + esc(text.slice(i+w.length)); });
+  return out;
+}
+function pRender(){
+  const q = pInput.value; pClr.classList.toggle('on', !!q.trim());
+  if(!q.trim()){ pClose(); return; }
+  pResults = pMatches(q); pActive = pResults.length ? 0 : -1;
+  pAc.innerHTML = pResults.length ? pResults.map((r,i) => {
+    if(r.kind === 'profile') return `<li role="option" id="pac${i}" data-i="${i}" aria-selected="${i===pActive}"><div class="ac-main"><b>${pHi(r.name,q)}</b><small>Profile · ${aplTestCount(r.p)} ${r.p.unit || 'tests'} · ${r.p.offer != null ? aplInr(r.p.offer) : 'from ' + aplInr(r.p.from)}</small></div></li>`;
+    const names = r.ids.map(id => aplProfileById(id).name), shown = names.slice(0,3);
+    return `<li role="option" id="pac${i}" data-i="${i}" aria-selected="${i===pActive}"><div class="ac-main"><b>${pHi(r.name,q)}</b><small>Test · in ${names.length} ${names.length === 1 ? 'profile' : 'profiles'}</small></div><div class="ac-in">${shown.map(n => '<span class="ac-chip">' + esc(n) + '</span>').join('')}${names.length > 3 ? '<span class="ac-chip more">+' + (names.length - 3) + ' more</span>' : ''}</div></li>`;
+  }).join('') : `<li class="ac-empty" role="option" aria-disabled="true">No test or profile found for "${esc(q.trim())}". Call our helpline and we'll help.</li>`;
+  pAc.hidden = false; pInput.setAttribute('aria-expanded','true');
+}
+function pClose(){ pAc.hidden = true; pInput.setAttribute('aria-expanded','false'); }
+function pSetActive(i){
+  if(!pResults.length) return;
+  pActive = (i + pResults.length) % pResults.length;
+  pAc.querySelectorAll('li[role=option]').forEach((li,k) => li.setAttribute('aria-selected', k === pActive));
+  pAc.querySelector('#pac' + pActive)?.scrollIntoView({block:'nearest'});
+}
+function pPick(i){
+  const r = pResults[i]; if(!r) return;
+  pInput.value = r.name; pClr.classList.add('on'); pClose();
+  pList.querySelectorAll('.p-tests li.hl').forEach(li => li.classList.remove('hl'));
+  r.ids.forEach(id => toggleProfile(id, true));
+  const first = document.getElementById('profile-' + r.ids[0]);
+  if(r.kind === 'test'){
+    r.ids.forEach(id => document.querySelectorAll('#profile-' + id + ' .p-tests li').forEach(li => { if(r.keys.has(li.dataset.t)) { li.classList.remove('hl'); void li.offsetWidth; li.classList.add('hl'); setTimeout(() => li.classList.remove('hl'), 3200); } }));
+    const li = document.querySelector('#profile-' + r.ids[0] + ' .p-tests li.hl');
+    setTimeout(() => (li || first).scrollIntoView({behavior:'smooth', block:'center'}), 120);
+  } else {
+    setTimeout(() => first.scrollIntoView({behavior:'smooth', block:'start'}), 120);
+  }
+}
+pInput.addEventListener('input', pRender);
+pInput.addEventListener('focus', () => { if(pInput.value.trim()) pRender(); });
+pInput.addEventListener('keydown', e => {
+  if(e.key === 'ArrowDown'){ e.preventDefault(); if(pAc.hidden) pRender(); else pSetActive(pActive + 1); }
+  else if(e.key === 'ArrowUp'){ e.preventDefault(); pSetActive(pActive - 1); }
+  else if(e.key === 'Enter'){ if(!pAc.hidden && pActive > -1){ e.preventDefault(); pPick(pActive); } }
+  else if(e.key === 'Escape'){ pClose(); }
+});
+pAc.addEventListener('mousedown', e => e.preventDefault());
+pAc.addEventListener('click', e => { const li = e.target.closest('li[data-i]'); if(li) pPick(+li.dataset.i); });
+document.addEventListener('pointerdown', e => { if(!e.target.closest('#view-profiles .finder-search')) pClose(); });
+pClr.addEventListener('click', () => { pInput.value = ''; pClr.classList.remove('on'); pClose(); pList.querySelectorAll('.p-tests li.hl').forEach(li => li.classList.remove('hl')); pInput.focus(); });
 
 /* links: packages.html#profiles opens the tab; #profile-diabetes-profile opens that profile */
 function route(){
@@ -710,7 +793,6 @@ function route(){
   if(h === 'profiles' || h.startsWith('profile-')){
     showTab('profiles');
     if(h.startsWith('profile-')){
-      pInput.value = ''; openIds.clear(); renderProfiles();
       const id = h.slice(8);
       if(aplProfileById(id)){ toggleProfile(id, true); setTimeout(() => document.getElementById('profile-' + id).scrollIntoView({behavior:'smooth', block:'start'}), 200); }
     }
