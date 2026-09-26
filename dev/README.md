@@ -23,7 +23,8 @@ Run `build:search` after editing FAQs (they live in `faqs.html`) or the facts in
 
 ## Common edits
 
-- **Prices and tests:** `packages-data.js` (then bump the `?v=` tag, below).
+- **Package prices and tests:** `packages-data.js`. **Profile prices and tests:** `profiles-data.js` (each profile lists its sections and tests; the home search and the Profiles tab both read it). Then bump the `?v=` tag, below.
+- **Sample report PDFs** for two profiles are in `assets/reports/`.
 - **Phone numbers, hours, addresses:** search the HTML files; they repeat in the header, footer and bottom bar.
 - **Cache tag:** stylesheets and scripts are linked with `?v=lightNN`. Bump it in the HTML files after a CSS or JS change so phones fetch the new file.
 - **Look and feel:** colour tokens are at the top of `shared.css`.

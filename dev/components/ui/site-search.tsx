@@ -15,8 +15,11 @@ type SearchRow = { kind: "page" | "info" | "faq"; t: string; s: string; u: strin
 declare const APL_PACKAGES: PackageRow[];
 declare const APL_GROUPS: GroupRow[];
 declare const APL_SEARCH: SearchRow[];
+type ProfileTest = string | { n: string; sub?: string[]; note?: string };
+type ProfileRow = { id: string; name: string; keywords?: string; offer?: number; from?: number; sections: { tests: ProfileTest[] }[]; options?: { name: string }[] };
+declare const APL_PROFILES: ProfileRow[];
 
-type Section = "Tests & Packages" | "Pages & Info" | "FAQs";
+type Section = "Tests & Packages" | "Profiles" | "Pages & Info" | "FAQs";
 type Entry = { title: string; sub: string; href: string; section: Section; hay: string; body: string };
 
 const inr = (n: number) => "₹" + n.toLocaleString("en-IN");
@@ -62,6 +65,18 @@ function buildIndex(): Entry[] {
     });
   });
 
+  APL_PROFILES.forEach((p) => {
+    const names = p.sections.flatMap((s) => s.tests.map((t) => (typeof t === "string" ? t : t.n + " " + (t.sub ?? []).join(" "))));
+    out.push({
+      title: p.name,
+      sub: `${names.length} tests · ${p.offer != null ? inr(p.offer) : "from " + inr(p.from ?? 0)}`,
+      href: `packages.html#profile-${p.id}`,
+      section: "Profiles",
+      hay: `${p.name} profile ${p.keywords ?? ""}`.toLowerCase(),
+      body: `${names.join(" ")} ${(p.options ?? []).map((o) => o.name).join(" ")}`.toLowerCase(),
+    });
+  });
+
   APL_SEARCH.forEach((r) =>
     out.push({
       title: r.t,
@@ -103,7 +118,7 @@ function score(e: Entry, words: string[], q: string): number {
   return s;
 }
 
-const SECTION_ORDER: Section[] = ["Tests & Packages", "Pages & Info", "FAQs"];
+const SECTION_ORDER: Section[] = ["Tests & Packages", "Profiles", "Pages & Info", "FAQs"];
 const PER_SECTION = 4;
 
 const IDEAS = ["thyroid", "Package 3", "home collection", "opening hours", "diabetes", "fasting"];

@@ -5,12 +5,12 @@
 <meta name="color-scheme" content="only light">
 <meta name="theme-color" content="#FDFBF7">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Preventive Health Check-Up Packages | Aakash Pathology Laboratory, Ankleshwar</title>
+<title>Packages &amp; Profiles | Aakash Pathology Laboratory, Ankleshwar</title>
 <meta name="description" content="Compare all five preventive health check-up packages at Aakash Pathology Laboratory, Ankleshwar: MRP, offer price, you save and every test included, by body function.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light15">
+<link rel="stylesheet" href="shared.css?v=light21">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .page-header{padding:22px 0 18px;}
@@ -211,6 +211,75 @@
   @keyframes hint-ring{0%{transform:scale(.35);opacity:.85;}70%,100%{transform:scale(1.2);opacity:0;}}
   @keyframes chev-nudge{0%,100%{transform:translateX(0);color:var(--ink-soft);}30%{transform:translateX(3px);color:var(--blue);}}
   @media (prefers-reduced-motion:reduce){ #status .t-b svg,.hinting .grp:not(.open) .chev,.hinting .grp:not(.open) .grp-btn .lab::after{animation:none;} }
+
+  /* ---------- Packages | Profiles ---------- */
+  .pk-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);margin-bottom:12px;}
+  .pk-tab{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px;min-height:58px;padding:10px 6px 9px;background:none;border:0;border-bottom:3px solid transparent;border-radius:0;margin-bottom:-1px;font-size:17px;font-weight:700;color:var(--ink-soft);}
+  .pk-tab small{font-size:12px;font-weight:500;}
+  .pk-tab[aria-selected="true"]{color:var(--copper);border-bottom-color:var(--copper);}
+  .pk-lede{margin:0 2px 14px;font-size:14.5px;line-height:1.5;color:var(--ink-soft);}
+  [hidden]{display:none !important;}
+
+  .ptbl{overflow:clip;}
+  .p-head{display:flex;justify-content:space-between;padding:11px 14px;font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);border-bottom:1px solid var(--line);background:rgba(255,253,249,.94);}
+  .p-grp{padding:9px 14px;font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);background:rgba(228,192,144,.2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .p-head + #pList .p-grp:first-child{border-top:0;}
+  .prow{border-bottom:1px solid var(--line);}
+  .prow:last-child{border-bottom:0;}
+  .prow-btn{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px;width:100%;min-height:66px;padding:13px 14px;background:none;border:0;border-radius:0;text-align:left;font:inherit;color:inherit;}
+  .prow-btn:focus-visible{outline:2px solid var(--blue);outline-offset:-2px;}
+  .p-main{display:flex;gap:10px;align-items:center;min-width:0;}
+  .p-name{font-size:15px;font-weight:600;color:var(--navy);line-height:1.3;}
+  .p-name small{display:block;margin-top:2px;font-size:12px;font-weight:500;color:var(--ink-soft);}
+  .p-price{text-align:right;white-space:nowrap;line-height:1.25;}
+  .p-price b{display:block;font-size:17px;font-weight:700;color:var(--navy);letter-spacing:-.01em;font-variant-numeric:tabular-nums;}
+  .p-price s{font-size:12px;color:var(--ink-soft);}
+  .p-price em{display:block;font-style:normal;font-size:11px;color:var(--ink-soft);}
+  .prow.open .chev{transform:rotate(90deg);}
+  .prow.open{background:rgba(241,233,218,.35);}
+  .p-detail{padding:2px 14px 20px 34px;border-top:1px dashed #D9C9A6;animation:down .3s cubic-bezier(.32,.72,0,1);}
+  .p-tag{margin:14px 0 0;font-size:13.5px;color:var(--ink-soft);}
+  .p-req{display:flex;gap:8px;align-items:flex-start;margin:12px 0 0;font-size:13.5px;color:var(--ink);line-height:1.45;}
+  .p-req svg{width:17px;height:17px;flex-shrink:0;margin-top:1px;color:var(--copper);}
+  .p-req a{color:var(--copper);font-weight:600;text-decoration:underline;text-underline-offset:2px;}
+  .p-save{margin:12px 0 0;font-size:13.5px;font-weight:600;color:var(--success);}
+  .p-sec{margin-top:18px;}
+  .p-sec h4{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--copper);margin:0 0 2px;font-family:'Inter',sans-serif;}
+  .p-sec .note{margin:0 0 2px;font-size:12.5px;line-height:1.45;color:var(--ink-soft);}
+  .p-tests{list-style:none;margin:0;padding:0;}
+  .p-tests li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:6px;padding:9px 0;border-top:1px solid rgba(217,201,166,.6);font-size:14px;line-height:1.4;color:var(--navy);}
+  .p-tests li:first-child{border-top:0;}
+  .p-tests .n{padding-top:1px;font-size:12px;font-weight:600;color:var(--ink-soft);font-variant-numeric:tabular-nums;}
+  .p-tests small{display:block;margin-top:1px;font-size:12.5px;color:var(--ink-soft);}
+  .p-detail mark{background:rgba(217,119,6,.28);color:inherit;border-radius:3px;padding:0 1px;}
+  .p-intro{margin-top:16px;}
+  .p-intro b{display:block;font-size:14px;color:var(--navy);margin-bottom:4px;}
+  .p-intro p{margin:0 0 4px;font-size:13px;color:var(--ink-soft);}
+  .p-intro ol{margin:6px 0 0 18px;padding:0;font-size:13.5px;color:var(--ink);line-height:1.5;}
+  .p-opts{margin-top:16px;border-top:1px solid rgba(217,201,166,.8);}
+  .p-opt{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px solid rgba(217,201,166,.8);font-size:14px;color:var(--navy);}
+  .p-opt small{display:block;font-size:12px;color:var(--copper);font-weight:600;}
+  .p-opt .pr{text-align:right;white-space:nowrap;font-weight:700;font-variant-numeric:tabular-nums;}
+  .p-opt .pr s{display:block;font-size:12px;font-weight:500;color:var(--ink-soft);}
+  .p-note{margin-top:16px;font-size:13px;line-height:1.5;color:var(--ink-soft);}
+  .p-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .p-acts .btn{min-height:46px;padding:10px 18px;font-size:14.5px;}
+  .p-foot{margin:14px 2px 0;font-size:13.5px;color:var(--ink-soft);}
+  .p-none{padding:26px 16px;text-align:center;font-size:14px;color:var(--ink-soft);}
+  @media (min-width:768px){
+    .prow-btn{padding:16px 22px;min-height:74px;}
+    .p-name{font-size:16px;}
+    .p-price b{font-size:19px;}
+    .p-head,.p-grp{padding-left:22px;padding-right:22px;}
+    .p-detail{padding:4px 22px 24px 52px;}
+    .p-secs{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;}
+    .p-secs.one{grid-template-columns:1fr;}
+    .p-secs.one .p-tests{columns:2;column-gap:48px;}
+    .p-secs.one .p-tests li{break-inside:avoid;}
+    .p-secs.one .p-tests li:nth-child(n){border-top:1px solid rgba(217,201,166,.6);}
+    .p-tests li:first-child{border-top:0;}
+  }
+
   /* pulse a column when arriving from a link */
   .tbl[data-hl="0"] .c0,.tbl[data-hl="1"] .c1,.tbl[data-hl="2"] .c2,.tbl[data-hl="3"] .c3,.tbl[data-hl="4"] .c4{background:rgba(180,83,9,.10);}
   .cell{transition:background .6s ease;}
@@ -268,12 +337,19 @@
 <div class="page-header">
   <div class="wrap">
     <div class="breadcrumb"><a href="index.html">Home</a> / Tests &amp; Packages</div>
-    <h1>Preventive Health Check-Up Packages</h1>
+    <h1>Packages &amp; Profiles</h1>
     <p>A healthier you. A brighter tomorrow.</p>
   </div>
 </div>
 <section class="pk-wrap">
   <div class="wrap">
+    <div class="pk-tabs" role="tablist" aria-label="Packages or profiles">
+      <button type="button" class="pk-tab" role="tab" id="tab-packages" aria-selected="true" aria-controls="view-packages">Packages<small>5 check-ups</small></button>
+      <button type="button" class="pk-tab" role="tab" id="tab-profiles" aria-selected="false" aria-controls="view-profiles" tabindex="-1">Profiles<small>15 focused test sets</small></button>
+    </div>
+    <p class="pk-lede" id="pkLede">Compare all five check-up packages side by side. Tap a row to see its tests.</p>
+
+    <div id="view-packages" role="tabpanel" aria-labelledby="tab-packages">
     <div class="finder-search">
       <svg class="ic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
       <input type="search" id="testSearch" placeholder="Find a test, e.g. thyroid" aria-label="Find a test" autocomplete="off" role="combobox" aria-expanded="false" aria-controls="acList" aria-autocomplete="list">
@@ -297,6 +373,24 @@
         <h4>Fasting</h4>
         <p>Fasting Blood Sugar (FBS), Lipid Profile and Serum Insulin (Fasting) need 10-12 hours of fasting. If you are unsure, call our helpline.</p>
       </div>
+    </div>
+    </div>
+
+    <div id="view-profiles" role="tabpanel" aria-labelledby="tab-profiles" hidden>
+      <div class="finder-search">
+        <svg class="ic" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="search" id="profileSearch" placeholder="Find a profile or a test, e.g. fever" aria-label="Find a profile or a test" autocomplete="off">
+        <button class="clr" id="pClr" aria-label="Clear search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </div>
+      <div class="tools">
+        <h2 id="pStatus">Profiles</h2>
+        <button id="pExpand" type="button">Show All Tests</button>
+      </div>
+      <div class="tbl ptbl" id="pTbl" aria-label="Health profiles">
+        <div class="p-head" aria-hidden="true"><span>Profile</span><span>Offer price</span></div>
+        <div id="pList"></div>
+      </div>
+      <p class="p-foot">Not sure which profile you need? Call our helpline and we'll help you choose.</p>
     </div>
   </div>
 </section>
@@ -336,7 +430,8 @@
   <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
   <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
 </nav>
-<script src="packages-data.js?v=light15"></script>
+<script src="packages-data.js?v=light21"></script>
+<script src="profiles-data.js?v=light21"></script>
 <script>
 const P = APL_PACKAGES, G = APL_GROUPS;
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
@@ -493,6 +588,135 @@ observeRows();
 const siteHeader = document.querySelector('header');
 const setHH = () => document.documentElement.style.setProperty('--hh', siteHeader.offsetHeight + 'px');
 setHH(); addEventListener('resize', setHH);
+
+
+/* ---------- Packages | Profiles ---------- */
+const PR = APL_PROFILES, PGRP = APL_PROFILE_GROUPS;
+const tabPk = document.getElementById('tab-packages'), tabPr = document.getElementById('tab-profiles');
+const viewPk = document.getElementById('view-packages'), viewPr = document.getElementById('view-profiles');
+const lede = document.getElementById('pkLede');
+const LEDE = {
+  packages: 'Compare all five check-up packages side by side. Tap a row to see its tests.',
+  profiles: 'Focused test sets for one health concern. Tap a profile to see every test in it.'
+};
+function showTab(name){
+  const pr = name === 'profiles';
+  tabPk.setAttribute('aria-selected', !pr); tabPr.setAttribute('aria-selected', pr);
+  tabPk.tabIndex = pr ? -1 : 0; tabPr.tabIndex = pr ? 0 : -1;
+  viewPk.hidden = pr; viewPr.hidden = !pr;
+  lede.textContent = LEDE[name];
+}
+function setHash(h){ history.replaceState(null, '', location.pathname + location.search + (h ? '#' + h : '')); }
+tabPk.addEventListener('click', () => { showTab('packages'); setHash(''); });
+tabPr.addEventListener('click', () => { showTab('profiles'); setHash('profiles'); });
+[tabPk, tabPr].forEach(t => t.addEventListener('keydown', e => {
+  if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){ e.preventDefault(); const go = t === tabPk ? tabPr : tabPk; go.click(); go.focus(); }
+}));
+
+const pList = document.getElementById('pList'), pInput = document.getElementById('profileSearch'), pClr = document.getElementById('pClr');
+const pExpand = document.getElementById('pExpand'), pStatus = document.getElementById('pStatus');
+const openIds = new Set();
+const norm = t => (typeof t === 'string' ? t : t.n);
+const subOf = t => (typeof t === 'string' ? null : t.sub);
+const noteOf = t => (typeof t === 'string' ? '' : (t.note || ''));
+const testText = p => p.sections.flatMap(sec => sec.tests.map(t => norm(t) + ' ' + (subOf(t) ? subOf(t).join(' ') : '') + ' ' + noteOf(t))).join(' ');
+const hayOf = p => (p.name + ' ' + (p.keywords || '') + ' ' + testText(p) + ' ' + (p.options ? p.options.map(o => o.name).join(' ') : '')).toLowerCase();
+const HAY = Object.fromEntries(PR.map(p => [p.id, hayOf(p)]));
+const wordsOf = q => q.trim().toLowerCase().split(/\s+/).filter(Boolean);
+function mark(text, words){
+  if(!words.length) return esc(text);
+  const re = new RegExp('(' + words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'ig');
+  return text.split(re).map((part, i) => i % 2 ? '<mark>' + esc(part) + '</mark>' : esc(part)).join('');
+}
+const CLOCK = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
+
+function rowPrice(p){
+  if(p.offer != null) return '<b>' + aplInr(p.offer) + '</b>' + (p.mrp ? '<s>' + aplInr(p.mrp) + (p.mrpPlus ? '+' : '') + '</s>' : '');
+  return '<em>From</em><b>' + aplInr(p.from) + '</b>';
+}
+function detailHtml(p, words){
+  let n = 0, h = '';
+  if(p.tag) h += '<p class="p-tag">' + esc(p.tag) + '</p>';
+  if(p.fasting) h += '<p class="p-req">' + CLOCK + '<span>Fasting needed. <a href="faqs.html?q=fasting">See the fasting FAQs</a></span></p>';
+  if(p.offer != null && p.mrp && !p.mrpPlus) h += '<p class="p-save">You save ' + aplInr(p.mrp - p.offer) + '</p>';
+  if(p.intro) h += '<div class="p-intro rail"><b>' + esc(p.intro.title) + '</b><p>' + esc(p.intro.text) + '</p><ol>' + p.intro.list.map(x => '<li>' + esc(x) + '</li>').join('') + '</ol></div>';
+  if(p.options) h += '<div class="p-opts">' + p.options.map(o => '<div class="p-opt"><span>' + mark(o.name, words) + (o.note ? '<small>' + esc(o.note) + '</small>' : '') + '</span><span class="pr">' + aplInr(o.offer) + (o.mrp ? '<s>' + aplInr(o.mrp) + (o.mrpPlus ? '+' : '') + '</s>' : '') + '</span></div>').join('') + '</div>';
+  h += '<div class="p-secs' + (p.sections.length === 1 ? ' one' : '') + '">';
+  p.sections.forEach(sec => {
+    h += '<div class="p-sec">' + (sec.title ? '<h4>' + esc(sec.title) + '</h4>' : '') + (sec.note ? '<p class="note">' + esc(sec.note) + '</p>' : '') + '<ol class="p-tests">';
+    sec.tests.forEach(t => {
+      n++;
+      const name = norm(t);
+      h += '<li><span class="n">' + n + '</span><span>' + mark(name, words) + (noteOf(t) ? '<small>' + esc(noteOf(t)) + '</small>' : '') + (subOf(t) ? '<small>' + mark(subOf(t).join(', '), words) + '</small>' : '') + '</span></li>';
+    });
+    h += '</ol></div>';
+  });
+  h += '</div>';
+  (p.notes || []).forEach(t => { h += '<p class="p-note rail">' + esc(t) + '</p>'; });
+  const msg = encodeURIComponent('Hello, I would like to book the ' + p.name + '.');
+  h += '<div class="p-acts"><a class="btn btn-primary" href="https://wa.me/919824015108?text=' + msg + '">Book This Profile</a>' +
+       (p.report ? '<a class="btn btn-outline" href="' + p.report.file + '" target="_blank" rel="noopener">' + esc(p.report.label) + '</a>' : '') + '</div>';
+  return h;
+}
+function profileRow(p, words){
+  const count = aplTestCount(p), unit = p.unit || 'tests';
+  const open = openIds.has(p.id);
+  return '<div class="prow' + (open ? ' open' : '') + '" id="profile-' + p.id + '" data-id="' + p.id + '">' +
+    '<button type="button" class="prow-btn" aria-expanded="' + open + '" aria-controls="pd-' + p.id + '">' +
+      '<span class="p-main">' + CHEV + '<span class="p-name">' + mark(p.name, words) + '<small>' + count + ' ' + unit + (p.fasting ? ' · Fasting needed' : '') + '</small></span></span>' +
+      '<span class="p-price">' + rowPrice(p) + '</span></button>' +
+    '<div class="p-detail" id="pd-' + p.id + '"' + (open ? '' : ' hidden') + '>' + detailHtml(p, words) + '</div></div>';
+}
+function renderProfiles(){
+  const words = wordsOf(pInput.value);
+  let shown = 0, html = '';
+  PGRP.forEach(g => {
+    const rows = g.ids.map(aplProfileById).filter(p => !words.length || words.every(w => HAY[p.id].includes(w)));
+    if(!rows.length) return;
+    shown += rows.length;
+    html += '<div class="p-grp">' + esc(g.name) + '</div>' + rows.map(p => {
+      if(words.length && !openIds.has(p.id) && !words.every(w => p.name.toLowerCase().includes(w))) openIds.add(p.id);   /* a match inside the tests opens the profile */
+      return profileRow(p, words);
+    }).join('');
+  });
+  pList.innerHTML = html || '<p class="p-none">No profile found for "' + esc(pInput.value.trim()) + '". Call our helpline and we\'ll help.</p>';
+  pStatus.textContent = words.length ? shown + (shown === 1 ? ' profile found' : ' profiles found') : 'Profiles';
+  pClr.classList.toggle('on', !!pInput.value);
+  const all = [...pList.querySelectorAll('.prow')];
+  pExpand.textContent = all.length && all.every(r => r.classList.contains('open')) ? 'Hide Tests' : 'Show All Tests';
+}
+function toggleProfile(id, force){
+  const row = document.getElementById('profile-' + id); if(!row) return;
+  const open = force != null ? force : !row.classList.contains('open');
+  row.classList.toggle('open', open);
+  row.querySelector('.p-detail').hidden = !open;
+  row.querySelector('.prow-btn').setAttribute('aria-expanded', open);
+  open ? openIds.add(id) : openIds.delete(id);
+  const all = [...pList.querySelectorAll('.prow')];
+  pExpand.textContent = all.every(r => r.classList.contains('open')) ? 'Hide Tests' : 'Show All Tests';
+}
+pList.addEventListener('click', e => { const b = e.target.closest('.prow-btn'); if(b) toggleProfile(b.parentElement.dataset.id); });
+pInput.addEventListener('input', () => { openIds.clear(); renderProfiles(); });
+pClr.addEventListener('click', () => { pInput.value = ''; openIds.clear(); renderProfiles(); pInput.focus(); });
+pExpand.addEventListener('click', () => {
+  const rows = [...pList.querySelectorAll('.prow')], allOpen = rows.every(r => r.classList.contains('open'));
+  rows.forEach(r => toggleProfile(r.dataset.id, !allOpen));
+});
+renderProfiles();
+
+/* links: packages.html#profiles opens the tab; #profile-diabetes-profile opens that profile */
+function route(){
+  const h = location.hash.slice(1);
+  if(h === 'profiles' || h.startsWith('profile-')){
+    showTab('profiles');
+    if(h.startsWith('profile-')){
+      pInput.value = ''; openIds.clear(); renderProfiles();
+      const id = h.slice(8);
+      if(aplProfileById(id)){ toggleProfile(id, true); setTimeout(() => document.getElementById('profile-' + id).scrollIntoView({behavior:'smooth', block:'start'}), 200); }
+    }
+  } else if(!h || !P.some(p => '#' + p.id === '#' + h)) { showTab('packages'); }
+}
+route(); addEventListener('hashchange', route);
 
 /* deep links: #package-2, #gold, ?q=thyroid */
 const qs = new URLSearchParams(location.search);

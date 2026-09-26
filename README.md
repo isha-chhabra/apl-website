@@ -23,7 +23,7 @@ Do not edit or delete any other file. If something looks wrong, do not try to fi
 | Name | What it is |
 |---|---|
 | `index.html`, `about.html`, `packages.html`, `faqs.html`, `gallery.html`, `csr.html`, `contact.html` | The seven pages of the website |
-| `shared.css`, `packages-data.js`, `search-data.js` | Colours and layout, package prices, and what the search box looks through |
+| `shared.css`, `packages-data.js`, `profiles-data.js`, `search-data.js` | Colours and layout, package prices, profile prices and tests, and what the search box looks through |
 | `assets` | Logo, doctor photo, all other photos, and the small programs that make the home page and the animations work |
 | `guides` | The step-by-step instructions for this project |
 | `dev` | The designer's workshop. Never needed to publish the website |
