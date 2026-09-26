@@ -33,7 +33,7 @@ The name must be **exactly** as written in the table:
 
 - all small letters (lowercase)
 - no spaces
-- ends in **.jpg** (not `.jpeg`, not `.JPG`, not `.png`)
+- ends in a small-letter type: **.jpg**, **.webp** or **.png** (not `.JPG`). If a photo with the same number but a different type already exists, delete the old one first
 - the number must have the zeros, for example `facility-01.jpg` (not `facility-1.jpg`)
 
 **Windows tip.** If you cannot see the `.jpg` part of file names: open the folder, click **View** at the top, then **Show**, then tick **File name extensions**. Now you can see and fix the full name.

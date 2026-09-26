@@ -2,7 +2,9 @@
 'use client';
 import { ReactLenis } from 'lenis/react';
 import { useTransform, motion, useScroll, MotionValue } from 'motion/react';
-import { useRef, forwardRef } from 'react';
+import { useRef, useState, forwardRef } from 'react';
+
+const PHOTO_EXTS = ['jpg', 'webp', 'png', 'jpeg'];
 import { cn } from '@/lib/utils';
 
 interface ProjectData {
@@ -46,6 +48,10 @@ export const Card = ({
   });
 
   const imageScale = useTransform(scrollYProgress, [0, 1], [2, 1]);
+  // the photo is found by file name (url has no extension): try .jpg, .webp, .png, .jpeg; with none, the card is text only
+  const [ext, setExt] = useState(0);
+  const src = /\.\w{3,4}$/.test(url) ? url : `${url}.${PHOTO_EXTS[ext]}`;
+  const noPhoto = !/\.\w{3,4}$/.test(url) && ext >= PHOTO_EXTS.length;
   const scale = useTransform(progress, range, [1, targetScale]);
 
   return (
@@ -64,7 +70,7 @@ export const Card = ({
         className={`flex flex-col relative -top-[25%] w-[92%] md:w-[70%] md:h-[450px] rounded-md p-5 md:p-10 origin-top border border-[#E4D9BC] shadow-[0_-12px_30px_-14px_rgba(74,59,51,0.35)]`}
       >
         <div className={`flex flex-col md:flex-row h-full gap-4 md:gap-10`}>
-          <div className={`order-2 md:order-1 md:w-[40%] relative md:top-[10%]`}>
+          <div className={cn('order-2 md:order-1 relative md:top-[10%]', noPhoto ? 'order-1 md:w-full md:top-0 md:self-center' : 'md:w-[40%]')}>
             <h2 className='text-xl md:text-2xl font-semibold mb-2 md:mb-3'>{title}</h2>
             <p className='text-sm'>{description}</p>
             {href && (
@@ -92,6 +98,7 @@ export const Card = ({
             )}
           </div>
 
+          {!noPhoto && (
           <div
             className={`order-1 md:order-2 relative w-full md:w-[60%] aspect-[16/10] md:aspect-auto md:h-full rounded-lg overflow-hidden `}
           >
@@ -99,9 +106,10 @@ export const Card = ({
               className={`w-full h-full`}
               style={{ scale: imageScale }}
             >
-              <img src={url} alt={alt ?? title} className='absolute inset-0 w-full h-full object-cover' />
+              <img src={src} alt={alt ?? title} onError={() => setExt((e) => e + 1)} className='absolute inset-0 w-full h-full object-cover' />
             </motion.div>
           </div>
+          )}
         </div>
       </motion.div>
     </div>

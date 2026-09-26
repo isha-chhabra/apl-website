@@ -11,3 +11,5 @@ The rule in one line: upload a photo with **exactly** the file name below (small
 | `csr-1.jpg` to `csr-5.jpg` | CSR page (all five are needed) |
 
 The doctor's photo is one folder up: `assets/dr-chhabra.jpg`.
+
+The photos now on the site are the lab's own pictures from the old website (original quality, some are `.webp`). CSR cards 2 and 5 have no photo yet and show text only; add `csr-2.jpg` / `csr-5.jpg` to fill them.
