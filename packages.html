@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light23">
+<link rel="stylesheet" href="shared.css?v=light24">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .page-header{padding:22px 0 18px;}
@@ -300,6 +300,14 @@
     .p-acts .btn{min-height:46px;font-size:14.5px;}
   }
 
+
+  /* a way back up: every opened list ends with a button that closes it and returns to its row */
+  .prow,.grp{scroll-margin-top:calc(var(--hh,73px) + 12px);}
+  .tests-hide,.p-hide{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;padding:12px 16px;background:none;border:0;border-top:1px solid var(--line);border-radius:0;font-size:14.5px;font-weight:700;color:var(--copper);}
+  .tests-hide svg,.p-hide svg{width:16px;height:16px;}
+  .p-hide{margin-top:20px;border:1.5px solid #D9C9A6;border-radius:10px;background:#fff;color:var(--copper-deep);}
+  @media (hover:hover){ .tests-hide:hover{background:rgba(180,83,9,.06);} .p-hide:hover{background:#FFFAF2;} }
+
   /* pulse a column when arriving from a link */
   .tbl[data-hl="0"] .c0,.tbl[data-hl="1"] .c1,.tbl[data-hl="2"] .c2,.tbl[data-hl="3"] .c3,.tbl[data-hl="4"] .c4{background:rgba(180,83,9,.10);}
   .cell{transition:background .6s ease;}
@@ -451,13 +459,14 @@
   <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
   <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
 </nav>
-<script src="packages-data.js?v=light23"></script>
-<script src="profiles-data.js?v=light23"></script>
+<script src="packages-data.js?v=light24"></script>
+<script src="profiles-data.js?v=light24"></script>
 <script>
 const P = APL_PACKAGES, G = APL_GROUPS;
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const CHECK = i => `<svg class="tick" style="--i:${i}" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Included"><path d="M20 6 9 17l-5-5"/></svg>`;
 const DASH = '<span class="no" role="img" aria-label="Not included">&ndash;</span>';
+const UP = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg>';
 const CHEV = '<svg class="chev" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg>';
 const cellS = i => `style="--c:${P[i].color};--ink-c:${P[i].ink}"`;
 const cols = fn => P.map((p,i) => `<div class="cell c${i}" role="cell" ${cellS(i)}>${fn(p,i)}</div>`).join('');
@@ -492,13 +501,15 @@ function groupRow(g){
     cols((p,i)=> i >= t[1] ? CHECK(i) : DASH)}</div>`).join('');
   return `<div class="grp" data-g="${g.id}">
     <button class="grp-btn" aria-expanded="false"><div class="row" role="row"><div class="lab" role="rowheader">${CHEV}<span>${esc(g.name)}</span></div>${cells}</div></button>
-    <div class="tests">${tests}</div></div>`;
+    <div class="tests">${tests}<button type="button" class="tests-hide">${UP}Hide These Tests</button></div></div>`;
 }
 let openAll = false;
 const input = document.getElementById('testSearch'), clr = document.getElementById('clr'), expandBtn = document.getElementById('expandAll'), acList = document.getElementById('acList');
 groupsEl.innerHTML = G.map(groupRow).join('');
 function setOpen(el, open){ el.classList.toggle('open', open); el.querySelector('.grp-btn').setAttribute('aria-expanded', open); }
 groupsEl.addEventListener('click', e => {
+  const hide = e.target.closest('.tests-hide');
+  if(hide){ const g = hide.closest('.grp'); setOpen(g, false); g.scrollIntoView({behavior:'smooth', block:'start'}); return; }
   const b = e.target.closest('.grp-btn'); if(!b) return;
   const el = b.parentElement; setOpen(el, !el.classList.contains('open'));
 });
@@ -674,7 +685,8 @@ function detailHtml(p){
   (p.notes || []).forEach(t => { h += '<p class="p-note">' + esc(t) + '</p>'; });
   const msg = encodeURIComponent('Hello, I would like to book the ' + p.name + '.');
   h += '<div class="p-acts"><a class="btn btn-primary" href="https://wa.me/919824015108?text=' + msg + '">Book This Profile</a>' +
-       (p.report ? '<a class="btn btn-outline" href="' + p.report.file + '" target="_blank" rel="noopener">' + esc(p.report.label) + '</a>' : '') + '</div>';
+       (p.report ? '<a class="btn btn-outline" href="' + p.report.file + '" target="_blank" rel="noopener">' + esc(p.report.label) + '</a>' : '') + '</div>' +
+       '<button type="button" class="p-hide">' + UP + 'Hide Tests</button>';
   return h;
 }
 function profileRow(p){
@@ -703,7 +715,11 @@ function toggleProfile(id, force){
   open ? openIds.add(id) : openIds.delete(id);
   syncExpand();
 }
-pList.addEventListener('click', e => { const b = e.target.closest('.prow-btn'); if(b) toggleProfile(b.parentElement.dataset.id); });
+pList.addEventListener('click', e => {
+  const hide = e.target.closest('.p-hide');
+  if(hide){ const row = hide.closest('.prow'); toggleProfile(row.dataset.id, false); row.scrollIntoView({behavior:'smooth', block:'start'}); return; }
+  const b = e.target.closest('.prow-btn'); if(b) toggleProfile(b.parentElement.dataset.id);
+});
 pExpand.addEventListener('click', () => {
   const rows = [...pList.querySelectorAll('.prow')], allOpen = rows.every(r => r.classList.contains('open'));
   rows.forEach(r => toggleProfile(r.dataset.id, !allOpen));

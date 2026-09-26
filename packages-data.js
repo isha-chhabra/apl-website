@@ -4,11 +4,11 @@
    every later package includes it too.  Shared by packages.html and the home search. */
 
 const APL_PACKAGES = [
-  {id:'package-1', name:'Package 1', num:'1',    mrp:2650,  offer:1499, save:1151, color:'#0284C7', ink:'#0369A1'},
-  {id:'package-2', name:'Package 2', num:'2',    mrp:3150,  offer:1700, save:1450, color:'#64748B', ink:'#475569'},
-  {id:'package-3', name:'Package 3', num:'3',    mrp:6450,  offer:3800, save:2650, color:'#9A6B3A', ink:'#7A5228'},
-  {id:'package-4', name:'Package 4', num:'4',    mrp:8500,  offer:5000, save:3500, color:'#E2622B', ink:'#B84317'},
-  {id:'gold',      name:'Gold',      num:'Gold', mrp:18500, offer:9999, save:8501, color:'#B7791F', ink:'#7A4E00'}
+  {id:'package-1', name:'Package 1', num:'1',    mrp:2650, offer:1499, save:1151, color:'#0284C7', ink:'#0369A1'},
+  {id:'package-2', name:'Package 2', num:'2',    mrp:3150, offer:1699, save:1451, color:'#64748B', ink:'#475569'},
+  {id:'package-3', name:'Package 3', num:'3',    mrp:6450, offer:3799, save:2651, color:'#9A6B3A', ink:'#7A5228'},
+  {id:'package-4', name:'Package 4', num:'4',    mrp:8499, offer:4999, save:3500, color:'#E2622B', ink:'#B84317'},
+  {id:'gold',      name:'Gold',      num:'Gold', mrp:18499, offer:9999, save:8500, color:'#B7791F', ink:'#7A4E00'}
 ];
 
 /* Groups run in the order a package grows: everything in Package 1 first, then what each higher package adds.
