@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light22">
+<link rel="stylesheet" href="shared.css?v=light23">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .page-header{padding:22px 0 18px;}
@@ -197,12 +197,16 @@
   .tests .lab .note{display:block;margin-top:2px;font-size:10.5px;font-weight:500;line-height:1.3;color:var(--ink-soft);}
 
   /* first-visit nudge: for ten seconds the title asks you to tap, and a ripple runs down the row arrows */
-  #status{display:grid;}
-  #status>span{grid-area:1/1;transition:opacity .5s ease,transform .6s cubic-bezier(.32,.72,0,1);}
-  #status .t-b{display:flex;align-items:center;gap:7px;color:var(--blue);opacity:0;transform:translateY(7px);}
-  #status .t-b svg{width:13px;height:13px;flex-shrink:0;animation:hint-bob 1s ease-in-out infinite;}
-  .tools.hinting #status .t-a{opacity:0;transform:translateY(-7px);}
-  .tools.hinting #status .t-b{opacity:1;transform:none;}
+  #status,#pStatus{display:grid;}
+  #status>span,#pStatus>span{grid-area:1/1;transition:opacity .5s ease,transform .6s cubic-bezier(.32,.72,0,1);}
+  #status .t-b,#pStatus .t-b{display:flex;align-items:center;gap:7px;color:var(--blue);opacity:0;transform:translateY(7px);}
+  #status .t-b svg,#pStatus .t-b svg{width:13px;height:13px;flex-shrink:0;animation:hint-bob 1s ease-in-out infinite;}
+  .tools.hinting #status .t-a,.tools.hinting #pStatus .t-a{opacity:0;transform:translateY(-7px);}
+  .tools.hinting #status .t-b,.tools.hinting #pStatus .t-b{opacity:1;transform:none;}
+  .p-main{position:relative;}
+  .p-main::after{content:"";position:absolute;left:-4px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;border:1.5px solid var(--blue);opacity:0;pointer-events:none;}
+  .p-hinting .prow:not(.open) .p-main::after{animation:hint-ring 1.7s cubic-bezier(.16,1,.3,1) infinite;animation-delay:calc(var(--n,0) * 140ms);}
+  .p-hinting .prow:not(.open) .chev{animation:chev-nudge 1.7s ease-in-out infinite;animation-delay:calc(var(--n,0) * 140ms);}
   .grp-btn .lab{position:relative;}
   .grp-btn .lab::after{content:"";position:absolute;left:4px;top:50%;width:18px;height:18px;margin-top:-9px;border-radius:50%;border:1.5px solid var(--blue);opacity:0;pointer-events:none;}
   .hinting .grp:not(.open) .grp-btn .lab::after{animation:hint-ring 1.7s cubic-bezier(.16,1,.3,1) infinite;animation-delay:calc(var(--n,0) * 140ms);}
@@ -210,7 +214,7 @@
   @keyframes hint-bob{0%,100%{transform:translateY(-2px);}50%{transform:translateY(2px);}}
   @keyframes hint-ring{0%{transform:scale(.35);opacity:.85;}70%,100%{transform:scale(1.2);opacity:0;}}
   @keyframes chev-nudge{0%,100%{transform:translateX(0);color:var(--ink-soft);}30%{transform:translateX(3px);color:var(--blue);}}
-  @media (prefers-reduced-motion:reduce){ #status .t-b svg,.hinting .grp:not(.open) .chev,.hinting .grp:not(.open) .grp-btn .lab::after{animation:none;} }
+  @media (prefers-reduced-motion:reduce){ #status .t-b svg,#pStatus .t-b svg,.hinting .grp:not(.open) .chev,.hinting .grp:not(.open) .grp-btn .lab::after,.p-hinting .prow:not(.open) .chev,.p-hinting .prow:not(.open) .p-main::after{animation:none;} }
 
   /* ---------- Packages | Profiles ---------- */
   .pk-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--line);margin-bottom:12px;}
@@ -247,15 +251,15 @@
   .p-fact.save{background:var(--success-pale);border-color:transparent;color:var(--success);}
   .p-tag{margin:10px 0 0;font-size:14px;color:var(--ink-soft);}
   .p-secs{display:block;}
-  .p-sec{margin-top:22px;animation:pin .38s cubic-bezier(.32,.72,0,1) both;animation-delay:calc(var(--s,0) * 60ms + 60ms);}
-  .p-sec h4{display:flex;align-items:baseline;gap:8px;margin:0 0 3px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--copper-deep);}
-  .p-sec h4 span{font-size:12px;font-weight:600;letter-spacing:0;color:var(--ink-soft);}
-  .p-sec .note{margin:0 0 8px;font-size:13.5px;line-height:1.45;color:var(--ink-soft);}
+  .p-sec{margin-top:24px;animation:pin .38s cubic-bezier(.32,.72,0,1) both;animation-delay:calc(var(--s,0) * 60ms + 60ms);}
+  .p-sec h4{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0;padding-bottom:6px;border-bottom:2px solid rgba(180,83,9,.35);font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--copper-deep);}
+  .p-sec h4 span{flex-shrink:0;font-size:12px;font-weight:600;letter-spacing:0;color:var(--ink-soft);}
+  .p-sec .note{margin:8px 0 2px;font-size:13.5px;line-height:1.45;color:var(--ink-soft);}
   .p-tests{list-style:none;margin:0;padding:0;}
-  .p-tests li{display:grid;grid-template-columns:22px minmax(0,1fr);gap:8px;padding:6px 0;font-size:15px;line-height:1.4;color:var(--navy);animation:pin .34s cubic-bezier(.32,.72,0,1) both;animation-delay:calc(var(--i,0) * 32ms + 120ms);border-radius:8px;}
-  .p-tests li svg{width:18px;height:18px;margin-top:2px;color:var(--copper);}
-  .p-tests small{display:block;margin-top:1px;font-size:13px;line-height:1.4;color:var(--ink-soft);}
-  .p-tests li.hl{background:rgba(217,119,6,.18);box-shadow:0 0 0 6px rgba(217,119,6,.18);animation:hlfade 3s ease forwards;}
+  .p-tests li{padding:11px 0;border-bottom:1px solid rgba(217,201,166,.75);font-size:15px;line-height:1.4;color:var(--navy);animation:pin .34s cubic-bezier(.32,.72,0,1) both;animation-delay:calc(var(--i,0) * 32ms + 120ms);}
+  .p-tests li:last-child{border-bottom:0;}
+  .p-tests small{display:block;margin-top:2px;font-size:13px;line-height:1.4;color:var(--ink-soft);}
+  .p-tests li.hl{background:rgba(217,119,6,.18);box-shadow:0 0 0 6px rgba(217,119,6,.18);border-radius:6px;animation:hlfade 3s ease forwards;}
   .p-head-note{margin:18px 0 2px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--copper-deep);}
   .p-opts{margin-top:20px;}
   .p-opts h4{margin:0 0 4px;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--copper-deep);}
@@ -275,9 +279,7 @@
   .p-acts .btn{min-height:50px;font-size:15.5px;}
   .p-foot{margin:14px 2px 0;font-size:13.5px;color:var(--ink-soft);}
   @keyframes pin{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
-  @keyframes tickdraw{from{stroke-dashoffset:26;}to{stroke-dashoffset:0;}}
-  .p-tests li svg path{stroke-dasharray:26;animation:tickdraw .5s cubic-bezier(.32,.72,0,1) both;animation-delay:calc(var(--i,0) * 32ms + 260ms);}
-  @media (prefers-reduced-motion:reduce){ .p-detail,.p-sec,.p-tests li,.p-tests li svg path{animation:none;} }
+  @media (prefers-reduced-motion:reduce){ .p-detail,.p-sec,.p-tests li{animation:none;} }
 
   /* profile search dropdown: which profiles each test is in */
   .ac-in{display:flex;flex-wrap:wrap;gap:6px;}
@@ -293,7 +295,7 @@
     .p-secs{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;}
     .p-secs.one{grid-template-columns:1fr;}
     .p-secs.one .p-tests{columns:2;column-gap:56px;}
-    .p-secs.one .p-tests li{break-inside:avoid;}
+    .p-secs.one .p-tests li{break-inside:avoid;border-bottom:1px solid rgba(217,201,166,.75);}
     .p-acts{display:flex;flex-wrap:wrap;}
     .p-acts .btn{min-height:46px;font-size:14.5px;}
   }
@@ -402,7 +404,7 @@
         <button class="clr" id="pClr" aria-label="Clear search"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
       </div>
       <div class="tools">
-        <h2 id="pStatus">Profiles</h2>
+        <h2 id="pStatus"><span class="t-a">Profiles</span><span class="t-b" aria-hidden="true">Tap a row to view tests<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14m0 0-6-6m6 6 6-6"/></svg></span></h2>
         <button id="pExpand" type="button">Show All Tests</button>
       </div>
       <div class="tbl ptbl" id="pTbl" aria-label="Health profiles">
@@ -449,8 +451,8 @@
   <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
   <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
 </nav>
-<script src="packages-data.js?v=light22"></script>
-<script src="profiles-data.js?v=light22"></script>
+<script src="packages-data.js?v=light23"></script>
+<script src="profiles-data.js?v=light23"></script>
 <script>
 const P = APL_PACKAGES, G = APL_GROUPS;
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
@@ -639,7 +641,6 @@ const norm = t => (typeof t === 'string' ? t : t.n);
 const subOf = t => (typeof t === 'string' ? null : t.sub);
 const noteOf = t => (typeof t === 'string' ? '' : (t.note || ''));
 const CLOCK = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>';
-const TICKI = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
 const CARET = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>';
 
 function rowPrice(p){
@@ -664,7 +665,7 @@ function detailHtml(p){
     sec.tests.forEach(t => {
       n++;
       const key = [norm(t)].concat(subOf(t) || []).join('|').toLowerCase();
-      h += '<li data-t="' + esc(key) + '" style="--i:' + (n - 1) + '">' + TICKI + '<span>' + esc(norm(t)) + (noteOf(t) ? '<small>' + esc(noteOf(t)) + '</small>' : '') + (subOf(t) ? '<small>' + esc(subOf(t).join(', ')) + '</small>' : '') + '</span></li>';
+      h += '<li data-t="' + esc(key) + '" style="--i:' + (n - 1) + '">' + esc(norm(t)) + (noteOf(t) ? '<small>' + esc(noteOf(t)) + '</small>' : '') + (subOf(t) ? '<small>' + esc(subOf(t).join(', ')) + '</small>' : '') + '</li>';
     });
     h += '</ul></div>';
   });
@@ -786,6 +787,20 @@ pAc.addEventListener('mousedown', e => e.preventDefault());
 pAc.addEventListener('click', e => { const li = e.target.closest('li[data-i]'); if(li) pPick(+li.dataset.i); });
 document.addEventListener('pointerdown', e => { if(!e.target.closest('#view-profiles .finder-search')) pClose(); });
 pClr.addEventListener('click', () => { pInput.value = ''; pClr.classList.remove('on'); pClose(); pList.querySelectorAll('.p-tests li.hl').forEach(li => li.classList.remove('hl')); pInput.focus(); });
+
+/* first look at the profile rows: for ten seconds the title asks for a tap and a ripple runs down the row arrows (tap ends it early) */
+(function(){
+  const rows = [...pList.querySelectorAll('.prow')]; if(!rows.length) return;
+  const tools = document.querySelector('#view-profiles .tools');
+  rows.forEach((r, n) => r.style.setProperty('--n', n));
+  let timer;
+  const stop = () => { clearTimeout(timer); pList.parentElement.classList.remove('p-hinting'); tools.classList.remove('hinting'); };
+  const go = () => {
+    pList.parentElement.classList.add('p-hinting'); tools.classList.add('hinting'); timer = setTimeout(stop, 10000);
+    pList.addEventListener('click', stop, {once:true}); pExpand.addEventListener('click', stop, {once:true}); pAc.addEventListener('click', stop, {once:true});
+  };
+  new IntersectionObserver((es, io) => { if(es[0].isIntersecting){ io.disconnect(); go(); } }, {threshold:.6}).observe(rows[0]);
+})();
 
 /* links: packages.html#profiles opens the tab; #profile-diabetes-profile opens that profile */
 function route(){
