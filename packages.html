@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="shared.css?v=light27">
+<link rel="stylesheet" href="shared.css?v=light28">
 <style>/* the host page may add its own unlayered reset; restate the light ground so it always wins */html{color-scheme:only light;background:#FDFBF7}body{background:#FDFBF7;color:#4A3B33;font-family:'Inter',sans-serif;font-size:16px;line-height:1.65}</style>
 <style>
   .page-header{padding:22px 0 18px;}
@@ -458,8 +458,8 @@
   <a href="packages.html" class="active"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>Packages</a>
   <a href="#" id="bottomMenuBtn"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>Menu</a>
 </nav>
-<script src="packages-data.js?v=light27"></script>
-<script src="profiles-data.js?v=light27"></script>
+<script src="packages-data.js?v=light28"></script>
+<script src="profiles-data.js?v=light28"></script>
 <script>
 const P = APL_PACKAGES, G = APL_GROUPS;
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
@@ -655,7 +655,8 @@ const CARET = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=
 
 function rowPrice(p){
   if(p.offer != null) return '<b>' + aplInr(p.offer) + '</b>' + (p.mrp ? '<s>' + aplInr(p.mrp) + (p.mrpPlus ? '+' : '') + '</s>' : '');
-  return '<em>From</em><b>' + aplInr(p.from) + '</b>';
+  if(p.from != null) return '<em>From</em><b>' + aplInr(p.from) + '</b>';
+  return '<em>Call for price</em>';
 }
 function detailHtml(p){
   const count = aplTestCount(p), unit = p.unit || 'tests';
@@ -664,7 +665,7 @@ function detailHtml(p){
   if(p.offer != null && p.mrp && !p.mrpPlus) h += '<span class="p-fact save">You save ' + aplInr(p.mrp - p.offer) + '</span>';
   h += '</div>';
   if(p.tag) h += '<p class="p-tag">' + esc(p.tag) + '</p>';
-  if(p.options) h += '<div class="p-opts"><h4>' + (p.id === 'allergy-profile' ? 'Price by combination' : 'Choose one') + '</h4>' + p.options.map(o => '<div class="p-opt"><span>' + esc(o.name) + (o.note ? '<small>' + esc(o.note) + '</small>' : '') + '</span><span class="pr">' + aplInr(o.offer) + (o.mrp ? '<s>' + aplInr(o.mrp) + (o.mrpPlus ? '+' : '') + '</s>' : '') + '</span></div>').join('') + '</div>';
+  if(p.options) h += '<div class="p-opts"><h4>' + (p.id === 'allergy-profile' ? 'Test combinations' : 'Choose one') + '</h4>' + p.options.map(o => '<div class="p-opt"><span>' + esc(o.name) + (o.note ? '<small>' + esc(o.note) + '</small>' : '') + '</span>' + (o.offer != null ? '<span class="pr">' + aplInr(o.offer) + (o.mrp ? '<s>' + aplInr(o.mrp) + (o.mrpPlus ? '+' : '') + '</s>' : '') + '</span>' : '') + '</div>').join('') + '</div>';
   h += '<div class="p-secs' + (p.sections.length === 1 ? ' one' : '') + '">';
   p.sections.forEach((sec, si) => {
     h += '<div class="p-sec" style="--s:' + si + '">';
@@ -763,7 +764,7 @@ function pRender(){
   if(!q.trim()){ pClose(); return; }
   pResults = pMatches(q); pActive = pResults.length ? 0 : -1;
   pAc.innerHTML = pResults.length ? pResults.map((r,i) => {
-    if(r.kind === 'profile') return `<li role="option" id="pac${i}" data-i="${i}" aria-selected="${i===pActive}"><div class="ac-main"><b>${pHi(r.name,q)}</b><small>Profile · ${aplTestCount(r.p)} ${r.p.unit || 'tests'} · ${r.p.offer != null ? aplInr(r.p.offer) : 'from ' + aplInr(r.p.from)}</small></div></li>`;
+    if(r.kind === 'profile') return `<li role="option" id="pac${i}" data-i="${i}" aria-selected="${i===pActive}"><div class="ac-main"><b>${pHi(r.name,q)}</b><small>Profile · ${aplTestCount(r.p)} ${r.p.unit || 'tests'} · ${r.p.offer != null ? aplInr(r.p.offer) : r.p.from != null ? 'from ' + aplInr(r.p.from) : 'call for price'}</small></div></li>`;
     const names = r.ids.map(id => aplProfileById(id).name), shown = names.slice(0,3);
     return `<li role="option" id="pac${i}" data-i="${i}" aria-selected="${i===pActive}"><div class="ac-main"><b>${pHi(r.name,q)}</b><small>Test · in ${names.length} ${names.length === 1 ? 'profile' : 'profiles'}</small></div><div class="ac-in">${shown.map(n => '<span class="ac-chip">' + esc(n) + '</span>').join('')}${names.length > 3 ? '<span class="ac-chip more">+' + (names.length - 3) + ' more</span>' : ''}</div></li>`;
   }).join('') : `<li class="ac-empty" role="option" aria-disabled="true">No test or profile found for "${esc(q.trim())}". Call our helpline and we'll help.</li>`;

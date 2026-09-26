@@ -108,16 +108,16 @@ const APL_PROFILES = [
    notes:['All additional tests as required at 10% discount on MRP.']},
 
   /* ---------- Allergy ---------- */
-  {id:'allergy-profile', name:'Allergy Profile', from:1999,
+  {id:'allergy-profile', name:'Allergy Profile',
    keywords:'allergy allergen food drug inhalant contact skin sneezing',
    unit:'allergen groups',
    sections:[{title:'Allergen Groups', tests:['Contact Allergens','Inhalant Allergens','Veg Food Allergens','Non Veg Food Allergens','Drug Allergens']}],
    options:[
-    {name:'Allergy Test (Drugs Only)', offer:1999},
-    {name:'Allergy Test (Veg Food Only)', offer:2099},
-    {name:'Allergy Test (Veg Food + Inhalant + Contact)', offer:2599},
-    {name:'Allergy Test (Veg Food + Non Veg Food + Inhalant + Contact)', offer:3699},
-    {name:'Allergy Test (Veg Food, Non Veg Food + Inhalants + Contact + Drugs)', offer:4799}
+    {name:'Allergy Test (Drugs Only)'},
+    {name:'Allergy Test (Veg Food Only)'},
+    {name:'Allergy Test (Veg Food + Inhalant + Contact)'},
+    {name:'Allergy Test (Veg Food + Non Veg Food + Inhalant + Contact)'},
+    {name:'Allergy Test (Veg Food, Non Veg Food + Inhalants + Contact + Drugs)'}
    ],
    notes:['These are outsourced tests, and the outside lab sometimes changes its prices. Please call our helpline to confirm the price.'],
    report:{label:'Download Sample Report', file:'assets/reports/allergy-profile-sample-report.pdf'}}
